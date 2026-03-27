@@ -157,7 +157,7 @@ def parse_itax_html(html: str, parcel_id: str, source_url: str) -> dict:
     levy_district = find(r"Levy District:\s*(.+?)(?:\n|$)")
 
     # Status
-    status = find(r"Status:\s*(\w+)") or "Delinquent"
+    status = find(r"Status:\s*(\w+)") or "Unknown"
 
     # Cadastral map URL
     cadastral_url = (
