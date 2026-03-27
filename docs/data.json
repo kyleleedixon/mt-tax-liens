@@ -1,34 +1,33 @@
 {
-  "generatedAt": "2026-01-28T09:00:00Z",
+  "generatedAt": "2026-03-27T17:31:13.956707+00:00",
   "county": "Gallatin",
   "state": "Montana",
   "sourceUrl": "https://www.gallatinmt.gov/sites/g/files/vyhlif606/f/uploads/2020_-_2024_dlq_as_of_1-28-26.pdf",
   "totalParcels": 1,
   "successfulScrapes": 1,
   "errors": 0,
-  "note": "Seed data — replace by running the scraper or triggering the GitHub Action.",
   "summary": {
     "totalTaxesOwed": 1151.29,
-    "totalMarketValue": 332677,
-    "avgTaxValueRatio": 0.346,
+    "totalMarketValue": 332677.0,
+    "avgTaxValueRatio": 0.346068,
     "highRatioParcels": 0
   },
   "parcels": [
     {
       "parcelId": "RDC31418",
       "owner": "GIBSON ROCHELLE",
-      "mailingAddress": "8472 WAGON BOSS RD, BOZEMAN MT 59715",
+      "mailingAddress": "8472 WAGON BOSS RD BOZEMAN, MT 597159231",
       "propertyAddress": "75 CHANDELLE PL, THREE FORKS MT 59752",
       "status": "Delinquent",
-      "marketValue": 332677,
-      "taxableValue": 2529,
+      "marketValue": 332677.0,
+      "taxableValue": 2529.0,
       "totalTaxes": 1151.29,
       "firstHalf": 575.65,
       "secondHalf": 575.64,
-      "ratio": 0.346,
+      "ratio": 0.346068,
       "geocode": "06-1105-35-4-81-10-0000",
       "trs": "T02 N, R01 E, Sec. 35",
-      "legal": "MINOR SUB 110, S35, T02 N, R01 E, Lot 4, ACRES 4.179",
+      "legal": "MINOR SUB 110, S35, T02 N, R01 E, Lot 4,",
       "acres": 4.18,
       "subdivision": "Minor Subdivision 110",
       "lot": "4",
@@ -36,7 +35,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RDC31418",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1105-35-4-81-10-0000&taxYear=2026",
-      "scrapedAt": "2026-01-28T09:00:00Z"
+      "scrapedAt": "2026-03-27T17:31:13.456522+00:00"
     }
   ]
 }
