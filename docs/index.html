@@ -305,7 +305,7 @@ function renderTable() {
       <td class="mono">${p.marketValue?'$'+p.marketValue.toLocaleString():'—'}</td>
       <td class="mono">${p.acres?p.acres.toFixed(2):'—'}</td>
       <td>${ratioHtml}</td>
-      <td><span class="badge b-red">Delinquent</span></td>
+      <td><span class="badge ${p.status==='Delinquent'?'b-red':p.status==='Paid'?'b-green':'b-amber'}">${p.status||'Unknown'}</span></td>
       <td style="white-space:nowrap">
         <a class="ilink" href="${p.itaxUrl}" target="_blank" onclick="event.stopPropagation()">iTax ↗</a>
         ${p.cadastralUrl?`<a class="ilink" href="${p.cadastralUrl}" target="_blank" onclick="event.stopPropagation()" style="margin-left:4px">Map ↗</a>`:''}
