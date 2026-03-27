@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MT Tax Lien Intelligence — Gallatin County</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+:root {
+  --bg:#0d0f12; --bg2:#13161b; --bg3:#1a1e25; --bg4:#222730;
+  --border:rgba(255,255,255,0.07); --border2:rgba(255,255,255,0.13);
+  --text:#e8eaf0; --text2:#8b91a0; --text3:#555d6e;
+  --accent:#e8a825; --accent2:#c88a10;
+  --red:#e05252; --green:#3cbf7a; --blue:#4a9eff;
+  --r:8px; --r2:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.5;}
+
+/* HEADER */
+.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px;position:sticky;top:0;z-index:100;}
+.logo{width:32px;height:32px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:13px;color:#000;}
+.h-title{font-size:15px;font-weight:500;}
+.h-sub{font-size:11px;color:var(--text2);}
+.h-right{display:flex;align-items:center;gap:16px;}
+.refresh-badge{font-size:11px;color:var(--text3);font-family:'IBM Plex Mono',monospace;}
+.btn{background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);color:var(--text2);font-size:12px;font-family:'IBM Plex Sans',sans-serif;padding:6px 14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all .15s;text-decoration:none;}
+.btn:hover{background:var(--bg4);color:var(--text);}
+.btn.primary{background:var(--accent);color:#000;border-color:var(--accent);font-weight:500;}
+.btn.primary:hover{background:var(--accent2);}
+
+/* LAYOUT */
+.main{display:flex;height:calc(100vh - 56px);overflow:hidden;}
+.sidebar{width:268px;min-width:268px;background:var(--bg2);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden;}
+.content{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px;}
+
+/* SIDEBAR */
+.sb-sec{padding:14px 16px;border-bottom:1px solid var(--border);}
+.sb-label{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin-bottom:9px;}
+.input{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-size:13px;padding:8px 11px;outline:none;transition:border-color .15s;}
+.input:focus{border-color:var(--accent);}
+.input::placeholder{color:var(--text3);}
+.input.sm{font-size:12px;padding:7px 10px;font-family:'IBM Plex Mono',monospace;}
+select.input{cursor:pointer;-webkit-appearance:none;}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.stat{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:14px 16px;}
+.stat.hi{border-color:rgba(232,168,37,.3);}
+.stat-lbl{font-size:10px;color:var(--text3);letter-spacing:.04em;text-transform:uppercase;margin-bottom:5px;}
+.stat-val{font-size:21px;font-weight:500;font-family:'IBM Plex Mono',monospace;}
+.stat-val.red{color:var(--red);}
+.stat-val.amber{color:var(--accent);}
+.stat-val.green{color:var(--green);}
+.stat-hint{font-size:11px;color:var(--text3);margin-top:3px;}
+
+/* TABLE */
+.tbl-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);flex:1;overflow:hidden;display:flex;flex-direction:column;}
+.tbl-head{padding:13px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.tbl-title{font-size:13px;font-weight:500;}
+.tbl-count{font-size:11px;color:var(--text3);font-family:'IBM Plex Mono',monospace;margin-top:2px;}
+.tbl-scroll{overflow:auto;flex:1;}
+table{width:100%;border-collapse:collapse;font-size:12px;}
+thead th{background:var(--bg3);padding:8px 13px;text-align:left;font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--text3);border-bottom:1px solid var(--border);white-space:nowrap;position:sticky;top:0;z-index:10;cursor:pointer;user-select:none;}
+thead th:hover{color:var(--text2);}
+thead th.sorted{color:var(--accent);}
+tbody tr{border-bottom:1px solid var(--border);cursor:pointer;transition:background .1s;}
+tbody tr:hover{background:var(--bg3);}
+tbody tr.sel{background:rgba(232,168,37,.07);border-left:2px solid var(--accent);}
+td{padding:9px 13px;color:var(--text2);vertical-align:middle;}
+td.mono{font-family:'IBM Plex Mono',monospace;}
+td.primary{color:var(--text);font-weight:500;}
+.ratio-bar{display:flex;align-items:center;gap:7px;}
+.ratio-track{flex:1;height:4px;background:var(--bg4);border-radius:2px;overflow:hidden;max-width:72px;}
+.ratio-fill{height:100%;border-radius:2px;}
+.badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:500;font-family:'IBM Plex Mono',monospace;}
+.b-red{background:rgba(224,82,82,.15);color:var(--red);border:1px solid rgba(224,82,82,.25);}
+.b-amber{background:rgba(232,168,37,.15);color:var(--accent);border:1px solid rgba(232,168,37,.25);}
+.b-green{background:rgba(60,191,122,.15);color:var(--green);border:1px solid rgba(60,191,122,.25);}
+.ilink{display:inline-flex;align-items:center;gap:3px;color:var(--blue);text-decoration:none;font-size:11px;padding:2px 7px;border-radius:4px;border:1px solid rgba(74,158,255,.2);font-family:'IBM Plex Mono',monospace;transition:all .15s;white-space:nowrap;}
+.ilink:hover{background:rgba(74,158,255,.1);}
+
+/* DETAIL PANEL */
+.panel{position:fixed;top:56px;right:0;bottom:0;width:400px;background:var(--bg2);border-left:1px solid var(--border2);z-index:200;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .25s cubic-bezier(.4,0,.2,1);overflow:hidden;}
+.panel.open{transform:translateX(0);}
+.panel-close{position:absolute;top:13px;right:15px;background:var(--bg3);border:1px solid var(--border);border-radius:50%;width:28px;height:28px;color:var(--text2);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;line-height:1;}
+.panel-close:hover{background:var(--bg4);color:var(--text);}
+.panel-body{overflow-y:auto;flex:1;padding:20px;}
+.p-sub{font-size:10px;color:var(--text3);font-family:'IBM Plex Mono',monospace;letter-spacing:.06em;margin-bottom:3px;}
+.p-name{font-size:17px;font-weight:500;margin-bottom:3px;}
+.p-addr{font-size:12px;color:var(--text2);margin-bottom:14px;}
+.divider{height:1px;background:var(--border);margin:14px 0;}
+.p-sec{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:9px;font-weight:500;}
+.kv-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+.kv{background:var(--bg3);border-radius:var(--r);padding:9px 11px;}
+.kv-k{font-size:10px;color:var(--text3);margin-bottom:3px;}
+.kv-v{font-size:13px;font-weight:500;font-family:'IBM Plex Mono',monospace;}
+.kv-v.red{color:var(--red);}
+.kv-v.amber{color:var(--accent);}
+.risk-track{height:8px;background:var(--bg3);border-radius:4px;overflow:hidden;margin:8px 0 4px;}
+.risk-fill{height:100%;border-radius:4px;transition:width .6s cubic-bezier(.4,0,.2,1);}
+.map-btn{width:100%;height:200px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;cursor:pointer;transition:all .15s;color:var(--text3);}
+.map-btn:hover{background:var(--bg4);border-color:var(--border2);color:var(--text2);}
+.action-row{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;}
+.action-row .btn{flex:1;min-width:110px;justify-content:center;}
+
+/* LOADING */
+.loading{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:64px;color:var(--text3);}
+.spinner{width:28px;height:28px;border:2px solid var(--border2);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:48px;color:var(--text3);font-size:13px;}
+
+/* TOAST */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--bg4);border:1px solid var(--border2);border-radius:var(--r);padding:10px 18px;font-size:13px;color:var(--text);z-index:999;transition:transform .3s;box-shadow:0 8px 24px rgba(0,0,0,.4);}
+.toast.show{transform:translateX(-50%) translateY(0);}
+
+::-webkit-scrollbar{width:5px;height:5px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px;}
+
+@media(max-width:1200px){.stats{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:900px){.sidebar{display:none;}}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div style="display:flex;align-items:center;gap:11px;">
+    <div class="logo">MT</div>
+    <div>
+      <div class="h-title">Montana Tax Lien Intelligence</div>
+      <div class="h-sub">Gallatin County — Delinquent Property Database</div>
+    </div>
+  </div>
+  <div class="h-right">
+    <span class="refresh-badge" id="last-refresh">Loading…</span>
+    <button class="btn" onclick="exportCSV()">⬇ Export CSV</button>
+  </div>
+</header>
+
+<div class="main">
+  <aside class="sidebar">
+    <div class="sb-sec">
+      <div class="sb-label">Search</div>
+      <input class="input" id="q" type="text" placeholder="Owner, parcel ID, address…" oninput="filter()">
+    </div>
+    <div class="sb-sec">
+      <div class="sb-label">Sort by</div>
+      <select class="input" id="sort" onchange="filter()">
+        <option value="ratio_desc">Highest tax/value ratio</option>
+        <option value="ratio_asc">Lowest tax/value ratio</option>
+        <option value="taxes_desc">Highest taxes owed</option>
+        <option value="taxes_asc">Lowest taxes owed</option>
+        <option value="value_desc">Highest market value</option>
+        <option value="value_asc">Lowest market value</option>
+        <option value="owner_asc">Owner A–Z</option>
+      </select>
+    </div>
+    <div class="sb-sec">
+      <div class="sb-label">Filters</div>
+      <div style="display:flex;flex-direction:column;gap:7px;">
+        <div>
+          <div style="font-size:10px;color:var(--text3);margin-bottom:4px;">Min taxes owed ($)</div>
+          <input class="input sm" id="min-taxes" type="number" placeholder="0" oninput="filter()">
+        </div>
+        <div>
+          <div style="font-size:10px;color:var(--text3);margin-bottom:4px;">Max market value ($)</div>
+          <input class="input sm" id="max-value" type="number" placeholder="No limit" oninput="filter()">
+        </div>
+        <div>
+          <div style="font-size:10px;color:var(--text3);margin-bottom:4px;">Min tax/value ratio (%)</div>
+          <input class="input sm" id="min-ratio" type="number" step="0.01" placeholder="0.00" oninput="filter()">
+        </div>
+      </div>
+    </div>
+    <div class="sb-sec" style="flex:1;overflow-y:auto;">
+      <div class="sb-label">Summary</div>
+      <div id="sb-stats" style="font-size:12px;color:var(--text2);display:flex;flex-direction:column;gap:8px;">
+        <div style="color:var(--text3)">Loading…</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="stats" id="stats" style="display:none;">
+      <div class="stat hi"><div class="stat-lbl">Total Parcels</div><div class="stat-val amber" id="s-total">—</div><div class="stat-hint">delinquent properties</div></div>
+      <div class="stat"><div class="stat-lbl">Total Taxes Owed</div><div class="stat-val red" id="s-taxes">—</div><div class="stat-hint">across all parcels</div></div>
+      <div class="stat"><div class="stat-lbl">Avg Tax / Value</div><div class="stat-val amber" id="s-ratio">—</div><div class="stat-hint">mean lien efficiency</div></div>
+      <div class="stat"><div class="stat-lbl">High-Ratio Parcels</div><div class="stat-val green" id="s-high">—</div><div class="stat-hint">ratio &gt; 1% of MV</div></div>
+    </div>
+
+    <div class="tbl-wrap">
+      <div class="tbl-head">
+        <div>
+          <div class="tbl-title">Delinquent Parcels</div>
+          <div class="tbl-count" id="tbl-count">Loading data…</div>
+        </div>
+      </div>
+      <div class="tbl-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th onclick="sortCol('parcelId')">Parcel ID <span id="h-parcelId"></span></th>
+              <th onclick="sortCol('owner')">Owner <span id="h-owner"></span></th>
+              <th onclick="sortCol('propertyAddress')">Address</th>
+              <th onclick="sortCol('totalTaxes')">Taxes Owed <span id="h-totalTaxes"></span></th>
+              <th onclick="sortCol('marketValue')">Market Value <span id="h-marketValue"></span></th>
+              <th onclick="sortCol('ratio')">Tax/Value <span id="h-ratio"></span></th>
+              <th>Status</th>
+              <th>Links</th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+            <tr><td colspan="8"><div class="loading"><div class="spinner"></div><span>Loading parcel data…</span></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- DETAIL PANEL -->
+<div class="panel" id="panel">
+  <button class="panel-close" onclick="closePanel()">×</button>
+  <div class="panel-body" id="panel-body"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+let ALL = [], FILTERED = [], SELECTED = null;
+let SORT_FIELD = 'ratio', SORT_DIR = 'desc';
+let META = {};
+
+// ── Load data.json ────────────────────────────────────────────────────────
+async function loadData() {
+  try {
+    const r = await fetch('data.json?v=' + Date.now());
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const d = await r.json();
+    META = d;
+    ALL = d.parcels || [];
+    document.getElementById('last-refresh').textContent =
+      'Refreshed: ' + new Date(d.generatedAt).toLocaleString();
+    buildSidebarStats(d);
+    filter();
+    document.getElementById('stats').style.display = 'grid';
+  } catch(e) {
+    document.getElementById('tbl-count').textContent = 'Error loading data — see console';
+    document.getElementById('last-refresh').textContent = 'Load failed';
+    console.error('Failed to load data.json:', e);
+  }
+}
+
+// ── Filter + Sort ─────────────────────────────────────────────────────────
+function filter() {
+  const q       = document.getElementById('q').value.toLowerCase();
+  const minTax  = parseFloat(document.getElementById('min-taxes').value) || 0;
+  const maxVal  = parseFloat(document.getElementById('max-value').value)  || Infinity;
+  const minRat  = parseFloat(document.getElementById('min-ratio').value)  || 0;
+  const sortSel = document.getElementById('sort').value;
+
+  // Override SORT_FIELD/DIR from dropdown if it differs
+  const [sf, sd] = sortSel.split('_');
+  SORT_FIELD = sf; SORT_DIR = sd;
+
+  FILTERED = ALL.filter(p => {
+    if (q && ![(p.parcelId||''),(p.owner||''),(p.propertyAddress||'')]
+      .join(' ').toLowerCase().includes(q)) return false;
+    if ((p.totalTaxes||0) < minTax)    return false;
+    if ((p.marketValue||Infinity) > maxVal) return false;
+    if ((p.ratio||0) < minRat)         return false;
+    return true;
+  });
+
+  FILTERED.sort((a,b) => {
+    let av, bv;
+    if (SORT_FIELD==='ratio')   { av=a.ratio||0;    bv=b.ratio||0; }
+    else if (SORT_FIELD==='taxes')  { av=a.totalTaxes||0; bv=b.totalTaxes||0; }
+    else if (SORT_FIELD==='value')  { av=a.marketValue||0;bv=b.marketValue||0; }
+    else if (SORT_FIELD==='owner')  { av=(a.owner||'').toLowerCase(); bv=(b.owner||'').toLowerCase(); }
+    else { av=a.parcelId||''; bv=b.parcelId||''; }
+    if (av<bv) return SORT_DIR==='asc'?-1:1;
+    if (av>bv) return SORT_DIR==='asc'?1:-1;
+    return 0;
+  });
+
+  renderTable();
+  updateStats();
+}
+
+function sortCol(field) {
+  if (SORT_FIELD===field) SORT_DIR=SORT_DIR==='desc'?'asc':'desc';
+  else { SORT_FIELD=field; SORT_DIR='desc'; }
+  renderTable();
+}
+
+// ── Render ────────────────────────────────────────────────────────────────
+function renderTable() {
+  const tbody = document.getElementById('tbody');
+  document.getElementById('tbl-count').textContent =
+    FILTERED.length.toLocaleString() + ' result' + (FILTERED.length!==1?'s':'');
+
+  ['parcelId','owner','totalTaxes','marketValue','ratio'].forEach(f => {
+    const el = document.getElementById('h-'+f);
+    if (el) el.textContent = SORT_FIELD===f ? (SORT_DIR==='desc'?' ▼':' ▲') : '';
+  });
+
+  if (!FILTERED.length) {
+    tbody.innerHTML = '<tr><td colspan="8"><div class="empty">No parcels match your filters</div></td></tr>';
+    return;
+  }
+
+  const maxR = Math.max(...FILTERED.map(p=>p.ratio||0), 0.001);
+
+  tbody.innerHTML = FILTERED.map(p => {
+    const r = p.ratio;
+    const rClass = r>=1.5?'b-red':r>=0.5?'b-amber':'b-green';
+    const fillClass = r>=1.5?'rate-high':r>=0.5?'rate-mid':'rate-low';
+    const ratioHtml = r!=null
+      ? `<div class="ratio-bar"><div class="ratio-track"><div class="ratio-fill" style="width:${Math.min(100,(r/maxR)*100).toFixed(1)}%;background:${r>=1.5?'var(--red)':r>=0.5?'var(--accent)':'var(--green)'}"></div></div><span class="badge ${rClass}">${r.toFixed(3)}%</span></div>`
+      : '<span style="color:var(--text3)">—</span>';
+    const sel = SELECTED && SELECTED.parcelId===p.parcelId;
+    return `<tr class="${sel?'sel':''}" onclick="openPanel('${p.parcelId}')">
+      <td class="mono primary">${p.parcelId}</td>
+      <td class="primary" style="max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${p.owner||''}">${p.owner||'—'}</td>
+      <td style="max-width:170px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${p.propertyAddress||''}">${p.propertyAddress||'—'}</td>
+      <td class="mono" style="color:var(--red)">${fmt$(p.totalTaxes)}</td>
+      <td class="mono">${p.marketValue?'$'+p.marketValue.toLocaleString():'—'}</td>
+      <td>${ratioHtml}</td>
+      <td><span class="badge b-red">Delinquent</span></td>
+      <td style="white-space:nowrap">
+        <a class="ilink" href="${p.itaxUrl}" target="_blank" onclick="event.stopPropagation()">iTax ↗</a>
+        ${p.cadastralUrl?`<a class="ilink" href="${p.cadastralUrl}" target="_blank" onclick="event.stopPropagation()" style="margin-left:4px">Map ↗</a>`:''}
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+function updateStats() {
+  const p = FILTERED;
+  document.getElementById('s-total').textContent = p.length.toLocaleString();
+  document.getElementById('s-taxes').textContent = '$' + Math.round(p.reduce((s,x)=>s+(x.totalTaxes||0),0)).toLocaleString();
+  const ratios = p.filter(x=>x.ratio).map(x=>x.ratio);
+  const avg = ratios.length ? ratios.reduce((a,b)=>a+b,0)/ratios.length : 0;
+  document.getElementById('s-ratio').textContent = avg.toFixed(3)+'%';
+  document.getElementById('s-high').textContent  = ratios.filter(r=>r>=1).length;
+}
+
+function buildSidebarStats(d) {
+  const s = d.summary || {};
+  document.getElementById('sb-stats').innerHTML = `
+    <div style="display:flex;justify-content:space-between"><span style="color:var(--text3)">Total parcels</span><span style="font-family:'IBM Plex Mono',monospace">${(d.totalParcels||0).toLocaleString()}</span></div>
+    <div style="display:flex;justify-content:space-between"><span style="color:var(--text3)">Total market value</span><span style="font-family:'IBM Plex Mono',monospace">$${Math.round(s.totalMarketValue||0).toLocaleString()}</span></div>
+    <div style="display:flex;justify-content:space-between"><span style="color:var(--text3)">Total taxes owed</span><span style="font-family:'IBM Plex Mono',monospace;color:var(--red)">$${Math.round(s.totalTaxesOwed||0).toLocaleString()}</span></div>
+    <div style="display:flex;justify-content:space-between"><span style="color:var(--text3)">Avg ratio</span><span style="font-family:'IBM Plex Mono',monospace;color:var(--accent)">${(s.avgTaxValueRatio||0).toFixed(3)}%</span></div>
+    <div style="display:flex;justify-content:space-between"><span style="color:var(--text3)">Scrape errors</span><span style="font-family:'IBM Plex Mono',monospace">${d.errors||0}</span></div>
+  `;
+}
+
+// ── Detail Panel ──────────────────────────────────────────────────────────
+function openPanel(id) {
+  const p = ALL.find(x=>x.parcelId===id);
+  if (!p) return;
+  SELECTED = p;
+  renderTable();
+  const r = p.ratio;
+  const rc = r>=1.5?'var(--red)':r>=0.5?'var(--accent)':'var(--green)';
+  const rPct = r ? Math.min(100,(r/3)*100).toFixed(1) : 0;
+  const rFill = r>=1.5?'var(--red)':r>=0.5?'var(--accent)':'var(--green)';
+  document.getElementById('panel-body').innerHTML = `
+    <div class="p-sub">PARCEL ${p.parcelId} · ${p.taxYear||2025}</div>
+    <div class="p-name">${p.owner||'—'}</div>
+    <div class="p-addr">${p.propertyAddress||p.mailingAddress||'—'}</div>
+    <div class="divider"></div>
+    <div class="p-sec">Financials</div>
+    <div class="kv-grid">
+      <div class="kv"><div class="kv-k">Market Value</div><div class="kv-v">${p.marketValue?'$'+p.marketValue.toLocaleString():'—'}</div></div>
+      <div class="kv"><div class="kv-k">Total Taxes Owed</div><div class="kv-v red">${fmt$(p.totalTaxes)}</div></div>
+      <div class="kv"><div class="kv-k">First Half</div><div class="kv-v">${fmt$(p.firstHalf)}</div></div>
+      <div class="kv"><div class="kv-k">Second Half</div><div class="kv-v">${fmt$(p.secondHalf)}</div></div>
+    </div>
+    <div style="margin:14px 0;">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <span style="font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3)">Tax / Market Value Ratio</span>
+        <span style="font-size:16px;font-weight:500;font-family:'IBM Plex Mono',monospace;color:${rc}">${r?r.toFixed(4)+'%':'—'}</span>
+      </div>
+      <div class="risk-track"><div class="risk-fill" style="width:${rPct}%;background:${rFill}"></div></div>
+      <div style="font-size:11px;color:var(--text3)">${r>=1.5?'⚠ High lien efficiency — strong investment candidate':r>=0.5?'Moderate — review property details':'Low ratio — standard delinquency'}</div>
+    </div>
+    <div class="divider"></div>
+    <div class="p-sec">Property Details</div>
+    <div class="kv-grid">
+      ${p.geocode?`<div class="kv" style="grid-column:1/-1"><div class="kv-k">Geocode</div><div class="kv-v" style="font-size:11px">${p.geocode}</div></div>`:''}
+      ${p.trs?`<div class="kv" style="grid-column:1/-1"><div class="kv-k">TRS Legal</div><div class="kv-v" style="font-size:11px">${p.trs}</div></div>`:''}
+      ${p.subdivision?`<div class="kv"><div class="kv-k">Subdivision</div><div class="kv-v" style="font-size:11px">${p.subdivision}</div></div>`:''}
+      ${p.lot?`<div class="kv"><div class="kv-k">Lot</div><div class="kv-v">${p.lot}</div></div>`:''}
+      ${p.acres?`<div class="kv"><div class="kv-k">Acres</div><div class="kv-v">${p.acres.toFixed(2)}</div></div>`:''}
+      ${p.taxableValue?`<div class="kv"><div class="kv-k">Taxable Value</div><div class="kv-v">$${p.taxableValue.toLocaleString()}</div></div>`:''}
+    </div>
+    ${p.levyDistrict?`<div style="margin-top:10px;padding:9px 11px;background:var(--bg3);border-radius:var(--r)"><div class="kv-k">Levy District</div><div style="font-size:11px;color:var(--text2);font-family:'IBM Plex Mono',monospace;margin-top:2px">${p.levyDistrict}</div></div>`:''}
+    <div class="divider"></div>
+    <div class="p-sec">Cadastral Map</div>
+    ${p.cadastralUrl
+      ? `<div class="map-btn" onclick="window.open('${p.cadastralUrl}','_blank')">
+           <div style="font-size:26px;opacity:.35">🗺</div>
+           <div style="font-size:12px;font-weight:500;color:var(--text2)">View on Montana Cadastral</div>
+           <div style="font-size:11px">Geocode: ${p.geocode}</div>
+           <div style="font-size:11px;color:var(--accent);margin-top:2px">Click to open ↗</div>
+         </div>`
+      : `<div style="color:var(--text3);font-size:12px;padding:12px 0">No geocode available</div>`}
+    <div class="action-row">
+      <a class="btn primary" href="${p.itaxUrl}" target="_blank">iTax Record ↗</a>
+      ${p.cadastralUrl?`<a class="btn" href="${p.cadastralUrl}" target="_blank">Cadastral Map ↗</a>`:''}
+      <button class="btn" onclick="copyId('${p.parcelId}')">Copy ID</button>
+    </div>
+  `;
+  document.getElementById('panel').classList.add('open');
+}
+
+function closePanel() {
+  document.getElementById('panel').classList.remove('open');
+  SELECTED = null;
+  renderTable();
+}
+
+// ── Helpers ───────────────────────────────────────────────────────────────
+function fmt$(n) {
+  if (!n && n!==0) return '—';
+  return '$' + Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+}
+function copyId(id) {
+  navigator.clipboard.writeText(id).then(()=>toast('Copied: '+id));
+}
+function toast(msg,dur=2800) {
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),dur);
+}
+function exportCSV() {
+  if (!FILTERED.length){toast('No data to export');return;}
+  const H=['ParcelId','Owner','PropertyAddress','MailingAddress','MarketValue','TaxableValue','TotalTaxes','FirstHalf','SecondHalf','TaxValueRatio%','Geocode','TRS','Acres','LevyDistrict','TaxYear','iTaxURL','CadastralURL'];
+  const rows=FILTERED.map(p=>[p.parcelId,p.owner,p.propertyAddress,p.mailingAddress,p.marketValue,p.taxableValue,p.totalTaxes,p.firstHalf,p.secondHalf,p.ratio?p.ratio.toFixed(4):'',p.geocode,p.trs,p.acres,p.levyDistrict,p.taxYear,p.itaxUrl,p.cadastralUrl].map(v=>`"${(v??'').toString().replace(/"/g,'""')}"`));
+  const csv=[H.join(','),...rows.map(r=>r.join(','))].join('\n');
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+  a.download=`gallatin_delinquent_${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+  toast(`Exported ${FILTERED.length} parcels`);
+}
+
+loadData();
+</script>
+</body>
+</html>
