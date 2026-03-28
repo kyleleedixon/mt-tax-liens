@@ -46,14 +46,19 @@ select.input{cursor:pointer;-webkit-appearance:none;}
 .stat-val.green{color:var(--green);}
 .stat-hint{font-size:11px;color:var(--text3);margin-top:3px;}
 .tbl-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);flex:1;overflow:hidden;display:flex;flex-direction:column;}
-.tbl-head{padding:13px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.tbl-head{padding:13px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:12px;}
 .tbl-title{font-size:13px;font-weight:500;}
 .tbl-count{font-size:11px;color:var(--text3);font-family:'IBM Plex Mono',monospace;margin-top:2px;}
 .tbl-scroll{overflow:auto;flex:1;}
 table{width:100%;border-collapse:collapse;font-size:12px;}
-thead th{background:var(--bg3);padding:8px 13px;text-align:left;font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--text3);border-bottom:1px solid var(--border);white-space:nowrap;position:sticky;top:0;z-index:10;cursor:pointer;user-select:none;}
-thead th:hover{color:var(--text2);}
+thead th{background:var(--bg3);padding:0;text-align:left;font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--text3);border-bottom:1px solid var(--border);white-space:nowrap;position:sticky;top:0;z-index:10;}
 thead th.sorted{color:var(--accent);}
+.th-inner{display:flex;align-items:center;gap:4px;padding:8px 13px;cursor:pointer;user-select:none;transition:color .15s;}
+.th-inner:hover{color:var(--text2);}
+.th-sort{font-size:9px;opacity:.6;}
+.col-filter{width:100%;background:var(--bg4);border:none;border-top:1px solid var(--border);color:var(--text2);font-family:'IBM Plex Mono',monospace;font-size:11px;padding:5px 13px;outline:none;transition:background .15s;}
+.col-filter:focus{background:var(--bg3);color:var(--text);}
+.col-filter::placeholder{color:var(--text3);font-style:italic;}
 tbody tr{border-bottom:1px solid var(--border);cursor:pointer;transition:background .1s;}
 tbody tr:hover{background:var(--bg3);}
 tbody tr.sel{background:rgba(232,168,37,.07);border-left:2px solid var(--accent);}
@@ -97,6 +102,8 @@ td.primary{color:var(--text);font-weight:500;}
 .empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:48px;color:var(--text3);font-size:13px;}
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--bg4);border:1px solid var(--border2);border-radius:var(--r);padding:10px 18px;font-size:13px;color:var(--text);z-index:999;transition:transform .3s;box-shadow:0 8px 24px rgba(0,0,0,.4);}
 .toast.show{transform:translateX(-50%) translateY(0);}
+.clear-btn{font-size:11px;color:var(--text3);background:none;border:none;cursor:pointer;padding:2px 6px;border-radius:4px;transition:color .15s;}
+.clear-btn:hover{color:var(--accent);}
 ::-webkit-scrollbar{width:5px;height:5px;}
 ::-webkit-scrollbar-track{background:transparent;}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px;}
@@ -124,35 +131,36 @@ td.primary{color:var(--text);font-weight:500;}
   <aside class="sidebar">
     <div class="sb-sec">
       <div class="sb-label">Search</div>
-      <input class="input" id="q" type="text" placeholder="Owner, parcel ID, address…" oninput="filter()">
-    </div>
-    <div class="sb-sec">
-      <div class="sb-label">Sort by</div>
-      <select class="input" id="sort" onchange="filter()">
-        <option value="ratio_desc">Highest tax/value ratio</option>
-        <option value="ratio_asc">Lowest tax/value ratio</option>
-        <option value="taxes_desc">Highest taxes owed</option>
-        <option value="taxes_asc">Lowest taxes owed</option>
-        <option value="value_desc">Highest market value</option>
-        <option value="value_asc">Lowest market value</option>
-        <option value="owner_asc">Owner A–Z</option>
-      </select>
+      <input class="input" id="q" type="text" placeholder="Owner, parcel ID, address…" oninput="applyAll()">
     </div>
     <div class="sb-sec">
       <div class="sb-label">Filters</div>
       <div style="display:flex;flex-direction:column;gap:7px;">
         <div>
+          <div style="font-size:10px;color:var(--text3);margin-bottom:4px;">Status</div>
+          <select class="input sm" id="f-status" onchange="applyAll()">
+            <option value="">All statuses</option>
+            <option value="Delinquent">Delinquent</option>
+            <option value="Paid">Paid</option>
+          </select>
+        </div>
+        <div>
           <div style="font-size:10px;color:var(--text3);margin-bottom:4px;">Min taxes owed ($)</div>
-          <input class="input sm" id="min-taxes" type="number" placeholder="0" oninput="filter()">
+          <input class="input sm" id="min-taxes" type="number" placeholder="0" oninput="applyAll()">
         </div>
         <div>
           <div style="font-size:10px;color:var(--text3);margin-bottom:4px;">Max market value ($)</div>
-          <input class="input sm" id="max-value" type="number" placeholder="No limit" oninput="filter()">
+          <input class="input sm" id="max-value" type="number" placeholder="No limit" oninput="applyAll()">
         </div>
         <div>
           <div style="font-size:10px;color:var(--text3);margin-bottom:4px;">Min tax/value ratio (%)</div>
-          <input class="input sm" id="min-ratio" type="number" step="0.01" placeholder="0.00" oninput="filter()">
+          <input class="input sm" id="min-ratio" type="number" step="0.01" placeholder="0.00" oninput="applyAll()">
         </div>
+        <div>
+          <div style="font-size:10px;color:var(--text3);margin-bottom:4px;">Min acres</div>
+          <input class="input sm" id="min-acres" type="number" step="0.01" placeholder="0" oninput="applyAll()">
+        </div>
+        <button class="btn" style="margin-top:4px;" onclick="clearFilters()">✕ Clear all filters</button>
       </div>
     </div>
     <div class="sb-sec" style="flex:1;overflow-y:auto;">
@@ -181,16 +189,43 @@ td.primary{color:var(--text);font-weight:500;}
       <div class="tbl-scroll">
         <table>
           <thead>
-            <tr>
-              <th onclick="sortCol('parcelId')">Parcel ID <span id="h-parcelId"></span></th>
-              <th onclick="sortCol('owner')">Owner <span id="h-owner"></span></th>
-              <th onclick="sortCol('propertyAddress')">Address</th>
-              <th onclick="sortCol('totalTaxes')">Taxes Owed <span id="h-totalTaxes"></span></th>
-              <th onclick="sortCol('marketValue')">Market Value <span id="h-marketValue"></span></th>
-              <th onclick="sortCol('acres')">Acres <span id="h-acres"></span></th>
-              <th onclick="sortCol('ratio')">Tax/Value <span id="h-ratio"></span></th>
-              <th>Status</th>
-              <th>Links</th>
+            <tr id="thead-labels">
+              <th id="th-parcelId" class="sorted">
+                <div class="th-inner" onclick="sortCol('parcelId')">Parcel ID <span class="th-sort" id="s-parcelId">▼</span></div>
+                <input class="col-filter" id="cf-parcelId" placeholder="filter…" oninput="applyAll()">
+              </th>
+              <th id="th-owner">
+                <div class="th-inner" onclick="sortCol('owner')">Owner <span class="th-sort" id="s-owner"></span></div>
+                <input class="col-filter" id="cf-owner" placeholder="filter…" oninput="applyAll()">
+              </th>
+              <th id="th-propertyAddress">
+                <div class="th-inner" onclick="sortCol('propertyAddress')">Address <span class="th-sort" id="s-propertyAddress"></span></div>
+                <input class="col-filter" id="cf-propertyAddress" placeholder="filter…" oninput="applyAll()">
+              </th>
+              <th id="th-totalTaxes">
+                <div class="th-inner" onclick="sortCol('totalTaxes')">Taxes Owed <span class="th-sort" id="s-totalTaxes"></span></div>
+                <input class="col-filter" id="cf-totalTaxes" placeholder="min $…" type="number" oninput="applyAll()">
+              </th>
+              <th id="th-marketValue">
+                <div class="th-inner" onclick="sortCol('marketValue')">Market Value <span class="th-sort" id="s-marketValue"></span></div>
+                <input class="col-filter" id="cf-marketValue" placeholder="max $…" type="number" oninput="applyAll()">
+              </th>
+              <th id="th-acres">
+                <div class="th-inner" onclick="sortCol('acres')">Acres <span class="th-sort" id="s-acres"></span></div>
+                <input class="col-filter" id="cf-acres" placeholder="min…" type="number" oninput="applyAll()">
+              </th>
+              <th id="th-ratio">
+                <div class="th-inner" onclick="sortCol('ratio')">Tax/Value <span class="th-sort" id="s-ratio"></span></div>
+                <input class="col-filter" id="cf-ratio" placeholder="min %…" type="number" step="0.01" oninput="applyAll()">
+              </th>
+              <th id="th-status">
+                <div class="th-inner" onclick="sortCol('status')">Status <span class="th-sort" id="s-status"></span></div>
+                <input class="col-filter" id="cf-status" placeholder="filter…" oninput="applyAll()">
+              </th>
+              <th>
+                <div class="th-inner">Links</div>
+                <div style="height:27px;border-top:1px solid var(--border);background:var(--bg4);"></div>
+              </th>
             </tr>
           </thead>
           <tbody id="tbody">
@@ -214,6 +249,7 @@ let ALL = [], FILTERED = [], SELECTED = null;
 let SORT_FIELD = 'ratio', SORT_DIR = 'desc';
 let META = {};
 
+// ── Load ──────────────────────────────────────────────────────────────────
 async function loadData() {
   try {
     const r = await fetch('data.json?v=' + Date.now());
@@ -224,42 +260,71 @@ async function loadData() {
     document.getElementById('last-refresh').textContent =
       'Refreshed: ' + new Date(d.generatedAt).toLocaleString();
     buildSidebarStats(d);
-    filter();
+    applyAll();
     document.getElementById('stats').style.display = 'grid';
   } catch(e) {
     document.getElementById('tbl-count').textContent = 'Error loading data — see console';
     document.getElementById('last-refresh').textContent = 'Load failed';
-    console.error('Failed to load data.json:', e);
+    console.error(e);
   }
 }
 
-function filter() {
-  const q      = document.getElementById('q').value.toLowerCase();
-  const minTax = parseFloat(document.getElementById('min-taxes').value) || 0;
-  const maxVal = parseFloat(document.getElementById('max-value').value)  || Infinity;
-  const minRat = parseFloat(document.getElementById('min-ratio').value)  || 0;
-  const [sf, sd] = document.getElementById('sort').value.split('_');
-  SORT_FIELD = sf; SORT_DIR = sd;
+// ── Filter + Sort (fully decoupled) ───────────────────────────────────────
+function applyAll() {
+  const q       = document.getElementById('q').value.toLowerCase();
+  const fStatus = document.getElementById('f-status').value;
+  const minTax  = parseFloat(document.getElementById('min-taxes').value) || 0;
+  const maxVal  = parseFloat(document.getElementById('max-value').value)  || Infinity;
+  const minRat  = parseFloat(document.getElementById('min-ratio').value)  || 0;
+  const minAcr  = parseFloat(document.getElementById('min-acres').value)  || 0;
+
+  // Column filters
+  const cfParcel  = document.getElementById('cf-parcelId').value.toLowerCase();
+  const cfOwner   = document.getElementById('cf-owner').value.toLowerCase();
+  const cfAddr    = document.getElementById('cf-propertyAddress').value.toLowerCase();
+  const cfTaxMin  = parseFloat(document.getElementById('cf-totalTaxes').value) || 0;
+  const cfValMax  = parseFloat(document.getElementById('cf-marketValue').value) || Infinity;
+  const cfAcrMin  = parseFloat(document.getElementById('cf-acres').value) || 0;
+  const cfRatMin  = parseFloat(document.getElementById('cf-ratio').value) || 0;
+  const cfStatus  = document.getElementById('cf-status').value.toLowerCase();
 
   FILTERED = ALL.filter(p => {
+    // Global search
     if (q && ![(p.parcelId||''),(p.owner||''),(p.propertyAddress||'')]
       .join(' ').toLowerCase().includes(q)) return false;
+    // Sidebar filters
+    if (fStatus && (p.status||'') !== fStatus) return false;
     if ((p.totalTaxes||0) < minTax) return false;
     if ((p.marketValue||Infinity) > maxVal) return false;
     if ((p.ratio||0) < minRat) return false;
+    if ((p.acres||0) < minAcr) return false;
+    // Column filters
+    if (cfParcel && !(p.parcelId||'').toLowerCase().includes(cfParcel)) return false;
+    if (cfOwner  && !(p.owner||'').toLowerCase().includes(cfOwner)) return false;
+    if (cfAddr   && !(p.propertyAddress||'').toLowerCase().includes(cfAddr)) return false;
+    if ((p.totalTaxes||0) < cfTaxMin) return false;
+    if ((p.marketValue||Infinity) > cfValMax) return false;
+    if ((p.acres||0) < cfAcrMin) return false;
+    if ((p.ratio||0) < cfRatMin) return false;
+    if (cfStatus && !(p.status||'').toLowerCase().includes(cfStatus)) return false;
     return true;
   });
 
-  FILTERED.sort((a,b) => {
+  // Sort — independent of filters
+  FILTERED.sort((a, b) => {
     let av, bv;
-    if (SORT_FIELD==='ratio')       { av=a.ratio||0;       bv=b.ratio||0; }
-    else if (SORT_FIELD==='taxes')  { av=a.totalTaxes||0;  bv=b.totalTaxes||0; }
-    else if (SORT_FIELD==='value')  { av=a.marketValue||0; bv=b.marketValue||0; }
-    else if (SORT_FIELD==='owner')  { av=(a.owner||'').toLowerCase(); bv=(b.owner||'').toLowerCase(); }
-    else if (SORT_FIELD==='acres')  { av=a.acres||0;       bv=b.acres||0; }
-    else { av=a.parcelId||''; bv=b.parcelId||''; }
-    if (av<bv) return SORT_DIR==='asc'?-1:1;
-    if (av>bv) return SORT_DIR==='asc'?1:-1;
+    switch(SORT_FIELD) {
+      case 'ratio':           av=a.ratio||0;          bv=b.ratio||0;          break;
+      case 'totalTaxes':      av=a.totalTaxes||0;     bv=b.totalTaxes||0;     break;
+      case 'marketValue':     av=a.marketValue||0;    bv=b.marketValue||0;    break;
+      case 'acres':           av=a.acres||0;          bv=b.acres||0;          break;
+      case 'owner':           av=(a.owner||'').toLowerCase(); bv=(b.owner||'').toLowerCase(); break;
+      case 'status':          av=(a.status||'').toLowerCase(); bv=(b.status||'').toLowerCase(); break;
+      case 'propertyAddress': av=(a.propertyAddress||'').toLowerCase(); bv=(b.propertyAddress||'').toLowerCase(); break;
+      default:                av=a.parcelId||'';      bv=b.parcelId||'';
+    }
+    if (av < bv) return SORT_DIR === 'asc' ? -1 : 1;
+    if (av > bv) return SORT_DIR === 'asc' ?  1 : -1;
     return 0;
   });
 
@@ -268,47 +333,76 @@ function filter() {
 }
 
 function sortCol(field) {
-  if (SORT_FIELD===field) SORT_DIR=SORT_DIR==='desc'?'asc':'desc';
-  else { SORT_FIELD=field; SORT_DIR='desc'; }
-  renderTable();
+  if (SORT_FIELD === field) {
+    SORT_DIR = SORT_DIR === 'desc' ? 'asc' : 'desc';
+  } else {
+    SORT_FIELD = field;
+    SORT_DIR = 'desc';
+  }
+  // Update header highlights
+  document.querySelectorAll('thead th').forEach(th => th.classList.remove('sorted'));
+  const thEl = document.getElementById('th-' + field);
+  if (thEl) thEl.classList.add('sorted');
+  // Update sort arrows
+  ['parcelId','owner','propertyAddress','totalTaxes','marketValue','acres','ratio','status'].forEach(f => {
+    const el = document.getElementById('s-' + f);
+    if (!el) return;
+    el.textContent = SORT_FIELD === f ? (SORT_DIR === 'desc' ? '▼' : '▲') : '';
+  });
+  applyAll();
 }
 
+function clearFilters() {
+  ['q','f-status','min-taxes','max-value','min-ratio','min-acres',
+   'cf-parcelId','cf-owner','cf-propertyAddress','cf-totalTaxes',
+   'cf-marketValue','cf-acres','cf-ratio','cf-status'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  applyAll();
+}
+
+// ── Render ────────────────────────────────────────────────────────────────
 function renderTable() {
   const tbody = document.getElementById('tbody');
   document.getElementById('tbl-count').textContent =
-    FILTERED.length.toLocaleString() + ' result' + (FILTERED.length!==1?'s':'');
-
-  ['parcelId','owner','totalTaxes','marketValue','acres','ratio'].forEach(f => {
-    const el = document.getElementById('h-'+f);
-    if (el) el.textContent = SORT_FIELD===f ? (SORT_DIR==='desc'?' ▼':' ▲') : '';
-  });
+    FILTERED.length.toLocaleString() + ' result' + (FILTERED.length !== 1 ? 's' : '');
 
   if (!FILTERED.length) {
     tbody.innerHTML = '<tr><td colspan="9"><div class="empty">No parcels match your filters</div></td></tr>';
     return;
   }
 
-  const maxR = Math.max(...FILTERED.map(p=>p.ratio||0), 0.001);
+  const maxR = Math.max(...FILTERED.map(p => p.ratio || 0), 0.001);
 
   tbody.innerHTML = FILTERED.map(p => {
     const r = p.ratio;
-    const rClass = r>=1.5?'b-red':r>=0.5?'b-amber':'b-green';
-    const ratioHtml = r!=null
-      ? `<div class="ratio-bar"><div class="ratio-track"><div class="ratio-fill" style="width:${Math.min(100,(r/maxR)*100).toFixed(1)}%;background:${r>=1.5?'var(--red)':r>=0.5?'var(--accent)':'var(--green)'}"></div></div><span class="badge ${rClass}">${r.toFixed(3)}%</span></div>`
+    const rClass = r >= 1.5 ? 'b-red' : r >= 0.5 ? 'b-amber' : 'b-green';
+    const ratioHtml = r != null
+      ? `<div class="ratio-bar">
+           <div class="ratio-track">
+             <div class="ratio-fill" style="width:${Math.min(100,(r/maxR)*100).toFixed(1)}%;background:${r>=1.5?'var(--red)':r>=0.5?'var(--accent)':'var(--green)'}"></div>
+           </div>
+           <span class="badge ${rClass}">${r.toFixed(3)}%</span>
+         </div>`
       : '<span style="color:var(--text3)">—</span>';
-    const sel = SELECTED && SELECTED.parcelId===p.parcelId;
-    return `<tr class="${sel?'sel':''}" onclick="openPanel('${p.parcelId}')">
+
+    const status = p.status || 'Unknown';
+    const sBadge = status === 'Delinquent' ? 'b-red' : status === 'Paid' ? 'b-green' : 'b-amber';
+    const sel = SELECTED && SELECTED.parcelId === p.parcelId;
+
+    return `<tr class="${sel ? 'sel' : ''}" onclick="openPanel('${p.parcelId}')">
       <td class="mono primary">${p.parcelId}</td>
       <td class="primary" style="max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${p.owner||''}">${p.owner||'—'}</td>
       <td style="max-width:170px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${p.propertyAddress||''}">${p.propertyAddress||'—'}</td>
       <td class="mono" style="color:var(--red)">${fmt$(p.totalTaxes)}</td>
-      <td class="mono">${p.marketValue?'$'+p.marketValue.toLocaleString():'—'}</td>
-      <td class="mono">${p.acres?p.acres.toFixed(2):'—'}</td>
+      <td class="mono">${p.marketValue ? '$'+p.marketValue.toLocaleString() : '—'}</td>
+      <td class="mono">${p.acres ? p.acres.toFixed(2) : '—'}</td>
       <td>${ratioHtml}</td>
-      <td><span class="badge ${p.status==='Delinquent'?'b-red':p.status==='Paid'?'b-green':'b-amber'}">${p.status||'Unknown'}</span></td>
+      <td><span class="badge ${sBadge}">${status}</span></td>
       <td style="white-space:nowrap">
         <a class="ilink" href="${p.itaxUrl}" target="_blank" onclick="event.stopPropagation()">iTax ↗</a>
-        ${p.cadastralUrl?`<a class="ilink" href="${p.cadastralUrl}" target="_blank" onclick="event.stopPropagation()" style="margin-left:4px">Map ↗</a>`:''}
+        ${p.cadastralUrl ? `<a class="ilink" href="${p.cadastralUrl}" target="_blank" onclick="event.stopPropagation()" style="margin-left:4px">Map ↗</a>` : ''}
       </td>
     </tr>`;
   }).join('');
@@ -317,11 +411,11 @@ function renderTable() {
 function updateStats() {
   const p = FILTERED;
   document.getElementById('s-total').textContent = p.length.toLocaleString();
-  document.getElementById('s-taxes').textContent = '$' + Math.round(p.reduce((s,x)=>s+(x.totalTaxes||0),0)).toLocaleString();
-  const ratios = p.filter(x=>x.ratio).map(x=>x.ratio);
-  const avg = ratios.length ? ratios.reduce((a,b)=>a+b,0)/ratios.length : 0;
-  document.getElementById('s-ratio').textContent = avg.toFixed(3)+'%';
-  document.getElementById('s-high').textContent  = ratios.filter(r=>r>=1).length;
+  document.getElementById('s-taxes').textContent = '$' + Math.round(p.reduce((s,x) => s+(x.totalTaxes||0), 0)).toLocaleString();
+  const ratios = p.filter(x => x.ratio).map(x => x.ratio);
+  const avg = ratios.length ? ratios.reduce((a,b) => a+b, 0) / ratios.length : 0;
+  document.getElementById('s-ratio').textContent = avg.toFixed(3) + '%';
+  document.getElementById('s-high').textContent  = ratios.filter(r => r >= 1).length;
 }
 
 function buildSidebarStats(d) {
@@ -335,23 +429,28 @@ function buildSidebarStats(d) {
   `;
 }
 
+// ── Detail Panel ──────────────────────────────────────────────────────────
 function openPanel(id) {
-  const p = ALL.find(x=>x.parcelId===id);
+  const p = ALL.find(x => x.parcelId === id);
   if (!p) return;
   SELECTED = p;
   renderTable();
   const r = p.ratio;
-  const rc = r>=1.5?'var(--red)':r>=0.5?'var(--accent)':'var(--green)';
-  const rPct = r ? Math.min(100,(r/3)*100).toFixed(1) : 0;
-  const rFill = r>=1.5?'var(--red)':r>=0.5?'var(--accent)':'var(--green)';
+  const rc   = r >= 1.5 ? 'var(--red)' : r >= 0.5 ? 'var(--accent)' : 'var(--green)';
+  const rPct = r ? Math.min(100, (r/3)*100).toFixed(1) : 0;
+  const rFill = r >= 1.5 ? 'var(--red)' : r >= 0.5 ? 'var(--accent)' : 'var(--green)';
+  const status = p.status || 'Unknown';
+  const sBadge = status === 'Delinquent' ? 'b-red' : status === 'Paid' ? 'b-green' : 'b-amber';
+
   document.getElementById('panel-body').innerHTML = `
     <div class="p-sub">PARCEL ${p.parcelId} · ${p.taxYear||2025}</div>
     <div class="p-name">${p.owner||'—'}</div>
     <div class="p-addr">${p.propertyAddress||p.mailingAddress||'—'}</div>
+    <div style="margin-bottom:14px"><span class="badge ${sBadge}">${status}</span></div>
     <div class="divider"></div>
     <div class="p-sec">Financials</div>
     <div class="kv-grid">
-      <div class="kv"><div class="kv-k">Market Value</div><div class="kv-v">${p.marketValue?'$'+p.marketValue.toLocaleString():'—'}</div></div>
+      <div class="kv"><div class="kv-k">Market Value</div><div class="kv-v">${p.marketValue ? '$'+p.marketValue.toLocaleString() : '—'}</div></div>
       <div class="kv"><div class="kv-k">Total Taxes Owed</div><div class="kv-v red">${fmt$(p.totalTaxes)}</div></div>
       <div class="kv"><div class="kv-k">First Half</div><div class="kv-v">${fmt$(p.firstHalf)}</div></div>
       <div class="kv"><div class="kv-k">Second Half</div><div class="kv-v">${fmt$(p.secondHalf)}</div></div>
@@ -359,7 +458,7 @@ function openPanel(id) {
     <div style="margin:14px 0;">
       <div style="display:flex;justify-content:space-between;align-items:center">
         <span style="font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3)">Tax / Market Value Ratio</span>
-        <span style="font-size:16px;font-weight:500;font-family:'IBM Plex Mono',monospace;color:${rc}">${r?r.toFixed(4)+'%':'—'}</span>
+        <span style="font-size:16px;font-weight:500;font-family:'IBM Plex Mono',monospace;color:${rc}">${r ? r.toFixed(4)+'%' : '—'}</span>
       </div>
       <div class="risk-track"><div class="risk-fill" style="width:${rPct}%;background:${rFill}"></div></div>
       <div style="font-size:11px;color:var(--text3)">${r>=1.5?'⚠ High lien efficiency — strong investment candidate':r>=0.5?'Moderate — review property details':'Low ratio — standard delinquency'}</div>
@@ -367,14 +466,14 @@ function openPanel(id) {
     <div class="divider"></div>
     <div class="p-sec">Property Details</div>
     <div class="kv-grid">
-      ${p.geocode?`<div class="kv" style="grid-column:1/-1"><div class="kv-k">Geocode</div><div class="kv-v" style="font-size:11px">${p.geocode}</div></div>`:''}
-      ${p.trs?`<div class="kv" style="grid-column:1/-1"><div class="kv-k">TRS Legal</div><div class="kv-v" style="font-size:11px">${p.trs}</div></div>`:''}
-      ${p.subdivision?`<div class="kv"><div class="kv-k">Subdivision</div><div class="kv-v" style="font-size:11px">${p.subdivision}</div></div>`:''}
-      ${p.lot?`<div class="kv"><div class="kv-k">Lot</div><div class="kv-v">${p.lot}</div></div>`:''}
-      ${p.acres?`<div class="kv"><div class="kv-k">Acres</div><div class="kv-v">${p.acres.toFixed(2)}</div></div>`:''}
-      ${p.taxableValue?`<div class="kv"><div class="kv-k">Taxable Value</div><div class="kv-v">$${p.taxableValue.toLocaleString()}</div></div>`:''}
+      ${p.geocode    ? `<div class="kv" style="grid-column:1/-1"><div class="kv-k">Geocode</div><div class="kv-v" style="font-size:11px">${p.geocode}</div></div>` : ''}
+      ${p.trs        ? `<div class="kv" style="grid-column:1/-1"><div class="kv-k">TRS Legal</div><div class="kv-v" style="font-size:11px">${p.trs}</div></div>` : ''}
+      ${p.subdivision? `<div class="kv"><div class="kv-k">Subdivision</div><div class="kv-v" style="font-size:11px">${p.subdivision}</div></div>` : ''}
+      ${p.lot        ? `<div class="kv"><div class="kv-k">Lot</div><div class="kv-v">${p.lot}</div></div>` : ''}
+      ${p.acres      ? `<div class="kv"><div class="kv-k">Acres</div><div class="kv-v">${p.acres.toFixed(2)}</div></div>` : ''}
+      ${p.taxableValue ? `<div class="kv"><div class="kv-k">Taxable Value</div><div class="kv-v">$${p.taxableValue.toLocaleString()}</div></div>` : ''}
     </div>
-    ${p.levyDistrict?`<div style="margin-top:10px;padding:9px 11px;background:var(--bg3);border-radius:var(--r)"><div class="kv-k">Levy District</div><div style="font-size:11px;color:var(--text2);font-family:'IBM Plex Mono',monospace;margin-top:2px">${p.levyDistrict}</div></div>`:''}
+    ${p.levyDistrict ? `<div style="margin-top:10px;padding:9px 11px;background:var(--bg3);border-radius:var(--r)"><div class="kv-k">Levy District</div><div style="font-size:11px;color:var(--text2);font-family:'IBM Plex Mono',monospace;margin-top:2px">${p.levyDistrict}</div></div>` : ''}
     <div class="divider"></div>
     <div class="p-sec">Cadastral Map</div>
     ${p.cadastralUrl
@@ -387,7 +486,7 @@ function openPanel(id) {
       : `<div style="color:var(--text3);font-size:12px;padding:12px 0">No geocode available</div>`}
     <div class="action-row">
       <a class="btn primary" href="${p.itaxUrl}" target="_blank">iTax Record ↗</a>
-      ${p.cadastralUrl?`<a class="btn" href="${p.cadastralUrl}" target="_blank">Cadastral Map ↗</a>`:''}
+      ${p.cadastralUrl ? `<a class="btn" href="${p.cadastralUrl}" target="_blank">Cadastral Map ↗</a>` : ''}
       <button class="btn" onclick="copyId('${p.parcelId}')">Copy ID</button>
     </div>
   `;
@@ -400,29 +499,39 @@ function closePanel() {
   renderTable();
 }
 
+// ── Helpers ───────────────────────────────────────────────────────────────
 function fmt$(n) {
-  if (!n && n!==0) return '—';
-  return '$' + Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+  if (!n && n !== 0) return '—';
+  return '$' + Number(n).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
 }
 function copyId(id) {
-  navigator.clipboard.writeText(id).then(()=>toast('Copied: '+id));
+  navigator.clipboard.writeText(id).then(() => toast('Copied: ' + id));
 }
-function toast(msg,dur=2800) {
-  const t=document.getElementById('toast');
-  t.textContent=msg; t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),dur);
+function toast(msg, dur=2800) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), dur);
 }
 function exportCSV() {
-  if (!FILTERED.length){toast('No data to export');return;}
-  const H=['ParcelId','Owner','PropertyAddress','MailingAddress','MarketValue','TaxableValue','TotalTaxes','FirstHalf','SecondHalf','TaxValueRatio%','Geocode','TRS','Acres','LevyDistrict','TaxYear','iTaxURL','CadastralURL'];
-  const rows=FILTERED.map(p=>[p.parcelId,p.owner,p.propertyAddress,p.mailingAddress,p.marketValue,p.taxableValue,p.totalTaxes,p.firstHalf,p.secondHalf,p.ratio?p.ratio.toFixed(4):'',p.geocode,p.trs,p.acres,p.levyDistrict,p.taxYear,p.itaxUrl,p.cadastralUrl].map(v=>`"${(v??'').toString().replace(/"/g,'""')}"`));
-  const csv=[H.join(','),...rows.map(r=>r.join(','))].join('\n');
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
-  a.download=`gallatin_delinquent_${new Date().toISOString().slice(0,10)}.csv`;
+  if (!FILTERED.length) { toast('No data to export'); return; }
+  const H = ['ParcelId','Owner','PropertyAddress','MailingAddress','Status','MarketValue','TaxableValue','TotalTaxes','FirstHalf','SecondHalf','TaxValueRatio%','Geocode','TRS','Acres','LevyDistrict','TaxYear','iTaxURL','CadastralURL'];
+  const rows = FILTERED.map(p => [
+    p.parcelId, p.owner, p.propertyAddress, p.mailingAddress, p.status,
+    p.marketValue, p.taxableValue, p.totalTaxes, p.firstHalf, p.secondHalf,
+    p.ratio ? p.ratio.toFixed(4) : '', p.geocode, p.trs, p.acres,
+    p.levyDistrict, p.taxYear, p.itaxUrl, p.cadastralUrl
+  ].map(v => `"${(v??'').toString().replace(/"/g,'""')}"`));
+  const csv = [H.join(','), ...rows.map(r => r.join(','))].join('\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([csv], {type:'text/csv'}));
+  a.download = `gallatin_delinquent_${new Date().toISOString().slice(0,10)}.csv`;
   a.click();
   toast(`Exported ${FILTERED.length} parcels`);
 }
+
+// Init sort arrow
+document.getElementById('th-ratio').classList.add('sorted');
+document.getElementById('s-ratio').textContent = '▼';
 
 loadData();
 </script>
