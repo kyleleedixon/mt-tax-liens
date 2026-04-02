@@ -19,34 +19,33 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.5;-webkit-text-size-adjust:100%;}
 
-/* ── HEADER ── */
-.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:var(--header-h);position:sticky;top:0;z-index:100;}
+/* HEADER */
+.header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:var(--header-h);position:sticky;top:0;z-index:50;}
 .logo{width:32px;height:32px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:13px;color:#000;flex-shrink:0;}
 .h-title{font-size:14px;font-weight:500;}
 .h-sub{font-size:10px;color:var(--text2);}
 .h-right{display:flex;align-items:center;gap:8px;}
-.refresh-badge{font-size:10px;color:var(--text3);font-family:'IBM Plex Mono',monospace;display:none;}
+.refresh-badge{font-size:10px;color:var(--text3);font-family:'IBM Plex Mono',monospace;}
 .btn{background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);color:var(--text2);font-size:12px;font-family:'IBM Plex Sans',sans-serif;padding:6px 12px;cursor:pointer;display:inline-flex;align-items:center;gap:5px;transition:all .15s;text-decoration:none;-webkit-tap-highlight-color:transparent;}
-.btn:hover{background:var(--bg4);color:var(--text);}
+.btn:hover,button.btn:hover{background:var(--bg4);color:var(--text);}
 .btn.primary{background:var(--accent);color:#000;border-color:var(--accent);font-weight:500;}
 .btn.primary:hover{background:var(--accent2);}
-.icon-btn{background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);color:var(--text2);width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;-webkit-tap-highlight-color:transparent;transition:all .15s;}
-.icon-btn:hover{background:var(--bg4);color:var(--text);}
+.icon-btn{background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);color:var(--text2);width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;-webkit-tap-highlight-color:transparent;transition:all .15s;flex-shrink:0;}
 .icon-btn.active{background:rgba(232,168,37,.15);border-color:rgba(232,168,37,.4);color:var(--accent);}
 
-/* ── DESKTOP LAYOUT ── */
+/* LAYOUT */
 .main{display:flex;height:calc(100vh - var(--header-h));overflow:hidden;}
 .sidebar{width:268px;min-width:268px;background:var(--bg2);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden;}
 .content{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px;}
 .sb-sec{padding:14px 16px;border-bottom:1px solid var(--border);}
 .sb-label{font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin-bottom:9px;}
-.input{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-size:16px;padding:8px 11px;outline:none;transition:border-color .15s;}
+.input{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-size:16px;padding:8px 11px;outline:none;transition:border-color .15s;-webkit-appearance:none;}
 .input:focus{border-color:var(--accent);}
 .input::placeholder{color:var(--text3);}
 .input.sm{font-size:13px;padding:7px 10px;font-family:'IBM Plex Mono',monospace;}
-select.input{cursor:pointer;-webkit-appearance:none;}
+select.input{cursor:pointer;}
 
-/* ── STATS ── */
+/* STATS */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
 .stat{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:12px 14px;}
 .stat.hi{border-color:rgba(232,168,37,.3);}
@@ -55,15 +54,14 @@ select.input{cursor:pointer;-webkit-appearance:none;}
 .stat-val.red{color:var(--red);}
 .stat-val.amber{color:var(--accent);}
 .stat-val.green{color:var(--green);}
-.stat-hint{font-size:10px;color:var(--text3);margin-top:2px;}
 
-/* ── COUNTY PILLS ── */
+/* COUNTY PILLS */
 .county-pills{display:flex;gap:6px;flex-wrap:wrap;}
-.cpill{padding:4px 12px;border-radius:20px;font-size:11px;font-weight:500;cursor:pointer;border:1px solid var(--border2);background:var(--bg3);color:var(--text2);transition:all .15s;font-family:'IBM Plex Mono',monospace;-webkit-tap-highlight-color:transparent;}
+.cpill{padding:5px 12px;border-radius:20px;font-size:11px;font-weight:500;cursor:pointer;border:1px solid var(--border2);background:var(--bg3);color:var(--text2);transition:all .15s;font-family:'IBM Plex Mono',monospace;-webkit-tap-highlight-color:transparent;}
 .cpill.active{background:rgba(232,168,37,.15);border-color:rgba(232,168,37,.4);color:var(--accent);}
 .cpill.all.active{background:rgba(74,158,255,.12);border-color:rgba(74,158,255,.35);color:var(--blue);}
 
-/* ── BADGES ── */
+/* BADGES */
 .badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:500;font-family:'IBM Plex Mono',monospace;}
 .b-red{background:rgba(224,82,82,.15);color:var(--red);border:1px solid rgba(224,82,82,.25);}
 .b-amber{background:rgba(232,168,37,.15);color:var(--accent);border:1px solid rgba(232,168,37,.25);}
@@ -71,9 +69,9 @@ select.input{cursor:pointer;-webkit-appearance:none;}
 .c-gallatin{background:rgba(74,158,255,.12);color:#7ab8ff;border:1px solid rgba(74,158,255,.25);}
 .c-flathead{background:rgba(60,191,122,.12);color:#5fd4a0;border:1px solid rgba(60,191,122,.25);}
 
-/* ── DESKTOP TABLE ── */
+/* DESKTOP TABLE */
 .tbl-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);flex:1;overflow:hidden;display:flex;flex-direction:column;min-height:0;}
-.tbl-head{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-shrink:0;}
+.tbl-head{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:10px;flex-shrink:0;}
 .tbl-title{font-size:13px;font-weight:500;}
 .tbl-count{font-size:11px;color:var(--text3);font-family:'IBM Plex Mono',monospace;margin-top:2px;}
 .tbl-outer{flex:1;overflow:hidden;display:flex;flex-direction:column;min-height:0;}
@@ -85,7 +83,7 @@ thead th.sorted{color:var(--accent);}
 .th-inner{display:flex;align-items:center;gap:4px;padding:8px 13px;cursor:pointer;user-select:none;transition:color .15s;}
 .th-inner:hover{color:var(--text2);}
 .th-sort{font-size:9px;opacity:.6;}
-.col-filter{width:100%;background:var(--bg4);border:none;border-top:1px solid var(--border);color:var(--text2);font-family:'IBM Plex Mono',monospace;font-size:11px;padding:5px 13px;outline:none;transition:background .15s;}
+.col-filter{width:100%;background:var(--bg4);border:none;border-top:1px solid var(--border);color:var(--text2);font-family:'IBM Plex Mono',monospace;font-size:11px;padding:5px 13px;outline:none;}
 .col-filter:focus{background:var(--bg3);color:var(--text);}
 .col-filter::placeholder{color:var(--text3);font-style:italic;}
 tbody tr{border-bottom:1px solid var(--border);cursor:pointer;}
@@ -98,14 +96,14 @@ td.primary{color:var(--text);font-weight:500;}
 .ratio-bar{display:flex;align-items:center;gap:7px;}
 .ratio-track{flex:1;height:4px;background:var(--bg4);border-radius:2px;overflow:hidden;max-width:72px;}
 .ratio-fill{height:100%;border-radius:2px;}
-.ilink{display:inline-flex;align-items:center;gap:3px;color:var(--blue);text-decoration:none;font-size:11px;padding:2px 7px;border-radius:4px;border:1px solid rgba(74,158,255,.2);font-family:'IBM Plex Mono',monospace;transition:all .15s;white-space:nowrap;}
+.ilink{display:inline-flex;align-items:center;gap:3px;color:var(--blue);text-decoration:none;font-size:11px;padding:2px 7px;border-radius:4px;border:1px solid rgba(74,158,255,.2);font-family:'IBM Plex Mono',monospace;white-space:nowrap;}
 .ilink:hover{background:rgba(74,158,255,.1);}
 
-/* ── MOBILE CARD LIST ── */
-.card-list{display:none;flex-direction:column;gap:1px;overflow-y:auto;flex:1;}
-.pcard{background:var(--bg2);border-bottom:1px solid var(--border);padding:14px 16px;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .1s;display:flex;flex-direction:column;gap:6px;}
+/* MOBILE CARD LIST */
+.card-list{display:none;flex-direction:column;overflow-y:auto;flex:1;-webkit-overflow-scrolling:touch;}
+.pcard{background:var(--bg2);border-bottom:1px solid var(--border);padding:14px 16px;cursor:pointer;-webkit-tap-highlight-color:transparent;display:flex;flex-direction:column;gap:6px;}
 .pcard:active{background:var(--bg3);}
-.pcard.sel{background:rgba(232,168,37,.07);border-left:3px solid var(--accent);}
+.pcard.sel{background:rgba(232,168,37,.06);border-left:3px solid var(--accent);}
 .pcard-top{display:flex;align-items:center;justify-content:space-between;gap:8px;}
 .pcard-owner{font-weight:500;font-size:13px;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;}
 .pcard-ratio{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;flex-shrink:0;}
@@ -114,11 +112,13 @@ td.primary{color:var(--text);font-weight:500;}
 .pcard-tax{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--red);}
 .pcard-mv{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text3);}
 
-/* ── DETAIL PANEL ── */
-.panel{position:fixed;top:var(--header-h);right:0;bottom:0;width:400px;background:var(--bg2);border-left:1px solid var(--border2);z-index:200;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .25s cubic-bezier(.4,0,.2,1);overflow:hidden;}
+/* DETAIL PANEL — z-index 400 so it's above everything */
+.panel{position:fixed;top:var(--header-h);right:0;bottom:0;width:400px;background:var(--bg2);border-left:1px solid var(--border2);z-index:400;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .25s cubic-bezier(.4,0,.2,1);overflow:hidden;}
 .panel.open{transform:translateX(0);}
-.panel-close{position:absolute;top:13px;right:15px;background:var(--bg3);border:1px solid var(--border);border-radius:50%;width:32px;height:32px;color:var(--text2);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;line-height:1;-webkit-tap-highlight-color:transparent;}
-.panel-close:hover{background:var(--bg4);color:var(--text);}
+.panel-topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--border);flex-shrink:0;}
+.panel-topbar-title{font-size:13px;font-weight:500;color:var(--text2);}
+.panel-close-btn{background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);color:var(--text2);font-size:13px;font-family:'IBM Plex Sans',sans-serif;padding:6px 14px;cursor:pointer;display:inline-flex;align-items:center;gap:5px;-webkit-tap-highlight-color:transparent;}
+.panel-close-btn:hover{background:var(--bg4);color:var(--text);}
 .panel-body{overflow-y:auto;flex:1;padding:20px;-webkit-overflow-scrolling:touch;}
 .p-sub{font-size:10px;color:var(--text3);font-family:'IBM Plex Mono',monospace;letter-spacing:.06em;margin-bottom:3px;}
 .p-name{font-size:17px;font-weight:500;margin-bottom:3px;}
@@ -132,53 +132,50 @@ td.primary{color:var(--text);font-weight:500;}
 .kv-v.red{color:var(--red);}
 .risk-track{height:8px;background:var(--bg3);border-radius:4px;overflow:hidden;margin:8px 0 4px;}
 .risk-fill{height:100%;border-radius:4px;transition:width .6s cubic-bezier(.4,0,.2,1);}
-.map-btn{width:100%;height:150px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;cursor:pointer;transition:all .15s;color:var(--text3);-webkit-tap-highlight-color:transparent;}
+.map-btn{width:100%;height:150px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;cursor:pointer;color:var(--text3);-webkit-tap-highlight-color:transparent;}
 .map-btn:active{background:var(--bg4);}
 .action-row{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;}
 .action-row .btn{flex:1;min-width:100px;justify-content:center;padding:10px 12px;font-size:13px;}
 
-/* ── MOBILE FILTER SHEET ── */
-.filter-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:300;}
-.filter-overlay.open{display:block;}
-.filter-sheet{position:fixed;bottom:0;left:0;right:0;background:var(--bg2);border-radius:16px 16px 0 0;border-top:1px solid var(--border2);z-index:301;max-height:85vh;display:flex;flex-direction:column;transform:translateY(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);}
+/* MOBILE FILTER SHEET — z-index 300, below panel (400) */
+.filter-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:300;opacity:0;pointer-events:none;transition:opacity .25s;}
+.filter-overlay.open{opacity:1;pointer-events:auto;}
+.filter-sheet{position:fixed;bottom:0;left:0;right:0;background:var(--bg2);border-radius:20px 20px 0 0;border-top:1px solid var(--border2);z-index:301;max-height:88vh;display:flex;flex-direction:column;transform:translateY(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);}
 .filter-sheet.open{transform:translateY(0);}
-.filter-sheet-handle{width:36px;height:4px;background:var(--border2);border-radius:2px;margin:12px auto 4px;}
-.filter-sheet-head{padding:8px 20px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);}
-.filter-sheet-title{font-size:15px;font-weight:500;}
-.filter-sheet-body{overflow-y:auto;padding:16px 20px;display:flex;flex-direction:column;gap:14px;-webkit-overflow-scrolling:touch;}
-.filter-row-label{font-size:11px;color:var(--text3);margin-bottom:5px;text-transform:uppercase;letter-spacing:.06em;}
+.sheet-handle{width:40px;height:4px;background:var(--border2);border-radius:2px;margin:14px auto 0;}
+.sheet-head{padding:12px 20px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);}
+.sheet-title{font-size:16px;font-weight:500;}
+.sheet-body{overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:18px;-webkit-overflow-scrolling:touch;}
+.sheet-field label{display:block;font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;}
 
-/* ── MISC ── */
+/* MISC */
 .loading{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:64px;color:var(--text3);}
 .spinner{width:28px;height:28px;border:2px solid var(--border2);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg)}}
 .empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:48px;color:var(--text3);font-size:13px;}
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--bg4);border:1px solid var(--border2);border-radius:var(--r);padding:10px 18px;font-size:13px;color:var(--text);z-index:999;transition:transform .3s;box-shadow:0 8px 24px rgba(0,0,0,.4);white-space:nowrap;}
 .toast.show{transform:translateX(-50%) translateY(0);}
-
 ::-webkit-scrollbar{width:5px;height:5px;}
 ::-webkit-scrollbar-track{background:transparent;}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px;}
 
-/* ── RESPONSIVE BREAKPOINTS ── */
+/* RESPONSIVE */
 @media(max-width:1200px){.stats{grid-template-columns:repeat(2,1fr);}}
-
 @media(max-width:768px){
   :root{--header-h:52px;}
   .sidebar{display:none;}
-  .refresh-badge{display:none;}
-  .content{padding:12px;gap:12px;}
-  /* Stats: 2x2 on mobile */
+  .refresh-badge{display:none !important;}
+  .content{padding:12px;gap:10px;}
   .stats{grid-template-columns:repeat(2,1fr);gap:8px;}
   .stat{padding:10px 12px;}
   .stat-val{font-size:17px;}
-  /* Hide desktop table, show card list */
-  .tbl-wrap{flex:none;overflow:visible;border:none;background:transparent;}
-  .tbl-head{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2) var(--r2) 0 0;border-bottom:1px solid var(--border);}
+  /* swap table for cards */
+  .tbl-wrap{flex:none;overflow:visible;background:transparent;border:none;border-radius:0;display:flex;flex-direction:column;flex:1;}
+  .tbl-head{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2) var(--r2) 0 0;margin-bottom:0;}
   .tbl-outer{display:none;}
   .card-list{display:flex;}
-  /* Panel goes full screen on mobile */
-  .panel{width:100%;top:var(--header-h);border-left:none;}
+  /* full-screen panel on mobile */
+  .panel{width:100%;border-left:none;top:0;z-index:400;}
 }
 </style>
 </head>
@@ -195,9 +192,8 @@ td.primary{color:var(--text);font-weight:500;}
   </div>
   <div class="h-right">
     <span class="refresh-badge" id="last-refresh"></span>
-    <!-- Mobile: filter + export icon buttons -->
-    <div class="icon-btn" id="filter-toggle" onclick="toggleFilterSheet()" title="Filters" style="display:none;">⚙</div>
-    <button class="btn" onclick="exportCSV()" title="Export CSV">⬇ <span class="hide-xs">Export</span></button>
+    <div class="icon-btn" id="filter-btn" title="Filters">⚙</div>
+    <button class="btn" onclick="exportCSV()">⬇ Export</button>
   </div>
 </header>
 
@@ -210,13 +206,11 @@ td.primary{color:var(--text);font-weight:500;}
     </div>
     <div class="sb-sec">
       <div class="sb-label">County</div>
-      <div class="county-pills" id="county-pills-desk">
-        <span class="cpill all active" data-county="" onclick="selectCounty(this,'desk')">All</span>
-      </div>
+      <div class="county-pills" id="county-pills-desk"></div>
     </div>
     <div class="sb-sec">
       <div class="sb-label">Filters</div>
-      <div style="display:flex;flex-direction:column;gap:7px;">
+      <div style="display:flex;flex-direction:column;gap:8px;">
         <div>
           <div style="font-size:10px;color:var(--text3);margin-bottom:4px;">Status</div>
           <select class="input sm" id="f-status" onchange="scheduleFilter()">
@@ -242,7 +236,7 @@ td.primary{color:var(--text);font-weight:500;}
           <div style="font-size:10px;color:var(--text3);margin-bottom:4px;">Min acres</div>
           <input class="input sm" id="min-acres" type="number" step="0.01" placeholder="0" oninput="scheduleFilter()">
         </div>
-        <button class="btn" style="margin-top:4px;" onclick="clearFilters()">✕ Clear filters</button>
+        <button class="btn" style="margin-top:2px;" onclick="clearFilters()">✕ Clear filters</button>
       </div>
     </div>
     <div class="sb-sec" style="flex:1;overflow-y:auto;">
@@ -253,7 +247,7 @@ td.primary{color:var(--text);font-weight:500;}
     </div>
   </aside>
 
-  <!-- MAIN CONTENT -->
+  <!-- MAIN -->
   <main class="content">
     <div class="stats" id="stats" style="display:none;">
       <div class="stat hi"><div class="stat-lbl">Parcels</div><div class="stat-val amber" id="s-total">—</div></div>
@@ -262,15 +256,16 @@ td.primary{color:var(--text);font-weight:500;}
       <div class="stat"><div class="stat-lbl">High Ratio</div><div class="stat-val green" id="s-high">—</div></div>
     </div>
 
-    <!-- TABLE WRAPPER (desktop: virtual scroll table; mobile: card list) -->
     <div class="tbl-wrap">
       <div class="tbl-head">
         <div>
           <div class="tbl-title">Delinquent Parcels</div>
           <div class="tbl-count" id="tbl-count">Loading…</div>
         </div>
-        <!-- Mobile search inline -->
-        <input class="input" id="q-mobile" type="search" placeholder="Search…" oninput="syncMobileSearch()" style="display:none;max-width:160px;font-size:14px;padding:6px 10px;">
+        <!-- mobile inline search -->
+        <input class="input" id="q-mob" type="search" placeholder="Search…"
+          style="display:none;max-width:150px;padding:6px 10px;font-size:14px;"
+          oninput="document.getElementById('q').value=this.value;scheduleFilter()">
       </div>
 
       <!-- Desktop virtual-scroll table -->
@@ -339,128 +334,131 @@ td.primary{color:var(--text);font-weight:500;}
   </main>
 </div>
 
-<!-- DETAIL PANEL -->
+<!-- DETAIL PANEL (z-index 400, above everything) -->
 <div class="panel" id="panel">
-  <button class="panel-close" onclick="closePanel()">×</button>
+  <div class="panel-topbar">
+    <div class="panel-topbar-title" id="panel-title">Parcel Detail</div>
+    <button class="panel-close-btn" onclick="closePanel()">✕ Close</button>
+  </div>
   <div class="panel-body" id="panel-body"></div>
 </div>
 
-<!-- MOBILE FILTER SHEET -->
-<div class="filter-overlay" id="filter-overlay" onclick="toggleFilterSheet()"></div>
+<!-- MOBILE FILTER SHEET (z-index 300) -->
+<div class="filter-overlay" id="filter-overlay" onclick="closeFilterSheet()"></div>
 <div class="filter-sheet" id="filter-sheet">
-  <div class="filter-sheet-handle"></div>
-  <div class="filter-sheet-head">
-    <div class="filter-sheet-title">Filters</div>
+  <div class="sheet-handle"></div>
+  <div class="sheet-head">
+    <div class="sheet-title">Filters &amp; Sort</div>
     <button class="btn" onclick="clearFilters()">Clear all</button>
   </div>
-  <div class="filter-sheet-body">
-    <div>
-      <div class="filter-row-label">County</div>
-      <div class="county-pills" id="county-pills-mob" style="margin-bottom:4px;">
-        <span class="cpill all active" data-county="" onclick="selectCounty(this,'mob')">All</span>
-      </div>
+  <div class="sheet-body">
+    <div class="sheet-field">
+      <label>County</label>
+      <div class="county-pills" id="county-pills-mob"></div>
     </div>
-    <div>
-      <div class="filter-row-label">Sort by</div>
+    <div class="sheet-field">
+      <label>Sort by</label>
       <select class="input" id="mob-sort" onchange="applyMobileSort()">
         <option value="ratio_desc">Highest tax/value ratio</option>
         <option value="ratio_asc">Lowest tax/value ratio</option>
         <option value="taxes_desc">Highest taxes owed</option>
+        <option value="taxes_asc">Lowest taxes owed</option>
         <option value="value_desc">Highest market value</option>
         <option value="acres_desc">Most acres</option>
         <option value="owner_asc">Owner A–Z</option>
       </select>
     </div>
-    <div>
-      <div class="filter-row-label">Status</div>
-      <select class="input" id="f-status-mob" onchange="syncMobileFilters()">
+    <div class="sheet-field">
+      <label>Status</label>
+      <select class="input" id="f-status-mob" onchange="syncMobFilters()">
         <option value="">All statuses</option>
         <option value="Delinquent">Delinquent</option>
         <option value="Paid">Paid</option>
         <option value="Current">Current</option>
       </select>
     </div>
-    <div>
-      <div class="filter-row-label">Min taxes owed ($)</div>
-      <input class="input" id="min-taxes-mob" type="number" inputmode="numeric" placeholder="0" oninput="syncMobileFilters()">
+    <div class="sheet-field">
+      <label>Min taxes owed ($)</label>
+      <input class="input" id="min-taxes-mob" type="number" inputmode="numeric" placeholder="0" oninput="syncMobFilters()">
     </div>
-    <div>
-      <div class="filter-row-label">Max market value ($)</div>
-      <input class="input" id="max-value-mob" type="number" inputmode="numeric" placeholder="No limit" oninput="syncMobileFilters()">
+    <div class="sheet-field">
+      <label>Max market value ($)</label>
+      <input class="input" id="max-value-mob" type="number" inputmode="numeric" placeholder="No limit" oninput="syncMobFilters()">
     </div>
-    <div>
-      <div class="filter-row-label">Min tax/value ratio (%)</div>
-      <input class="input" id="min-ratio-mob" type="number" inputmode="decimal" step="0.01" placeholder="0.00" oninput="syncMobileFilters()">
+    <div class="sheet-field">
+      <label>Min tax/value ratio (%)</label>
+      <input class="input" id="min-ratio-mob" type="number" inputmode="decimal" step="0.01" placeholder="0.00" oninput="syncMobFilters()">
     </div>
-    <div>
-      <div class="filter-row-label">Min acres</div>
-      <input class="input" id="min-acres-mob" type="number" inputmode="decimal" step="0.01" placeholder="0" oninput="syncMobileFilters()">
+    <div class="sheet-field">
+      <label>Min acres</label>
+      <input class="input" id="min-acres-mob" type="number" inputmode="decimal" step="0.01" placeholder="0" oninput="syncMobFilters()">
     </div>
-    <button class="btn primary" style="width:100%;justify-content:center;padding:12px;" onclick="toggleFilterSheet()">Done</button>
+    <button class="btn primary" style="width:100%;justify-content:center;padding:14px;font-size:15px;" onclick="closeFilterSheet()">
+      Done
+    </button>
+    <div style="height:env(safe-area-inset-bottom,0px);"></div>
   </div>
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
-// ── State ─────────────────────────────────────────────────────────────────
-let ALL = [], FILTERED = [], SELECTED = null;
-let SORT_FIELD = 'ratio', SORT_DIR = 'desc';
-let COUNTY_FILTER = '';
-let META = {};
-let filterTimer = null;
-const ROW_H = 38, OVERSCAN = 10;
-let vtStart = 0, vtEnd = 0;
-const isMobile = () => window.innerWidth <= 768;
+let ALL=[], FILTERED=[], SELECTED=null;
+let SORT_FIELD='ratio', SORT_DIR='desc';
+let COUNTY_FILTER='';
+let META={};
+let filterTimer=null;
+const ROW_H=38, OVERSCAN=10;
+let vtStart=0, vtEnd=0;
+const isMobile=()=>window.innerWidth<=768;
 
 // ── Load ──────────────────────────────────────────────────────────────────
-async function loadData() {
-  try {
-    const r = await fetch('data.json?v=' + Date.now());
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    const d = await r.json();
-    META = d; ALL = d.parcels || [];
-    document.getElementById('last-refresh').textContent =
-      'Updated ' + new Date(d.generatedAt).toLocaleDateString();
-    const counties = d.counties || [...new Set(ALL.map(p=>p.county).filter(Boolean))];
-    document.getElementById('h-sub').textContent = counties.join(' & ') + ' County';
+async function loadData(){
+  try{
+    const r=await fetch('data.json?v='+Date.now());
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    const d=await r.json();
+    META=d; ALL=d.parcels||[];
+    const el=document.getElementById('last-refresh');
+    el.textContent='Updated '+new Date(d.generatedAt).toLocaleDateString();
+    el.style.display='block';
+    const counties=d.counties||[...new Set(ALL.map(p=>p.county).filter(Boolean))];
+    document.getElementById('h-sub').textContent=counties.join(' & ')+' County';
     buildCountyPills(counties, d.countySummary||{});
     buildSidebarStats(d);
-    setupMobile();
+    setupMobileUI();
     applyAll();
-    document.getElementById('stats').style.display = 'grid';
+    document.getElementById('stats').style.display='grid';
     initVirtualScroll();
-  } catch(e) {
-    document.getElementById('tbl-count').textContent = 'Error loading data';
+  }catch(e){
+    document.getElementById('tbl-count').textContent='Error loading data — check console';
     console.error(e);
   }
 }
 
-// ── Mobile setup ──────────────────────────────────────────────────────────
-function setupMobile() {
-  if (isMobile()) {
-    document.getElementById('filter-toggle').style.display = 'flex';
-    document.getElementById('q-mobile').style.display = 'block';
-    document.getElementById('last-refresh').style.display = 'none';
-  }
+// ── Mobile UI setup ───────────────────────────────────────────────────────
+function setupMobileUI(){
+  const mob=isMobile();
+  // Show/hide inline search
+  document.getElementById('q-mob').style.display=mob?'block':'none';
+  // Wire filter button
+  document.getElementById('filter-btn').onclick=mob?openFilterSheet:()=>{};
+  document.getElementById('filter-btn').style.display=mob?'flex':'none';
 }
 
-function toggleFilterSheet() {
-  const sheet = document.getElementById('filter-sheet');
-  const overlay = document.getElementById('filter-overlay');
-  const btn = document.getElementById('filter-toggle');
-  const open = sheet.classList.toggle('open');
-  overlay.classList.toggle('open', open);
-  btn.classList.toggle('active', open);
+function openFilterSheet(){
+  document.getElementById('filter-sheet').classList.add('open');
+  document.getElementById('filter-overlay').classList.add('open');
+  document.getElementById('filter-btn').classList.add('active');
+}
+function closeFilterSheet(){
+  document.getElementById('filter-sheet').classList.remove('open');
+  document.getElementById('filter-overlay').classList.remove('open');
+  document.getElementById('filter-btn').classList.remove('active');
 }
 
-function syncMobileSearch() {
-  document.getElementById('q').value = document.getElementById('q-mobile').value;
-  scheduleFilter();
-}
-
-function syncMobileFilters() {
-  document.getElementById('f-status').value  = document.getElementById('f-status-mob').value;
+function syncMobFilters(){
+  document.getElementById('f-status').value   = document.getElementById('f-status-mob').value;
   document.getElementById('min-taxes').value  = document.getElementById('min-taxes-mob').value;
   document.getElementById('max-value').value  = document.getElementById('max-value-mob').value;
   document.getElementById('min-ratio').value  = document.getElementById('min-ratio-mob').value;
@@ -468,108 +466,100 @@ function syncMobileFilters() {
   scheduleFilter();
 }
 
-function applyMobileSort() {
-  const [field, dir] = document.getElementById('mob-sort').value.split('_');
-  SORT_FIELD = field; SORT_DIR = dir;
+function applyMobileSort(){
+  const [f,d]=document.getElementById('mob-sort').value.split('_');
+  SORT_FIELD=f; SORT_DIR=d;
   applyAll();
 }
 
 // ── County pills ──────────────────────────────────────────────────────────
-function buildCountyPills(counties, summary) {
-  ['desk','mob'].forEach(variant => {
-    const container = document.getElementById('county-pills-' + variant);
-    if (!container) return;
-    container.innerHTML = `<span class="cpill all active" data-county="" onclick="selectCounty(this,'${variant}')">All</span>`;
-    counties.forEach(c => {
-      const count = summary[c]?.parcels || '';
-      const pill = document.createElement('span');
-      pill.className = 'cpill';
-      pill.dataset.county = c;
-      pill.onclick = function(){ selectCounty(this, variant); };
-      pill.textContent = c + (count ? ` (${count.toLocaleString()})` : '');
-      container.appendChild(pill);
+function buildCountyPills(counties, summary){
+  ['desk','mob'].forEach(v=>{
+    const el=document.getElementById('county-pills-'+v);
+    if(!el) return;
+    el.innerHTML='';
+    const all=document.createElement('span');
+    all.className='cpill all active'; all.dataset.county='';
+    all.textContent='All'; all.onclick=()=>selectCounty('',v);
+    el.appendChild(all);
+    counties.forEach(c=>{
+      const count=summary[c]?.parcels||'';
+      const pill=document.createElement('span');
+      pill.className='cpill'; pill.dataset.county=c;
+      pill.textContent=c+(count?' ('+count.toLocaleString()+')':'');
+      pill.onclick=()=>selectCounty(c,v);
+      el.appendChild(pill);
     });
   });
 }
 
-function selectCounty(el, variant) {
-  ['desk','mob'].forEach(v => {
-    const c = document.getElementById('county-pills-' + v);
-    if (c) c.querySelectorAll('.cpill').forEach(p => p.classList.remove('active'));
-    if (c) {
-      const match = [...c.querySelectorAll('.cpill')].find(p => p.dataset.county === el.dataset.county);
-      if (match) match.classList.add('active');
-    }
+function selectCounty(county, fromVariant){
+  COUNTY_FILTER=county;
+  ['desk','mob'].forEach(v=>{
+    const el=document.getElementById('county-pills-'+v);
+    if(!el) return;
+    el.querySelectorAll('.cpill').forEach(p=>{
+      p.classList.toggle('active', p.dataset.county===county);
+    });
   });
-  COUNTY_FILTER = el.dataset.county;
   applyAll();
 }
 
 // ── Virtual scroll ────────────────────────────────────────────────────────
-function initVirtualScroll() {
-  const viewport = document.getElementById('tbl-viewport');
-  if (!viewport) return;
-  viewport.addEventListener('scroll', () => {
-    document.getElementById('tbl-scroll').scrollLeft = viewport.scrollLeft;
+function initVirtualScroll(){
+  const vp=document.getElementById('tbl-viewport');
+  if(!vp) return;
+  vp.addEventListener('scroll',()=>{
+    document.getElementById('tbl-scroll').scrollLeft=vp.scrollLeft;
     renderVisibleRows();
   });
-  document.getElementById('tbl-scroll').addEventListener('scroll', e => {
-    viewport.scrollLeft = e.target.scrollLeft;
+  document.getElementById('tbl-scroll').addEventListener('scroll',e=>{
+    vp.scrollLeft=e.target.scrollLeft;
   });
 }
 
-function renderVisibleRows() {
-  if (!FILTERED.length || isMobile()) return;
-  const viewport = document.getElementById('tbl-viewport');
-  const scrollTop = viewport.scrollTop;
-  const viewH = viewport.clientHeight;
-  const start = Math.max(0, Math.floor(scrollTop / ROW_H) - OVERSCAN);
-  const end   = Math.min(FILTERED.length, Math.ceil((scrollTop + viewH) / ROW_H) + OVERSCAN);
-  if (start === vtStart && end === vtEnd) return;
-  vtStart = start; vtEnd = end;
-  const maxR = FILTERED._maxR || 0.001;
-  const rows = FILTERED.slice(start, end).map((p,i) => rowHTML(p, start+i, maxR)).join('');
-  const spTop = start * ROW_H;
-  const spBot = Math.max(0, (FILTERED.length - end) * ROW_H);
-  document.getElementById('tbody').innerHTML =
-    `<tr><td colspan="10" style="height:${spTop}px;padding:0;border:none;"></td></tr>` +
-    rows +
+function renderVisibleRows(){
+  if(!FILTERED.length||isMobile()) return;
+  const vp=document.getElementById('tbl-viewport');
+  const scrollTop=vp.scrollTop, viewH=vp.clientHeight;
+  const start=Math.max(0,Math.floor(scrollTop/ROW_H)-OVERSCAN);
+  const end=Math.min(FILTERED.length,Math.ceil((scrollTop+viewH)/ROW_H)+OVERSCAN);
+  if(start===vtStart&&end===vtEnd) return;
+  vtStart=start; vtEnd=end;
+  const maxR=FILTERED._maxR||0.001;
+  const spTop=start*ROW_H;
+  const spBot=Math.max(0,(FILTERED.length-end)*ROW_H);
+  document.getElementById('tbody').innerHTML=
+    `<tr><td colspan="10" style="height:${spTop}px;padding:0;border:none;"></td></tr>`+
+    FILTERED.slice(start,end).map((p,i)=>rowHTML(p,start+i,maxR)).join('')+
     `<tr><td colspan="10" style="height:${spBot}px;padding:0;border:none;"></td></tr>`;
   syncColWidths();
 }
 
-function syncColWidths() {
-  const headerCols = document.querySelectorAll('#header-table thead th');
-  let cg = document.getElementById('colgroup');
-  cg.innerHTML = '';
-  headerCols.forEach(th => {
-    const col = document.createElement('col');
-    col.style.width = th.offsetWidth + 'px';
-    cg.appendChild(col);
-  });
+function syncColWidths(){
+  const ths=document.querySelectorAll('#header-table thead th');
+  const cg=document.getElementById('colgroup');
+  cg.innerHTML='';
+  ths.forEach(th=>{ const c=document.createElement('col'); c.style.width=th.offsetWidth+'px'; cg.appendChild(c); });
 }
 
-// ── Mobile card rendering ─────────────────────────────────────────────────
-function renderCards() {
-  const list = document.getElementById('card-list');
-  if (!FILTERED.length) {
-    list.innerHTML = '<div class="empty">No parcels match your filters</div>';
-    return;
-  }
-  const maxR = FILTERED._maxR || 0.001;
-  list.innerHTML = FILTERED.map(p => {
-    const r = p.ratio;
-    const rColor = r>=1.5?'var(--red)':r>=0.5?'var(--accent)':'var(--green)';
-    const cCls = p.county==='Gallatin'?'c-gallatin':p.county==='Flathead'?'c-flathead':'';
-    const sel = SELECTED && SELECTED.parcelId===p.parcelId && SELECTED.county===p.county;
-    return `<div class="pcard ${sel?'sel':''}" onclick="openPanel('${esc(p.county)}','${esc(p.parcelId)}')">
+// ── Mobile cards ──────────────────────────────────────────────────────────
+function renderCards(){
+  const list=document.getElementById('card-list');
+  if(!FILTERED.length){ list.innerHTML='<div class="empty">No parcels match your filters</div>'; return; }
+  list.innerHTML=FILTERED.map(p=>{
+    const r=p.ratio;
+    const rColor=r>=1.5?'var(--red)':r>=0.5?'var(--accent)':'var(--green)';
+    const cCls=countyClass(p.county);
+    const sel=SELECTED&&SELECTED.parcelId===p.parcelId&&SELECTED.county===p.county;
+    return `<div class="pcard${sel?' sel':''}" onclick="openPanel('${esc(p.county)}','${esc(p.parcelId)}')">
       <div class="pcard-top">
         <div class="pcard-owner">${p.owner||'—'}</div>
         ${r!=null?`<div class="pcard-ratio" style="color:${rColor}">${r.toFixed(2)}%</div>`:''}
       </div>
       <div class="pcard-mid">${p.propertyAddress||p.parcelId||'—'}</div>
       <div class="pcard-bot">
-        <span class="badge ${cCls}">${p.county}</span>
+        <span class="badge ${cCls}">${p.county||'—'}</span>
         <span class="pcard-tax">${fmt$(p.totalTaxes)}</span>
         ${p.marketValue?`<span class="pcard-mv">MV $${p.marketValue.toLocaleString()}</span>`:''}
         ${p.acres?`<span class="pcard-mv">${p.acres.toFixed(1)} ac</span>`:''}
@@ -579,98 +569,98 @@ function renderCards() {
 }
 
 // ── Filter + Sort ─────────────────────────────────────────────────────────
-function scheduleFilter() {
-  clearTimeout(filterTimer);
-  filterTimer = setTimeout(applyAll, 120);
-}
+function scheduleFilter(){ clearTimeout(filterTimer); filterTimer=setTimeout(applyAll,120); }
 
-function applyAll() {
+function applyAll(){
   const q       = document.getElementById('q').value.toLowerCase();
   const fStatus = document.getElementById('f-status').value;
   const minTax  = parseFloat(document.getElementById('min-taxes').value)||0;
   const maxVal  = parseFloat(document.getElementById('max-value').value)||Infinity;
   const minRat  = parseFloat(document.getElementById('min-ratio').value)||0;
   const minAcr  = parseFloat(document.getElementById('min-acres').value)||0;
-  const cfCounty= document.getElementById('cf-county').value.toLowerCase();
-  const cfParcel= document.getElementById('cf-parcelId').value.toLowerCase();
-  const cfOwner = document.getElementById('cf-owner').value.toLowerCase();
-  const cfAddr  = document.getElementById('cf-propertyAddress').value.toLowerCase();
-  const cfTaxMin= parseFloat(document.getElementById('cf-totalTaxes').value)||0;
-  const cfValMax= parseFloat(document.getElementById('cf-marketValue').value)||Infinity;
-  const cfAcrMin= parseFloat(document.getElementById('cf-acres').value)||0;
-  const cfRatMin= parseFloat(document.getElementById('cf-ratio').value)||0;
-  const cfStatus= document.getElementById('cf-status').value.toLowerCase();
+  const cfCo    = document.getElementById('cf-county').value.toLowerCase();
+  const cfPar   = document.getElementById('cf-parcelId').value.toLowerCase();
+  const cfOwn   = document.getElementById('cf-owner').value.toLowerCase();
+  const cfAdr   = document.getElementById('cf-propertyAddress').value.toLowerCase();
+  const cfTax   = parseFloat(document.getElementById('cf-totalTaxes').value)||0;
+  const cfVal   = parseFloat(document.getElementById('cf-marketValue').value)||Infinity;
+  const cfAcr   = parseFloat(document.getElementById('cf-acres').value)||0;
+  const cfRat   = parseFloat(document.getElementById('cf-ratio').value)||0;
+  const cfSts   = document.getElementById('cf-status').value.toLowerCase();
 
-  FILTERED = ALL.filter(p => {
-    if (COUNTY_FILTER && p.county!==COUNTY_FILTER) return false;
-    if (q && ![(p.parcelId||''),(p.owner||''),(p.propertyAddress||''),(p.county||'')]
+  FILTERED=ALL.filter(p=>{
+    // Drop parcels with no meaningful data
+    if(!p.totalTaxes||p.totalTaxes<=0) return false;
+    if(!p.marketValue||p.marketValue<=0) return false;
+    // County pill filter
+    if(COUNTY_FILTER&&p.county!==COUNTY_FILTER) return false;
+    // Global search
+    if(q&&![(p.parcelId||''),(p.owner||''),(p.propertyAddress||''),(p.county||'')]
       .join(' ').toLowerCase().includes(q)) return false;
-    if (fStatus && p.status!==fStatus) return false;
-    if ((p.totalTaxes||0)<minTax) return false;
-    if ((p.marketValue||Infinity)>maxVal) return false;
-    if ((p.ratio||0)<minRat) return false;
-    if ((p.acres||0)<minAcr) return false;
-    if (cfCounty && !(p.county||'').toLowerCase().includes(cfCounty)) return false;
-    if (cfParcel && !(p.parcelId||'').toLowerCase().includes(cfParcel)) return false;
-    if (cfOwner  && !(p.owner||'').toLowerCase().includes(cfOwner)) return false;
-    if (cfAddr   && !(p.propertyAddress||'').toLowerCase().includes(cfAddr)) return false;
-    if ((p.totalTaxes||0)<cfTaxMin) return false;
-    if ((p.marketValue||Infinity)>cfValMax) return false;
-    if ((p.acres||0)<cfAcrMin) return false;
-    if ((p.ratio||0)<cfRatMin) return false;
-    if (cfStatus && !(p.status||'').toLowerCase().includes(cfStatus)) return false;
+    // Sidebar filters
+    if(fStatus&&p.status!==fStatus) return false;
+    if((p.totalTaxes||0)<minTax) return false;
+    if((p.marketValue||Infinity)>maxVal) return false;
+    if((p.ratio||0)<minRat) return false;
+    if((p.acres||0)<minAcr) return false;
+    // Column filters
+    if(cfCo&&!(p.county||'').toLowerCase().includes(cfCo)) return false;
+    if(cfPar&&!(p.parcelId||'').toLowerCase().includes(cfPar)) return false;
+    if(cfOwn&&!(p.owner||'').toLowerCase().includes(cfOwn)) return false;
+    if(cfAdr&&!(p.propertyAddress||'').toLowerCase().includes(cfAdr)) return false;
+    if((p.totalTaxes||0)<cfTax) return false;
+    if((p.marketValue||Infinity)>cfVal) return false;
+    if((p.acres||0)<cfAcr) return false;
+    if((p.ratio||0)<cfRat) return false;
+    if(cfSts&&!(p.status||'').toLowerCase().includes(cfSts)) return false;
     return true;
   });
 
-  FILTERED.sort((a,b) => {
+  FILTERED.sort((a,b)=>{
     let av,bv;
-    switch(SORT_FIELD) {
-      case 'ratio':           av=a.ratio||0;        bv=b.ratio||0;        break;
-      case 'totalTaxes':      av=a.totalTaxes||0;   bv=b.totalTaxes||0;   break;
-      case 'marketValue':     av=a.marketValue||0;  bv=b.marketValue||0;  break;
-      case 'acres':           av=a.acres||0;        bv=b.acres||0;        break;
-      case 'county':          av=(a.county||'').toLowerCase(); bv=(b.county||'').toLowerCase(); break;
-      case 'owner':           av=(a.owner||'').toLowerCase();  bv=(b.owner||'').toLowerCase();  break;
-      case 'status':          av=(a.status||'').toLowerCase(); bv=(b.status||'').toLowerCase(); break;
+    switch(SORT_FIELD){
+      case 'ratio':           av=a.ratio||0;       bv=b.ratio||0;       break;
+      case 'totalTaxes':      av=a.totalTaxes||0;  bv=b.totalTaxes||0;  break;
+      case 'marketValue':     av=a.marketValue||0; bv=b.marketValue||0; break;
+      case 'acres':           av=a.acres||0;       bv=b.acres||0;       break;
+      case 'county':          av=(a.county||'').toLowerCase();          bv=(b.county||'').toLowerCase();          break;
+      case 'owner':           av=(a.owner||'').toLowerCase();           bv=(b.owner||'').toLowerCase();           break;
+      case 'status':          av=(a.status||'').toLowerCase();          bv=(b.status||'').toLowerCase();          break;
       case 'propertyAddress': av=(a.propertyAddress||'').toLowerCase(); bv=(b.propertyAddress||'').toLowerCase(); break;
-      default:                av=a.parcelId||''; bv=b.parcelId||'';
+      default:                av=a.parcelId||'';   bv=b.parcelId||'';
     }
-    if (av<bv) return SORT_DIR==='asc'?-1:1;
-    if (av>bv) return SORT_DIR==='asc'?1:-1;
+    if(av<bv) return SORT_DIR==='asc'?-1:1;
+    if(av>bv) return SORT_DIR==='asc'?1:-1;
     return 0;
   });
 
-  FILTERED._maxR = Math.max(...FILTERED.map(p=>p.ratio||0), 0.001);
+  FILTERED._maxR=Math.max(...FILTERED.map(p=>p.ratio||0),0.001);
 
-  const viewport = document.getElementById('tbl-viewport');
-  if (viewport) viewport.scrollTop = 0;
+  const vp=document.getElementById('tbl-viewport');
+  if(vp) vp.scrollTop=0;
   vtStart=0; vtEnd=0;
 
-  const totalEl = document.getElementById('vt-total');
-  if (totalEl) totalEl.style.height = (FILTERED.length*ROW_H+200)+'px';
+  const tot=document.getElementById('vt-total');
+  if(tot) tot.style.height=(FILTERED.length*ROW_H+200)+'px';
 
-  document.getElementById('tbl-count').textContent =
+  document.getElementById('tbl-count').textContent=
     FILTERED.length.toLocaleString()+' result'+(FILTERED.length!==1?'s':'');
 
-  if (isMobile()) {
-    renderCards();
-  } else {
-    if (!FILTERED.length) {
-      document.getElementById('tbody').innerHTML =
-        '<tr><td colspan="10"><div class="empty">No parcels match your filters</div></td></tr>';
-    } else {
-      renderVisibleRows();
-    }
-  }
+  if(isMobile()){ renderCards(); }
+  else if(!FILTERED.length){
+    document.getElementById('tbody').innerHTML=
+      '<tr><td colspan="10"><div class="empty">No parcels match your filters</div></td></tr>';
+  } else { renderVisibleRows(); }
+
   updateStats();
 }
 
-function sortCol(field) {
-  if (SORT_FIELD===field) SORT_DIR=SORT_DIR==='desc'?'asc':'desc';
-  else { SORT_FIELD=field; SORT_DIR='desc'; }
+function sortCol(field){
+  if(SORT_FIELD===field) SORT_DIR=SORT_DIR==='desc'?'asc':'desc';
+  else{ SORT_FIELD=field; SORT_DIR='desc'; }
   document.querySelectorAll('thead th').forEach(th=>th.classList.remove('sorted'));
-  const thEl = document.getElementById('th-'+field);
-  if (thEl) thEl.classList.add('sorted');
+  const th=document.getElementById('th-'+field);
+  if(th) th.classList.add('sorted');
   ['county','parcelId','owner','propertyAddress','totalTaxes','marketValue','acres','ratio','status'].forEach(f=>{
     const el=document.getElementById('s-'+f);
     if(el) el.textContent=SORT_FIELD===f?(SORT_DIR==='desc'?'▼':'▲'):'';
@@ -678,34 +668,28 @@ function sortCol(field) {
   applyAll();
 }
 
-function clearFilters() {
-  ['q','q-mobile','f-status','f-status-mob','min-taxes','min-taxes-mob',
+function clearFilters(){
+  ['q','q-mob','f-status','f-status-mob','min-taxes','min-taxes-mob',
    'max-value','max-value-mob','min-ratio','min-ratio-mob','min-acres','min-acres-mob',
    'cf-county','cf-parcelId','cf-owner','cf-propertyAddress',
-   'cf-totalTaxes','cf-marketValue','cf-acres','cf-ratio','cf-status'].forEach(id=>{
-    const el=document.getElementById(id); if(el) el.value='';
-  });
-  COUNTY_FILTER='';
-  ['desk','mob'].forEach(v=>{
-    const c=document.getElementById('county-pills-'+v);
-    if(c){ c.querySelectorAll('.cpill').forEach(p=>p.classList.remove('active')); const a=c.querySelector('.cpill.all'); if(a) a.classList.add('active'); }
-  });
+   'cf-totalTaxes','cf-marketValue','cf-acres','cf-ratio','cf-status'
+  ].forEach(id=>{ const el=document.getElementById(id); if(el) el.value=''; });
+  selectCounty('','desk');
   applyAll();
 }
 
 // ── Row HTML ──────────────────────────────────────────────────────────────
-function rowHTML(p, idx, maxR) {
+function rowHTML(p,idx,maxR){
   const r=p.ratio;
-  const rClass=r>=1.5?'b-red':r>=0.5?'b-amber':'b-green';
+  const rCls=r>=1.5?'b-red':r>=0.5?'b-amber':'b-green';
   const ratioHtml=r!=null
-    ?`<div class="ratio-bar"><div class="ratio-track"><div class="ratio-fill" style="width:${Math.min(100,(r/maxR)*100).toFixed(1)}%;background:${r>=1.5?'var(--red)':r>=0.5?'var(--accent)':'var(--green)'}"></div></div><span class="badge ${rClass}">${r.toFixed(3)}%</span></div>`
+    ?`<div class="ratio-bar"><div class="ratio-track"><div class="ratio-fill" style="width:${Math.min(100,(r/maxR)*100).toFixed(1)}%;background:${r>=1.5?'var(--red)':r>=0.5?'var(--accent)':'var(--green)'}"></div></div><span class="badge ${rCls}">${r.toFixed(3)}%</span></div>`
     :'<span style="color:var(--text3)">—</span>';
   const status=p.status||'Unknown';
   const sBadge=status==='Delinquent'?'b-red':(status==='Paid'||status==='Current')?'b-green':'b-amber';
   const sel=SELECTED&&SELECTED.parcelId===p.parcelId&&SELECTED.county===p.county;
-  const cCls=p.county==='Gallatin'?'c-gallatin':p.county==='Flathead'?'c-flathead':'';
   return `<tr class="${sel?'sel':''}" onclick="openPanel('${esc(p.county)}','${esc(p.parcelId)}')">
-    <td><span class="badge ${cCls}">${p.county||'—'}</span></td>
+    <td><span class="badge ${countyClass(p.county)}">${p.county||'—'}</span></td>
     <td class="mono primary">${p.parcelId||'—'}</td>
     <td class="primary" title="${esc(p.owner||'')}">${p.owner||'—'}</td>
     <td title="${esc(p.propertyAddress||'')}">${p.propertyAddress||'—'}</td>
@@ -721,8 +705,10 @@ function rowHTML(p, idx, maxR) {
   </tr>`;
 }
 
+function countyClass(c){ return c==='Gallatin'?'c-gallatin':c==='Flathead'?'c-flathead':''; }
+
 // ── Stats ─────────────────────────────────────────────────────────────────
-function updateStats() {
+function updateStats(){
   const p=FILTERED;
   document.getElementById('s-total').textContent=p.length.toLocaleString();
   document.getElementById('s-taxes').textContent='$'+Math.round(p.reduce((s,x)=>s+(x.totalTaxes||0),0)).toLocaleString();
@@ -732,7 +718,7 @@ function updateStats() {
   document.getElementById('s-high').textContent=ratios.filter(r=>r>=1).length;
 }
 
-function buildSidebarStats(d) {
+function buildSidebarStats(d){
   const s=d.summary||{}, cs=d.countySummary||{};
   let html=`
     <div style="display:flex;justify-content:space-between"><span style="color:var(--text3)">Total parcels</span><span style="font-family:'IBM Plex Mono',monospace">${(d.totalParcels||0).toLocaleString()}</span></div>
@@ -748,18 +734,24 @@ function buildSidebarStats(d) {
 }
 
 // ── Detail Panel ──────────────────────────────────────────────────────────
-function openPanel(county, id) {
+function openPanel(county,id){
   const p=ALL.find(x=>x.parcelId===id&&x.county===county);
   if(!p) return;
   SELECTED=p;
   if(isMobile()) renderCards(); else renderVisibleRows();
+
   const r=p.ratio;
   const rc=r>=1.5?'var(--red)':r>=0.5?'var(--accent)':'var(--green)';
   const rPct=r?Math.min(100,(r/3)*100).toFixed(1):0;
   const rFill=r>=1.5?'var(--red)':r>=0.5?'var(--accent)':'var(--green)';
+  const rLabel=r>=1.5?'⚠ Very high ratio — distressed or low-value asset, review carefully'
+    :r>=0.5?'Moderate ratio — good candidate, verify property condition'
+    :'Low ratio — stable property, standard delinquency';
   const status=p.status||'Unknown';
   const sBadge=status==='Delinquent'?'b-red':(status==='Paid'||status==='Current')?'b-green':'b-amber';
-  const cCls=p.county==='Gallatin'?'c-gallatin':p.county==='Flathead'?'c-flathead':'';
+  const cCls=countyClass(p.county);
+
+  document.getElementById('panel-title').textContent=p.parcelId+' — '+p.county;
   document.getElementById('panel-body').innerHTML=`
     <div class="p-sub">PARCEL ${p.parcelId} · ${p.taxYear||2025}</div>
     <div class="p-name">${p.owner||'—'}</div>
@@ -782,7 +774,7 @@ function openPanel(county, id) {
         <span style="font-size:16px;font-weight:500;font-family:'IBM Plex Mono',monospace;color:${rc}">${r?r.toFixed(4)+'%':'—'}</span>
       </div>
       <div class="risk-track"><div class="risk-fill" style="width:${rPct}%;background:${rFill}"></div></div>
-      <div style="font-size:11px;color:var(--text3)">${r>=1.5?'⚠ High lien efficiency — strong investment candidate':r>=0.5?'Moderate — review property details':'Low ratio — standard delinquency'}</div>
+      <div style="font-size:11px;color:var(--text3);margin-top:2px">${rLabel}</div>
     </div>
     <div class="divider"></div>
     <div class="p-sec">Property Details</div>
@@ -799,57 +791,44 @@ function openPanel(county, id) {
     <div class="p-sec">Cadastral Map</div>
     ${p.cadastralUrl
       ?`<div class="map-btn" onclick="window.open('${p.cadastralUrl}','_blank')">
-          <div style="font-size:24px;opacity:.35">🗺</div>
+          <div style="font-size:24px;opacity:.4">🗺</div>
           <div style="font-size:12px;font-weight:500;color:var(--text2)">View on Montana Cadastral</div>
           <div style="font-size:11px;color:var(--accent);margin-top:2px">Tap to open ↗</div>
         </div>`
       :`<div style="color:var(--text3);font-size:12px;padding:12px 0">No geocode available</div>`}
     <div class="action-row">
       <a class="btn primary" href="${p.itaxUrl||'#'}" target="_blank">iTax Record ↗</a>
-      ${p.cadastralUrl?`<a class="btn" href="${p.cadastralUrl}" target="_blank">Cadastral Map ↗</a>`:''}
+      ${p.cadastralUrl?`<a class="btn" href="${p.cadastralUrl}" target="_blank">Cadastral ↗</a>`:''}
       <button class="btn" onclick="copyId('${esc(p.parcelId)}')">Copy ID</button>
-    </div>`;
+    </div>
+    <div style="height:32px;"></div>`;
+
   document.getElementById('panel').classList.add('open');
+  document.getElementById('panel-body').scrollTop=0;
 }
 
-function closePanel() {
+function closePanel(){
   document.getElementById('panel').classList.remove('open');
   SELECTED=null;
   if(isMobile()) renderCards(); else renderVisibleRows();
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────
-function fmt$(n){
-  if(!n&&n!==0) return '—';
-  return '$'+Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
-}
+function fmt$(n){ if(!n&&n!==0) return '—'; return '$'+Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}); }
 function esc(s){ return (s||'').replace(/'/g,"&#39;").replace(/"/g,'&quot;'); }
 function copyId(id){ navigator.clipboard.writeText(id).then(()=>toast('Copied: '+id)); }
-function toast(msg,dur=2800){
-  const t=document.getElementById('toast');
-  t.textContent=msg; t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),dur);
-}
+function toast(msg,dur=2800){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),dur); }
 function exportCSV(){
   if(!FILTERED.length){toast('No data to export');return;}
-  const H=['County','ParcelId','Owner','PropertyAddress','MailingAddress','Status',
-    'MarketValue','TaxableValue','TotalTaxes','FirstHalf','SecondHalf','TaxValueRatio%',
-    'Geocode','TRS','Acres','LevyDistrict','TaxYear','iTaxURL','CadastralURL'];
-  const rows=FILTERED.map(p=>[
-    p.county,p.parcelId,p.owner,p.propertyAddress,p.mailingAddress,p.status,
-    p.marketValue,p.taxableValue,p.totalTaxes,p.firstHalf,p.secondHalf,
-    p.ratio?p.ratio.toFixed(4):'',p.geocode,p.trs,p.acres,
-    p.levyDistrict,p.taxYear,p.itaxUrl,p.cadastralUrl
-  ].map(v=>`"${(v??'').toString().replace(/"/g,'""')}"`));
+  const H=['County','ParcelId','Owner','PropertyAddress','MailingAddress','Status','MarketValue','TaxableValue','TotalTaxes','FirstHalf','SecondHalf','TaxValueRatio%','Geocode','TRS','Acres','LevyDistrict','TaxYear','iTaxURL','CadastralURL'];
+  const rows=FILTERED.map(p=>[p.county,p.parcelId,p.owner,p.propertyAddress,p.mailingAddress,p.status,p.marketValue,p.taxableValue,p.totalTaxes,p.firstHalf,p.secondHalf,p.ratio?p.ratio.toFixed(4):'',p.geocode,p.trs,p.acres,p.levyDistrict,p.taxYear,p.itaxUrl,p.cadastralUrl].map(v=>`"${(v??'').toString().replace(/"/g,'""')}"`));
   const csv=[H.join(','),...rows.map(r=>r.join(','))].join('\n');
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
-  a.download=`mt_delinquent_${new Date().toISOString().slice(0,10)}.csv`;
-  a.click();
+  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+  a.download=`mt_delinquent_${new Date().toISOString().slice(0,10)}.csv`; a.click();
   toast(`Exported ${FILTERED.length} parcels`);
 }
 
-window.addEventListener('resize',()=>{ vtStart=0; vtEnd=0; if(!isMobile()) renderVisibleRows(); else renderCards(); });
+window.addEventListener('resize',()=>{ vtStart=0; vtEnd=0; setupMobileUI(); if(!isMobile()) renderVisibleRows(); else renderCards(); });
 loadData();
 </script>
 </body>
