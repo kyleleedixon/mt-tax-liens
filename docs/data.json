@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-01T10:14:27.825595+00:00",
+  "generatedAt": "2026-04-02T10:09:30.235162+00:00",
   "county": "Gallatin",
   "state": "Montana",
   "sourceUrl": "https://www.gallatinmt.gov/sites/g/files/vyhlif606/f/uploads/2020_-_2024_dlq_as_of_1-28-26.pdf",
@@ -35,7 +35,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFH24348",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0905-31-3-01-10-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:22.625640+00:00"
+      "scrapedAt": "2026-04-02T10:08:26.905850+00:00"
     },
     {
       "parcelId": "RFD63367",
@@ -59,7 +59,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFD63367",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0901-11-2-02-01-1001&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:44.700411+00:00"
+      "scrapedAt": "2026-04-02T10:07:50.123015+00:00"
     },
     {
       "parcelId": "RGF57099",
@@ -83,7 +83,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGF57099",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0797-12-3-05-02-4000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:24.569088+00:00"
+      "scrapedAt": "2026-04-02T10:07:30.607273+00:00"
     },
     {
       "parcelId": "RGI13512",
@@ -107,7 +107,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGI13512",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0800-20-1-01-02-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:40.946258+00:00"
+      "scrapedAt": "2026-04-02T10:08:44.692743+00:00"
     },
     {
       "parcelId": "RGI13642",
@@ -131,7 +131,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGI13642",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0800-35-2-01-10-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:38.505379+00:00"
+      "scrapedAt": "2026-04-02T10:08:42.302677+00:00"
     },
     {
       "parcelId": "RQF17048",
@@ -155,7 +155,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RQF17048",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0085-24-3-04-03-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:26.103438+00:00"
+      "scrapedAt": "2026-04-02T10:09:28.545453+00:00"
     },
     {
       "parcelId": "RFF15510",
@@ -179,7 +179,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFF15510",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0903-12-3-01-39-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:44.599889+00:00"
+      "scrapedAt": "2026-04-02T10:08:48.241025+00:00"
     },
     {
       "parcelId": "RFG56547",
@@ -203,7 +203,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFG56547",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0904-35-2-02-15-7501&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:11.593271+00:00"
+      "scrapedAt": "2026-04-02T10:08:16.188667+00:00"
     },
     {
       "parcelId": "RGG1899",
@@ -227,7 +227,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG1899",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-01-1-92-11-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:30.568120+00:00"
+      "scrapedAt": "2026-04-02T10:08:34.605135+00:00"
     },
     {
       "parcelId": "RCE31226",
@@ -251,7 +251,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RCE31226",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1209-02-2-01-07-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:06.567289+00:00"
+      "scrapedAt": "2026-04-02T10:09:09.585309+00:00"
     },
     {
       "parcelId": "RCE26702",
@@ -275,7 +275,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RCE26702",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1209-15-3-01-15-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:09.623015+00:00"
+      "scrapedAt": "2026-04-02T10:09:12.545035+00:00"
     },
     {
       "parcelId": "RCE27379",
@@ -299,7 +299,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RCE27379",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1209-03-2-01-11-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:04.133408+00:00"
+      "scrapedAt": "2026-04-02T10:09:07.221579+00:00"
     },
     {
       "parcelId": "RGH6271",
@@ -323,7 +323,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH6271",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-06-2-05-05-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:54.474757+00:00"
+      "scrapedAt": "2026-04-02T10:07:59.610423+00:00"
     },
     {
       "parcelId": "RGH27829",
@@ -347,7 +347,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH27829",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-06-4-20-15-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:29.349895+00:00"
+      "scrapedAt": "2026-04-02T10:08:33.423179+00:00"
     },
     {
       "parcelId": "RFF14199",
@@ -371,7 +371,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFF14199",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0903-01-3-29-15-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:45.825852+00:00"
+      "scrapedAt": "2026-04-02T10:08:49.436998+00:00"
     },
     {
       "parcelId": "RGH3117",
@@ -395,7 +395,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH3117",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-06-1-11-25-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:37.982299+00:00"
+      "scrapedAt": "2026-04-02T10:07:43.610497+00:00"
     },
     {
       "parcelId": "RGH4967",
@@ -419,7 +419,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH4967",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-06-4-03-17-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:29.959689+00:00"
+      "scrapedAt": "2026-04-02T10:08:34.014429+00:00"
     },
     {
       "parcelId": "RFF51408",
@@ -443,7 +443,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFF51408",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0903-01-3-37-24-7026&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:41.039487+00:00"
+      "scrapedAt": "2026-04-02T10:07:46.569989+00:00"
     },
     {
       "parcelId": "RCE43644",
@@ -467,7 +467,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RCE43644",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1209-15-2-01-19-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:03.523566+00:00"
+      "scrapedAt": "2026-04-02T10:09:06.629504+00:00"
     },
     {
       "parcelId": "RGG5904",
@@ -491,7 +491,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG5904",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-12-2-11-05-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:53.865777+00:00"
+      "scrapedAt": "2026-04-02T10:07:59.016482+00:00"
     },
     {
       "parcelId": "RFF60540",
@@ -515,7 +515,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFF60540",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0903-11-4-01-11-4000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:43.381560+00:00"
+      "scrapedAt": "2026-04-02T10:08:47.056679+00:00"
     },
     {
       "parcelId": "RGH3741",
@@ -539,7 +539,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH3741",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-07-2-13-28-7001&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:27.512033+00:00"
+      "scrapedAt": "2026-04-02T10:08:31.645299+00:00"
     },
     {
       "parcelId": "RGG1918",
@@ -563,7 +563,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG1918",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-12-4-58-17-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:03.035467+00:00"
+      "scrapedAt": "2026-04-02T10:08:07.897015+00:00"
     },
     {
       "parcelId": "RGH2302",
@@ -587,7 +587,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH2302",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-07-2-06-42-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:26.291326+00:00"
+      "scrapedAt": "2026-04-02T10:08:30.459293+00:00"
     },
     {
       "parcelId": "RGG20765",
@@ -611,7 +611,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG20765",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-10-4-09-04-7006&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:06.698175+00:00"
+      "scrapedAt": "2026-04-02T10:08:11.452166+00:00"
     },
     {
       "parcelId": "RFH24347",
@@ -635,7 +635,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFH24347",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0905-31-2-02-10-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:21.997915+00:00"
+      "scrapedAt": "2026-04-02T10:08:26.296970+00:00"
     },
     {
       "parcelId": "RGE58340",
@@ -659,7 +659,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGE58340",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0796-09-4-02-40-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:51.940458+00:00"
+      "scrapedAt": "2026-04-02T10:08:55.376871+00:00"
     },
     {
       "parcelId": "RCE43615",
@@ -683,7 +683,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RCE43615",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1209-06-4-01-19-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:08.405849+00:00"
+      "scrapedAt": "2026-04-02T10:09:11.359091+00:00"
     },
     {
       "parcelId": "RCE27455",
@@ -707,7 +707,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RCE27455",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1209-14-4-01-29-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:05.349099+00:00"
+      "scrapedAt": "2026-04-02T10:09:08.401380+00:00"
     },
     {
       "parcelId": "RCE27392",
@@ -731,7 +731,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RCE27392",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1209-14-4-01-19-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:04.741239+00:00"
+      "scrapedAt": "2026-04-02T10:09:07.811891+00:00"
     },
     {
       "parcelId": "RBE27447",
@@ -755,7 +755,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RBE27447",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1300-35-3-02-01-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:07.795360+00:00"
+      "scrapedAt": "2026-04-02T10:09:10.767148+00:00"
     },
     {
       "parcelId": "RGH29484",
@@ -779,7 +779,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH29484",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-06-4-27-03-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:28.737966+00:00"
+      "scrapedAt": "2026-04-02T10:08:32.832630+00:00"
     },
     {
       "parcelId": "RGE19763",
@@ -803,7 +803,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGE19763",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0796-04-2-01-01-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:50.704986+00:00"
+      "scrapedAt": "2026-04-02T10:08:54.169276+00:00"
     },
     {
       "parcelId": "RCE28227",
@@ -827,7 +827,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RCE28227",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1209-13-1-01-13-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:10.848401+00:00"
+      "scrapedAt": "2026-04-02T10:09:13.726382+00:00"
     },
     {
       "parcelId": "RCE26889",
@@ -851,7 +851,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RCE26889",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1209-07-1-01-05-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:01.695579+00:00"
+      "scrapedAt": "2026-04-02T10:09:04.853985+00:00"
     },
     {
       "parcelId": "REF81144",
@@ -875,7 +875,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=REF81144",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1010-35-3-05-04-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:32.497484+00:00"
+      "scrapedAt": "2026-04-02T10:07:38.284093+00:00"
     },
     {
       "parcelId": "RDC63241",
@@ -899,7 +899,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RDC63241",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1105-25-3-60-19-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:33.009561+00:00"
+      "scrapedAt": "2026-04-02T10:08:36.977843+00:00"
     },
     {
       "parcelId": "RFF85761",
@@ -923,7 +923,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFF85761",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0903-25-2-01-16-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:11.457740+00:00"
+      "scrapedAt": "2026-04-02T10:09:14.318255+00:00"
     },
     {
       "parcelId": "RFE19765",
@@ -947,7 +947,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFE19765",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0902-31-1-01-01-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:49.481878+00:00"
+      "scrapedAt": "2026-04-02T10:08:52.986840+00:00"
     },
     {
       "parcelId": "RGI34075",
@@ -971,7 +971,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGI34075",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0800-26-3-01-51-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:39.113825+00:00"
+      "scrapedAt": "2026-04-02T10:08:42.907129+00:00"
     },
     {
       "parcelId": "RGH3740",
@@ -995,7 +995,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH3740",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-07-2-13-28-7053&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:26.901974+00:00"
+      "scrapedAt": "2026-04-02T10:08:31.050325+00:00"
     },
     {
       "parcelId": "RDG15174",
@@ -1019,7 +1019,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RDG15174",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1110-32-3-02-01-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:18.773868+00:00"
+      "scrapedAt": "2026-04-02T10:09:21.413811+00:00"
     },
     {
       "parcelId": "RCE26113",
@@ -1043,7 +1043,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RCE26113",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1209-18-4-01-17-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:01.080113+00:00"
+      "scrapedAt": "2026-04-02T10:09:04.262452+00:00"
     },
     {
       "parcelId": "RGH62165",
@@ -1067,7 +1067,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH62165",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-06-2-05-45-4000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:00.592173+00:00"
+      "scrapedAt": "2026-04-02T10:08:05.523055+00:00"
     },
     {
       "parcelId": "REE22009",
@@ -1091,7 +1091,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=REE22009",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1009-10-1-20-01-2002&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:53.243157+00:00"
+      "scrapedAt": "2026-04-02T10:07:58.409833+00:00"
     },
     {
       "parcelId": "RFG56144",
@@ -1115,7 +1115,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFG56144",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0904-05-2-02-01-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:13.287111+00:00"
+      "scrapedAt": "2026-04-02T10:09:16.090861+00:00"
     },
     {
       "parcelId": "REF81147",
@@ -1139,7 +1139,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=REF81147",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1010-35-3-03-45-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:33.105867+00:00"
+      "scrapedAt": "2026-04-02T10:07:38.873690+00:00"
     },
     {
       "parcelId": "REG39335",
@@ -1163,7 +1163,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=REG39335",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1011-02-3-01-09-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:17.555510+00:00"
+      "scrapedAt": "2026-04-02T10:09:20.231399+00:00"
     },
     {
       "parcelId": "RGE39230",
@@ -1187,7 +1187,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGE39230",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-06-2-05-07-2001&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:34.321303+00:00"
+      "scrapedAt": "2026-04-02T10:07:40.056962+00:00"
     },
     {
       "parcelId": "REE85756",
@@ -1211,7 +1211,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=REE85756",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1009-10-4-08-85-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:51.409697+00:00"
+      "scrapedAt": "2026-04-02T10:07:56.634795+00:00"
     },
     {
       "parcelId": "REE85751",
@@ -1235,7 +1235,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=REE85751",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1009-10-4-08-02-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:48.361062+00:00"
+      "scrapedAt": "2026-04-02T10:07:53.674549+00:00"
     },
     {
       "parcelId": "REE85757",
@@ -1259,7 +1259,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=REE85757",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1009-10-4-08-87-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:52.017504+00:00"
+      "scrapedAt": "2026-04-02T10:07:57.227227+00:00"
     },
     {
       "parcelId": "REE46379",
@@ -1283,7 +1283,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=REE46379",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1009-10-4-08-01-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:47.144333+00:00"
+      "scrapedAt": "2026-04-02T10:07:52.490241+00:00"
     },
     {
       "parcelId": "REE85758",
@@ -1307,7 +1307,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=REE85758",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1009-10-4-08-88-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:52.632612+00:00"
+      "scrapedAt": "2026-04-02T10:07:57.817204+00:00"
     },
     {
       "parcelId": "REE85755",
@@ -1331,7 +1331,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=REE85755",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1009-10-4-08-84-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:50.801325+00:00"
+      "scrapedAt": "2026-04-02T10:07:56.041549+00:00"
     },
     {
       "parcelId": "REE85752",
@@ -1355,7 +1355,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=REE85752",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1009-10-4-08-04-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:48.972093+00:00"
+      "scrapedAt": "2026-04-02T10:07:54.265302+00:00"
     },
     {
       "parcelId": "REE85754",
@@ -1379,7 +1379,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=REE85754",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1009-10-4-08-82-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:50.191392+00:00"
+      "scrapedAt": "2026-04-02T10:07:55.448231+00:00"
     },
     {
       "parcelId": "REE46380",
@@ -1403,7 +1403,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=REE46380",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1009-10-4-08-03-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:47.752212+00:00"
+      "scrapedAt": "2026-04-02T10:07:53.083437+00:00"
     },
     {
       "parcelId": "REE85753",
@@ -1427,7 +1427,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=REE85753",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1009-10-4-08-81-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:49.582912+00:00"
+      "scrapedAt": "2026-04-02T10:07:54.855847+00:00"
     },
     {
       "parcelId": "RFF14557",
@@ -1451,7 +1451,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFF14557",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0903-12-2-57-01-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:45.210089+00:00"
+      "scrapedAt": "2026-04-02T10:08:48.835443+00:00"
     },
     {
       "parcelId": "RBE23749",
@@ -1475,7 +1475,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RBE23749",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1300-31-1-04-03-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:09.015032+00:00"
+      "scrapedAt": "2026-04-02T10:09:11.954162+00:00"
     },
     {
       "parcelId": "RGH2452",
@@ -1499,7 +1499,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH2452",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-18-3-04-20-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:59.369585+00:00"
+      "scrapedAt": "2026-04-02T10:08:04.334216+00:00"
     },
     {
       "parcelId": "RCE28231",
@@ -1523,7 +1523,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RCE28231",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1209-01-2-01-03-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:10.240299+00:00"
+      "scrapedAt": "2026-04-02T10:09:13.135088+00:00"
     },
     {
       "parcelId": "RGG86383",
@@ -1547,7 +1547,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG86383",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-24-3-13-01-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:08.542864+00:00"
+      "scrapedAt": "2026-04-02T10:08:13.224137+00:00"
     },
     {
       "parcelId": "RGI27768",
@@ -1571,7 +1571,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGI27768",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0800-20-4-40-01-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:40.336848+00:00"
+      "scrapedAt": "2026-04-02T10:08:44.103231+00:00"
     },
     {
       "parcelId": "RFG56145",
@@ -1595,7 +1595,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFG56145",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0904-05-2-02-03-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:13.898453+00:00"
+      "scrapedAt": "2026-04-02T10:09:16.682095+00:00"
     },
     {
       "parcelId": "RGF69775",
@@ -1619,7 +1619,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGF69775",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0797-14-1-31-15-7008&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:35.451143+00:00"
+      "scrapedAt": "2026-04-02T10:08:39.342186+00:00"
     },
     {
       "parcelId": "RGF69774",
@@ -1643,7 +1643,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGF69774",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0797-14-1-31-15-7007&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:34.840365+00:00"
+      "scrapedAt": "2026-04-02T10:08:38.750750+00:00"
     },
     {
       "parcelId": "RGF45552",
@@ -1667,7 +1667,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGF45552",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0797-13-4-01-41-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:34.227785+00:00"
+      "scrapedAt": "2026-04-02T10:08:38.161111+00:00"
     },
     {
       "parcelId": "RFF39159",
@@ -1691,7 +1691,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFF39159",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0903-02-1-68-21-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:42.162805+00:00"
+      "scrapedAt": "2026-04-02T10:08:45.874551+00:00"
     },
     {
       "parcelId": "RFF50083",
@@ -1715,7 +1715,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFF50083",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0903-04-4-07-28-7001&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:46.536160+00:00"
+      "scrapedAt": "2026-04-02T10:07:51.897285+00:00"
     },
     {
       "parcelId": "REF62207",
@@ -1739,7 +1739,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=REF62207",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0904-07-1-01-01-4164&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:12.065420+00:00"
+      "scrapedAt": "2026-04-02T10:09:14.907622+00:00"
     },
     {
       "parcelId": "RRG32658",
@@ -1763,7 +1763,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RRG32658",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0062-34-3-76-15-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:48.259806+00:00"
+      "scrapedAt": "2026-04-02T10:08:51.803927+00:00"
     },
     {
       "parcelId": "RFF15250",
@@ -1787,7 +1787,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFF15250",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0904-07-1-01-06-4000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:20.006085+00:00"
+      "scrapedAt": "2026-04-02T10:09:22.608992+00:00"
     },
     {
       "parcelId": "RFG83796",
@@ -1811,7 +1811,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFG83796",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0904-05-2-04-13-7016&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:16.334498+00:00"
+      "scrapedAt": "2026-04-02T10:09:19.044014+00:00"
     },
     {
       "parcelId": "RGG5206",
@@ -1835,7 +1835,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG5206",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-12-2-30-07-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:05.474984+00:00"
+      "scrapedAt": "2026-04-02T10:08:10.267050+00:00"
     },
     {
       "parcelId": "RRG16884",
@@ -1859,7 +1859,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RRG16884",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0062-34-2-06-06-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:47.043053+00:00"
+      "scrapedAt": "2026-04-02T10:08:50.620711+00:00"
     },
     {
       "parcelId": "RFF82072",
@@ -1883,7 +1883,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFF82072",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0903-12-1-49-03-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:41.554112+00:00"
+      "scrapedAt": "2026-04-02T10:08:45.284304+00:00"
     },
     {
       "parcelId": "RFG8580",
@@ -1907,7 +1907,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFG8580",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0904-35-1-01-13-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:36.154039+00:00"
+      "scrapedAt": "2026-04-02T10:07:41.833734+00:00"
     },
     {
       "parcelId": "RFG10150",
@@ -1931,7 +1931,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFG10150",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0904-35-1-01-25-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:35.542837+00:00"
+      "scrapedAt": "2026-04-02T10:07:41.241999+00:00"
     },
     {
       "parcelId": "RGG1203",
@@ -1955,7 +1955,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG1203",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-01-3-02-06-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:25.680392+00:00"
+      "scrapedAt": "2026-04-02T10:08:29.869409+00:00"
     },
     {
       "parcelId": "RGG69621",
@@ -1979,7 +1979,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG69621",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-03-1-11-07-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:02.424217+00:00"
+      "scrapedAt": "2026-04-02T10:08:07.304873+00:00"
     },
     {
       "parcelId": "RGH2436",
@@ -2003,7 +2003,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH2436",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-18-1-20-45-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:03.645460+00:00"
+      "scrapedAt": "2026-04-02T10:08:08.490043+00:00"
     },
     {
       "parcelId": "RGH4764",
@@ -2027,7 +2027,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH4764",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-18-3-37-03-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:15.873115+00:00"
+      "scrapedAt": "2026-04-02T10:08:20.375931+00:00"
     },
     {
       "parcelId": "RRG16674",
@@ -2051,7 +2051,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RRG16674",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0062-34-1-01-20-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:41.652885+00:00"
+      "scrapedAt": "2026-04-02T10:07:47.165130+00:00"
     },
     {
       "parcelId": "RFF14054",
@@ -2075,7 +2075,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFF14054",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0903-12-1-13-15-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:43.989629+00:00"
+      "scrapedAt": "2026-04-02T10:08:47.647196+00:00"
     },
     {
       "parcelId": "RFF13934",
@@ -2099,7 +2099,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFF13934",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0903-01-2-07-15-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:42.773368+00:00"
+      "scrapedAt": "2026-04-02T10:08:46.466205+00:00"
     },
     {
       "parcelId": "RGG49051",
@@ -2123,7 +2123,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG49051",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-19-3-21-05-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:10.373359+00:00"
+      "scrapedAt": "2026-04-02T10:08:15.005318+00:00"
     },
     {
       "parcelId": "RFG47921",
@@ -2147,7 +2147,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFG47921",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0904-34-3-01-15-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:20.160288+00:00"
+      "scrapedAt": "2026-04-02T10:08:24.524322+00:00"
     },
     {
       "parcelId": "RBE28942",
@@ -2171,7 +2171,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RBE28942",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1300-30-4-01-09-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:07.182696+00:00"
+      "scrapedAt": "2026-04-02T10:09:10.174833+00:00"
     },
     {
       "parcelId": "RGG29053",
@@ -2195,7 +2195,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG29053",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-10-1-31-14-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:24.458183+00:00"
+      "scrapedAt": "2026-04-02T10:08:28.686040+00:00"
     },
     {
       "parcelId": "RGH5008",
@@ -2219,7 +2219,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH5008",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-17-3-12-14-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:23.848297+00:00"
+      "scrapedAt": "2026-04-02T10:08:28.095657+00:00"
     },
     {
       "parcelId": "RFG87430",
@@ -2243,7 +2243,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFG87430",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0904-35-2-06-09-7004&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:14.649721+00:00"
+      "scrapedAt": "2026-04-02T10:08:19.191057+00:00"
     },
     {
       "parcelId": "RGH5932",
@@ -2267,7 +2267,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH5932",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-06-3-05-32-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:06.086000+00:00"
+      "scrapedAt": "2026-04-02T10:08:10.856873+00:00"
     },
     {
       "parcelId": "RGG48390",
@@ -2291,7 +2291,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG48390",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-02-3-37-25-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:25.069432+00:00"
+      "scrapedAt": "2026-04-02T10:08:29.278945+00:00"
     },
     {
       "parcelId": "RGH5291",
@@ -2315,7 +2315,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH5291",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-12-3-14-11-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:10.982326+00:00"
+      "scrapedAt": "2026-04-02T10:08:15.595395+00:00"
     },
     {
       "parcelId": "RGG53265",
@@ -2339,7 +2339,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG53265",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-03-4-37-23-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:18.329125+00:00"
+      "scrapedAt": "2026-04-02T10:08:22.743864+00:00"
     },
     {
       "parcelId": "RGH1889",
@@ -2363,7 +2363,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH1889",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-07-1-19-25-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:07.312285+00:00"
+      "scrapedAt": "2026-04-02T10:08:12.043582+00:00"
     },
     {
       "parcelId": "RFE22731",
@@ -2387,7 +2387,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFE22731",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0902-32-2-01-01-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:50.092654+00:00"
+      "scrapedAt": "2026-04-02T10:08:53.577028+00:00"
     },
     {
       "parcelId": "RGH4569",
@@ -2411,7 +2411,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH4569",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-06-3-12-24-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:17.717315+00:00"
+      "scrapedAt": "2026-04-02T10:08:22.152709+00:00"
     },
     {
       "parcelId": "RGH3440",
@@ -2435,7 +2435,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH3440",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-06-3-01-05-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:04.255660+00:00"
+      "scrapedAt": "2026-04-02T10:08:09.081174+00:00"
     },
     {
       "parcelId": "RGH6209",
@@ -2459,7 +2459,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH6209",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-18-2-01-19-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:01.204942+00:00"
+      "scrapedAt": "2026-04-02T10:08:06.119415+00:00"
     },
     {
       "parcelId": "RGH4704",
@@ -2483,7 +2483,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH4704",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-17-3-45-01-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:15.263190+00:00"
+      "scrapedAt": "2026-04-02T10:08:19.782386+00:00"
     },
     {
       "parcelId": "RCE23777",
@@ -2507,7 +2507,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RCE23777",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1209-06-3-01-19-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:02.305869+00:00"
+      "scrapedAt": "2026-04-02T10:09:05.444780+00:00"
     },
     {
       "parcelId": "RFI7603",
@@ -2531,7 +2531,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFI7603",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0906-10-2-01-30-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:56.819640+00:00"
+      "scrapedAt": "2026-04-02T10:09:00.110014+00:00"
     },
     {
       "parcelId": "RGG34664",
@@ -2555,7 +2555,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG34664",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-11-2-82-34-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:04.864914+00:00"
+      "scrapedAt": "2026-04-02T10:08:09.672950+00:00"
     },
     {
       "parcelId": "RGH2846",
@@ -2579,7 +2579,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH2846",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-07-2-33-49-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:19.549915+00:00"
+      "scrapedAt": "2026-04-02T10:08:23.933294+00:00"
     },
     {
       "parcelId": "RHF12694",
@@ -2603,7 +2603,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RHF12694",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0697-25-4-02-95-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:37.281609+00:00"
+      "scrapedAt": "2026-04-02T10:08:41.116436+00:00"
     },
     {
       "parcelId": "RLE46991",
@@ -2627,7 +2627,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RLE46991",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0338-10-2-03-03-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:53.764535+00:00"
+      "scrapedAt": "2026-04-02T10:08:57.150884+00:00"
     },
     {
       "parcelId": "RGG67748",
@@ -2651,7 +2651,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG67748",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-09-2-04-13-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:18.940082+00:00"
+      "scrapedAt": "2026-04-02T10:08:23.339359+00:00"
     },
     {
       "parcelId": "RGI40689",
@@ -2675,7 +2675,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGI40689",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0800-26-3-01-75-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:39.722883+00:00"
+      "scrapedAt": "2026-04-02T10:08:43.505868+00:00"
     },
     {
       "parcelId": "RGH63746",
@@ -2699,7 +2699,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH63746",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-17-1-04-05-7025&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:34.929885+00:00"
+      "scrapedAt": "2026-04-02T10:07:40.648119+00:00"
     },
     {
       "parcelId": "RFF62098",
@@ -2723,7 +2723,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFF62098",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0903-26-1-07-25-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:45.315582+00:00"
+      "scrapedAt": "2026-04-02T10:07:50.713604+00:00"
     },
     {
       "parcelId": "RCE25976",
@@ -2747,7 +2747,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RCE25976",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1209-14-1-01-21-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:05.957351+00:00"
+      "scrapedAt": "2026-04-02T10:09:08.992892+00:00"
     },
     {
       "parcelId": "RGG87513",
@@ -2771,7 +2771,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG87513",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-11-3-01-26-7017&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:21.380420+00:00"
+      "scrapedAt": "2026-04-02T10:08:25.705777+00:00"
     },
     {
       "parcelId": "RRF18038",
@@ -2795,7 +2795,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RRF18038",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0061-23-4-04-01-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:24.276181+00:00"
+      "scrapedAt": "2026-04-02T10:09:26.771768+00:00"
     },
     {
       "parcelId": "RFG52693",
@@ -2819,7 +2819,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFG52693",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0904-34-4-09-33-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:17.105922+00:00"
+      "scrapedAt": "2026-04-02T10:08:21.562945+00:00"
     },
     {
       "parcelId": "RGG34557",
@@ -2843,7 +2843,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG34557",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-11-1-02-21-5002&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:55.083402+00:00"
+      "scrapedAt": "2026-04-02T10:08:00.200517+00:00"
     },
     {
       "parcelId": "RDE49384",
@@ -2867,7 +2867,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RDE49384",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1108-15-3-01-50-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:55.596424+00:00"
+      "scrapedAt": "2026-04-02T10:08:58.925590+00:00"
     },
     {
       "parcelId": "RGG53359",
@@ -2891,7 +2891,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG53359",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-11-3-53-59-7005&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:01.813299+00:00"
+      "scrapedAt": "2026-04-02T10:08:06.714391+00:00"
     },
     {
       "parcelId": "RFG83343",
@@ -2915,7 +2915,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFG83343",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0904-35-2-12-03-7007&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:14.038008+00:00"
+      "scrapedAt": "2026-04-02T10:08:18.551134+00:00"
     },
     {
       "parcelId": "RGG50883",
@@ -2939,7 +2939,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG50883",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-10-2-08-41-5003&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:12.812829+00:00"
+      "scrapedAt": "2026-04-02T10:08:17.369414+00:00"
     },
     {
       "parcelId": "RGH29087",
@@ -2963,7 +2963,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH29087",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-07-2-25-08-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:56.305521+00:00"
+      "scrapedAt": "2026-04-02T10:08:01.384055+00:00"
     },
     {
       "parcelId": "RGG87939",
@@ -2987,7 +2987,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG87939",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-02-1-02-04-7006&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:58.757325+00:00"
+      "scrapedAt": "2026-04-02T10:08:03.744547+00:00"
     },
     {
       "parcelId": "RFE84688",
@@ -3011,7 +3011,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFE84688",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0902-10-1-03-01-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:52.547931+00:00"
+      "scrapedAt": "2026-04-02T10:08:55.967217+00:00"
     },
     {
       "parcelId": "RDC10924",
@@ -3035,7 +3035,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RDC10924",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1105-25-3-50-05-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:33.617495+00:00"
+      "scrapedAt": "2026-04-02T10:08:37.567927+00:00"
     },
     {
       "parcelId": "RGG2318",
@@ -3059,7 +3059,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG2318",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-12-3-19-11-7001&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:16.488935+00:00"
+      "scrapedAt": "2026-04-02T10:08:20.965821+00:00"
     },
     {
       "parcelId": "RHG41796",
@@ -3083,7 +3083,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RHG41796",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0698-17-3-01-01-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:39.206510+00:00"
+      "scrapedAt": "2026-04-02T10:07:44.794037+00:00"
     },
     {
       "parcelId": "RGG58788",
@@ -3107,7 +3107,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG58788",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-04-3-21-01-7006&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:59.980653+00:00"
+      "scrapedAt": "2026-04-02T10:08:04.925439+00:00"
     },
     {
       "parcelId": "RGG50150",
@@ -3131,7 +3131,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG50150",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-04-3-09-01-7017&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:20.769937+00:00"
+      "scrapedAt": "2026-04-02T10:08:25.115859+00:00"
     },
     {
       "parcelId": "RGG85033",
@@ -3155,7 +3155,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG85033",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-02-1-02-58-7043&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:13.427750+00:00"
+      "scrapedAt": "2026-04-02T10:08:17.959387+00:00"
     },
     {
       "parcelId": "RDC11130",
@@ -3179,7 +3179,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RDC11130",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1105-25-3-15-11-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:32.396855+00:00"
+      "scrapedAt": "2026-04-02T10:08:36.380324+00:00"
     },
     {
       "parcelId": "RDC11252",
@@ -3203,7 +3203,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RDC11252",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1105-25-3-86-11-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:39.815668+00:00"
+      "scrapedAt": "2026-04-02T10:07:45.384952+00:00"
     },
     {
       "parcelId": "RDC29403",
@@ -3227,7 +3227,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RDC29403",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1105-35-1-86-10-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:31.787645+00:00"
+      "scrapedAt": "2026-04-02T10:08:35.785111+00:00"
     },
     {
       "parcelId": "RGG65892",
@@ -3251,7 +3251,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG65892",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-10-3-02-05-7080&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:09.152790+00:00"
+      "scrapedAt": "2026-04-02T10:08:13.818272+00:00"
     },
     {
       "parcelId": "RGG70053",
@@ -3275,7 +3275,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG70053",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-23-2-02-10-7040&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:09.764966+00:00"
+      "scrapedAt": "2026-04-02T10:08:14.410801+00:00"
     },
     {
       "parcelId": "REI12917",
@@ -3299,7 +3299,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=REI12917",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1013-11-1-01-04-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:43.483204+00:00"
+      "scrapedAt": "2026-04-02T10:07:48.942696+00:00"
     },
     {
       "parcelId": "REF45118",
@@ -3323,7 +3323,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=REF45118",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1010-28-2-02-23-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:21.832872+00:00"
+      "scrapedAt": "2026-04-02T10:09:24.387753+00:00"
     },
     {
       "parcelId": "RFG15708",
@@ -3347,7 +3347,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFG15708",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0904-02-3-01-04-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:18.164116+00:00"
+      "scrapedAt": "2026-04-02T10:09:20.823973+00:00"
     },
     {
       "parcelId": "RFE52960",
@@ -3371,7 +3371,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFE52960",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0902-13-2-04-13-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:51.329955+00:00"
+      "scrapedAt": "2026-04-02T10:08:54.783542+00:00"
     },
     {
       "parcelId": "REF29984",
@@ -3395,7 +3395,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=REF29984",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1010-33-1-48-01-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:21.224686+00:00"
+      "scrapedAt": "2026-04-02T10:09:23.792094+00:00"
     },
     {
       "parcelId": "REF14983",
@@ -3419,7 +3419,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=REF14983",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1010-01-1-05-32-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:20.616249+00:00"
+      "scrapedAt": "2026-04-02T10:09:23.202092+00:00"
     },
     {
       "parcelId": "RRG16748",
@@ -3443,7 +3443,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RRG16748",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0062-34-1-13-03-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:47.650551+00:00"
+      "scrapedAt": "2026-04-02T10:08:51.210843+00:00"
     },
     {
       "parcelId": "RGG10242",
@@ -3467,7 +3467,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG10242",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-09-4-66-05-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:22.698665+00:00"
+      "scrapedAt": "2026-04-02T10:07:28.607543+00:00"
     },
     {
       "parcelId": "RGH24456",
@@ -3491,7 +3491,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH24456",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-18-4-53-56-0100&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:36.763019+00:00"
+      "scrapedAt": "2026-04-02T10:07:42.424341+00:00"
     },
     {
       "parcelId": "RGH9551",
@@ -3515,7 +3515,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH9551",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-05-3-50-02-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:23.928587+00:00"
+      "scrapedAt": "2026-04-02T10:07:29.968812+00:00"
     },
     {
       "parcelId": "RFF15608",
@@ -3539,7 +3539,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFF15608",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0903-14-1-01-18-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:15.116932+00:00"
+      "scrapedAt": "2026-04-02T10:09:17.864276+00:00"
     },
     {
       "parcelId": "RFF34432",
@@ -3563,7 +3563,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFF34432",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0903-03-2-50-18-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:16.947708+00:00"
+      "scrapedAt": "2026-04-02T10:09:19.637793+00:00"
     },
     {
       "parcelId": "RFG7559",
@@ -3587,7 +3587,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFG7559",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0904-24-3-01-17-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:57.428008+00:00"
+      "scrapedAt": "2026-04-02T10:09:00.707217+00:00"
     },
     {
       "parcelId": "RFI8182",
@@ -3611,7 +3611,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFI8182",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0906-31-2-01-02-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:56.208790+00:00"
+      "scrapedAt": "2026-04-02T10:08:59.518375+00:00"
     },
     {
       "parcelId": "REF52723",
@@ -3635,7 +3635,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=REF52723",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1010-25-2-70-01-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:15.725634+00:00"
+      "scrapedAt": "2026-04-02T10:09:18.453794+00:00"
     },
     {
       "parcelId": "RHI28867",
@@ -3659,7 +3659,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RHI28867",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0700-12-1-01-43-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:40.425639+00:00"
+      "scrapedAt": "2026-04-02T10:07:45.976855+00:00"
     },
     {
       "parcelId": "REF16243",
@@ -3683,7 +3683,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=REF16243",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1010-28-1-01-12-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:23.050036+00:00"
+      "scrapedAt": "2026-04-02T10:09:25.591141+00:00"
     },
     {
       "parcelId": "RDC85341",
@@ -3707,7 +3707,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RDC85341",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1007-19-1-04-13-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:31.179364+00:00"
+      "scrapedAt": "2026-04-02T10:08:35.194475+00:00"
     },
     {
       "parcelId": "REE41276",
@@ -3731,7 +3731,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=REE41276",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1009-10-2-30-20-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:29.446544+00:00"
+      "scrapedAt": "2026-04-02T10:07:35.332667+00:00"
     },
     {
       "parcelId": "RGH25947",
@@ -3755,7 +3755,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH25947",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-18-3-04-34-7018&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:37.371922+00:00"
+      "scrapedAt": "2026-04-02T10:07:43.015552+00:00"
     },
     {
       "parcelId": "RFG86680",
@@ -3779,7 +3779,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFG86680",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0904-06-3-02-04-7401&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:45.925453+00:00"
+      "scrapedAt": "2026-04-02T10:07:51.305775+00:00"
     },
     {
       "parcelId": "RGH6874",
@@ -3803,7 +3803,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH6874",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-19-4-01-06-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:30.058996+00:00"
+      "scrapedAt": "2026-04-02T10:07:35.924510+00:00"
     },
     {
       "parcelId": "REF1099",
@@ -3827,7 +3827,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=REF1099",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1010-19-2-11-02-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:27.325235+00:00"
+      "scrapedAt": "2026-04-02T10:09:29.734694+00:00"
     },
     {
       "parcelId": "RFE19537",
@@ -3851,7 +3851,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFE19537",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0902-13-3-01-18-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:48.869462+00:00"
+      "scrapedAt": "2026-04-02T10:08:52.395566+00:00"
     },
     {
       "parcelId": "REF22774",
@@ -3875,14 +3875,14 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=REF22774",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1010-33-4-02-70-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:22.442182+00:00"
+      "scrapedAt": "2026-04-02T10:09:24.999997+00:00"
     },
     {
       "parcelId": "RRF29457",
       "owner": "FERRARI MOUNTAIN GETAWAY LLC",
       "mailingAddress": "4520 S RIVER RD WEST SACRAMENTO, CA 956919746",
       "propertyAddress": "184 BULL ELK RD, WEST YELLOWSTONE MT 59758",
-      "status": "Delinquent",
+      "status": "Paid",
       "marketValue": 1357000.0,
       "taxableValue": 13570.0,
       "totalTaxes": 5015.88,
@@ -3899,7 +3899,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RRF29457",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0061-21-4-04-18-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:23.657654+00:00"
+      "scrapedAt": "2026-04-02T10:09:26.180728+00:00"
     },
     {
       "parcelId": "RFG16350",
@@ -3923,7 +3923,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFG16350",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0904-22-1-01-13-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:19.397543+00:00"
+      "scrapedAt": "2026-04-02T10:09:22.018434+00:00"
     },
     {
       "parcelId": "RDG34253",
@@ -3947,7 +3947,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RDG34253",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1110-34-4-01-23-0900&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:31.885193+00:00"
+      "scrapedAt": "2026-04-02T10:07:37.691514+00:00"
     },
     {
       "parcelId": "RHG20307",
@@ -3971,7 +3971,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RHG20307",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0698-07-3-04-01-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:38.597994+00:00"
+      "scrapedAt": "2026-04-02T10:07:44.204589+00:00"
     },
     {
       "parcelId": "RLF43115",
@@ -3995,7 +3995,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RLF43115",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0339-08-1-05-68-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:54.372154+00:00"
+      "scrapedAt": "2026-04-02T10:08:57.741184+00:00"
     },
     {
       "parcelId": "RHG9314",
@@ -4019,7 +4019,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RHG9314",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0698-01-1-01-15-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:59.253596+00:00"
+      "scrapedAt": "2026-04-02T10:09:02.489337+00:00"
     },
     {
       "parcelId": "RHF82127",
@@ -4043,7 +4043,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RHF82127",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0697-01-2-01-10-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:37.894969+00:00"
+      "scrapedAt": "2026-04-02T10:08:41.707364+00:00"
     },
     {
       "parcelId": "RFE24722",
@@ -4067,7 +4067,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFE24722",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0902-13-4-02-01-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:42.874259+00:00"
+      "scrapedAt": "2026-04-02T10:07:48.351341+00:00"
     },
     {
       "parcelId": "RFE19553",
@@ -4091,7 +4091,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFE19553",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0902-13-3-02-03-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:42.263897+00:00"
+      "scrapedAt": "2026-04-02T10:07:47.757815+00:00"
     },
     {
       "parcelId": "RDC31418",
@@ -4115,7 +4115,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RDC31418",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1105-35-4-81-10-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:00.470106+00:00"
+      "scrapedAt": "2026-04-02T10:09:03.671011+00:00"
     },
     {
       "parcelId": "RDC87558",
@@ -4139,7 +4139,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RDC87558",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1105-35-2-07-20-7004&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:59.861590+00:00"
+      "scrapedAt": "2026-04-02T10:09:03.080420+00:00"
     },
     {
       "parcelId": "RGH5813",
@@ -4163,7 +4163,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH5813",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-06-3-07-06-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:55.692920+00:00"
+      "scrapedAt": "2026-04-02T10:08:00.789891+00:00"
     },
     {
       "parcelId": "RFG6824",
@@ -4187,7 +4187,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFG6824",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0904-23-4-02-02-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:44.091921+00:00"
+      "scrapedAt": "2026-04-02T10:07:49.533556+00:00"
     },
     {
       "parcelId": "RFG10448",
@@ -4211,7 +4211,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFG10448",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0904-27-2-24-85-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:58.035731+00:00"
+      "scrapedAt": "2026-04-02T10:09:01.301189+00:00"
     },
     {
       "parcelId": "RGG69281",
@@ -4235,7 +4235,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG69281",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-23-2-01-55-4000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:58.644547+00:00"
+      "scrapedAt": "2026-04-02T10:09:01.898644+00:00"
     },
     {
       "parcelId": "RHF64027",
@@ -4259,7 +4259,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RHF64027",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0697-13-1-01-01-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:27.008708+00:00"
+      "scrapedAt": "2026-04-02T10:07:32.969364+00:00"
     },
     {
       "parcelId": "RGG67757",
@@ -4283,7 +4283,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG67757",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-09-2-05-15-5002&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:23.235999+00:00"
+      "scrapedAt": "2026-04-02T10:08:27.502616+00:00"
     },
     {
       "parcelId": "RRG23509",
@@ -4307,7 +4307,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RRG23509",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0062-27-3-36-06-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:46.434508+00:00"
+      "scrapedAt": "2026-04-02T10:08:50.030378+00:00"
     },
     {
       "parcelId": "RGF39367",
@@ -4331,7 +4331,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGF39367",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0797-14-4-08-30-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:36.060445+00:00"
+      "scrapedAt": "2026-04-02T10:08:39.933556+00:00"
     },
     {
       "parcelId": "RGG11894",
@@ -4355,7 +4355,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG11894",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-18-1-05-65-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:26.399763+00:00"
+      "scrapedAt": "2026-04-02T10:07:32.379332+00:00"
     },
     {
       "parcelId": "RGG11893",
@@ -4379,7 +4379,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG11893",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-18-1-05-43-0100&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:25.791256+00:00"
+      "scrapedAt": "2026-04-02T10:07:31.790116+00:00"
     },
     {
       "parcelId": "RGG33675",
@@ -4403,7 +4403,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG33675",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-11-1-11-05-4400&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:12.203887+00:00"
+      "scrapedAt": "2026-04-02T10:08:16.778643+00:00"
     },
     {
       "parcelId": "RIF18433",
@@ -4427,7 +4427,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RIF18433",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0602-33-4-01-24-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:54.988239+00:00"
+      "scrapedAt": "2026-04-02T10:08:58.334448+00:00"
     },
     {
       "parcelId": "RGG61539",
@@ -4451,7 +4451,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG61539",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-03-4-31-13-7002&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:07.927750+00:00"
+      "scrapedAt": "2026-04-02T10:08:12.634217+00:00"
     },
     {
       "parcelId": "RGH21241",
@@ -4475,7 +4475,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH21241",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-16-3-01-20-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:30.669041+00:00"
+      "scrapedAt": "2026-04-02T10:07:36.513486+00:00"
     },
     {
       "parcelId": "RHF12747",
@@ -4499,7 +4499,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RHF12747",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0697-11-2-97-02-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:36.669724+00:00"
+      "scrapedAt": "2026-04-02T10:08:40.523093+00:00"
     },
     {
       "parcelId": "RQF17744",
@@ -4523,7 +4523,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RQF17744",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0085-33-1-02-02-4000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:25.495663+00:00"
+      "scrapedAt": "2026-04-02T10:09:27.953838+00:00"
     },
     {
       "parcelId": "RRF87470",
@@ -4547,7 +4547,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RRF87470",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0061-15-2-01-30-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:24.887894+00:00"
+      "scrapedAt": "2026-04-02T10:09:27.363604+00:00"
     },
     {
       "parcelId": "RLF83303",
@@ -4571,7 +4571,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RLF83303",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0339-05-3-05-10-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:53.155790+00:00"
+      "scrapedAt": "2026-04-02T10:08:56.560054+00:00"
     },
     {
       "parcelId": "RQG32313",
@@ -4595,7 +4595,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RQG32313",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0086-15-2-02-27-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:26.712070+00:00"
+      "scrapedAt": "2026-04-02T10:09:29.141133+00:00"
     },
     {
       "parcelId": "REF46292",
@@ -4619,7 +4619,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=REF46292",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1010-34-2-06-25-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:12.672733+00:00"
+      "scrapedAt": "2026-04-02T10:09:15.498103+00:00"
     },
     {
       "parcelId": "RFF31722",
@@ -4643,7 +4643,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFF31722",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0903-02-2-04-04-0900&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:14.508008+00:00"
+      "scrapedAt": "2026-04-02T10:09:17.274416+00:00"
     },
     {
       "parcelId": "RGH2779",
@@ -4667,7 +4667,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH2779",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-07-2-06-35-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:13:28.127102+00:00"
+      "scrapedAt": "2026-04-02T10:08:32.236698+00:00"
     },
     {
       "parcelId": "RGG65258",
@@ -4691,7 +4691,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG65258",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-13-3-02-04-4000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:23.306722+00:00"
+      "scrapedAt": "2026-04-02T10:07:29.207141+00:00"
     },
     {
       "parcelId": "RGG80907",
@@ -4715,7 +4715,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGG80907",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0798-18-1-03-02-4902&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:25.182178+00:00"
+      "scrapedAt": "2026-04-02T10:07:31.200109+00:00"
     },
     {
       "parcelId": "RGI47202",
@@ -4739,7 +4739,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGI47202",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0800-13-3-01-01-4000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:27.617404+00:00"
+      "scrapedAt": "2026-04-02T10:07:33.563045+00:00"
     },
     {
       "parcelId": "RLF63818",
@@ -4763,7 +4763,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RLF63818",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0339-05-1-01-11-4000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:28.226133+00:00"
+      "scrapedAt": "2026-04-02T10:07:34.151661+00:00"
     },
     {
       "parcelId": "RLF39218",
@@ -4787,7 +4787,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RLF39218",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0339-05-1-01-30-4000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:28.837198+00:00"
+      "scrapedAt": "2026-04-02T10:07:34.739955+00:00"
     },
     {
       "parcelId": "RGH66937",
@@ -4811,7 +4811,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RGH66937",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0799-03-3-01-20-4000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:31.275387+00:00"
+      "scrapedAt": "2026-04-02T10:07:37.101667+00:00"
     },
     {
       "parcelId": "RRG39064",
@@ -4835,7 +4835,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RRG39064",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0062-34-1-01-05-4000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:33.713182+00:00"
+      "scrapedAt": "2026-04-02T10:07:39.466314+00:00"
     },
     {
       "parcelId": "RFG50158",
@@ -4859,7 +4859,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFG50158",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0904-34-4-06-11-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:56.913242+00:00"
+      "scrapedAt": "2026-04-02T10:08:01.972880+00:00"
     },
     {
       "parcelId": "RFG50172",
@@ -4883,7 +4883,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFG50172",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0904-34-4-05-03-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:57.522782+00:00"
+      "scrapedAt": "2026-04-02T10:08:02.561269+00:00"
     },
     {
       "parcelId": "RFG50175",
@@ -4907,7 +4907,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RFG50175",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-0904-34-4-04-17-0000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:12:58.139850+00:00"
+      "scrapedAt": "2026-04-02T10:08:03.152894+00:00"
     },
     {
       "parcelId": "RCD58362",
@@ -4931,7 +4931,7 @@
       "taxYear": 2025,
       "itaxUrl": "https://itax.gallatin.mt.gov/detail.aspx?taxid=RCD58362",
       "cadastralUrl": "https://svc.mt.gov/msl/cadastral/?page=Map&geocode=06-1208-12-1-01-06-2000&taxYear=2026",
-      "scrapedAt": "2026-04-01T10:14:02.915091+00:00"
+      "scrapedAt": "2026-04-02T10:09:06.036990+00:00"
     }
   ]
 }
