@@ -110,33 +110,58 @@ def extract_ids_from_pdf(pdf_path: Path) -> list[str]:
 
 def extract_ids_from_fixed_width(txt_path: Path) -> list[str]:
     """
-    Parse Flathead County's fixed-width unpaid tax roll.
+    Parse Flathead County's fixed-width unpaid tax roll and return only
+    parcels that are GENUINELY delinquent — i.e. the 1st installment has
+    an outstanding balance. Parcels where only the 2nd installment is
+    unpaid are skipped: that half likely isn't due yet and the parcel is
+    current, not delinquent.
 
-    File format (from county documentation):
-      Chars  1-16  : Assessor number (parcel ID), left-justified, space-padded
-      Chars 17-20  : Tax year (4 digits)
-      Chars 21-31  : Amount billed 1st installment (11 chars, 2 implied decimals)
-      Chars 32-42  : Amount billed 2nd installment
-      Chars 43-53  : Amount paid 1st installment
-      Chars 54-64  : Amount paid 2nd installment
-      Char  65     : Assignment flag (blank/1/2/3)
-      Char  66     : Bankruptcy flag (blank/Y)
-
-    We extract chars 1-16 (the assessor number) and strip whitespace.
+    File format (all amounts: 11 chars, 2 implied decimal places):
+      Chars  1-16  : Assessor number (parcel ID), zero-padded
+      Chars 17-20  : Tax year
+      Chars 21-31  : Amount billed, 1st installment
+      Chars 32-42  : Amount billed, 2nd installment
+      Chars 43-53  : Amount paid,   1st installment
+      Chars 54-64  : Amount paid,   2nd installment
+      Char  65     : Assignment flag (blank / 1 / 2 / 3)
+      Char  66     : Bankruptcy flag (blank / Y)
     """
     ids, seen = [], set()
     content = txt_path.read_bytes().decode("latin-1", errors="replace")
     lines = content.splitlines()
+    skipped_current = 0
+    skipped_bad     = 0
+
     print(f"  [TXT] Parsing {txt_path} — {len(lines):,} lines")
+
     for line in lines:
-        if len(line) < 16:
+        if len(line) < 64:
+            skipped_bad += 1
             continue
         raw_id = line[0:16].strip()
-        if raw_id and raw_id not in seen:
-            seen.add(raw_id)
-            ids.append(raw_id)
-    print(f"  [TXT] Total: {len(ids)} unique parcel IDs")
+        if not raw_id or raw_id in seen:
+            continue
+        try:
+            billed1 = int(line[20:31])
+            paid1   = int(line[42:53])
+        except ValueError:
+            skipped_bad += 1
+            continue
+
+        # Only scrape parcels where the 1st installment has an unpaid balance.
+        # Parcels where only the 2nd half is owed are not yet delinquent.
+        if billed1 - paid1 <= 0:
+            skipped_current += 1
+            continue
+
+        seen.add(raw_id)
+        ids.append(raw_id)
+
+    print(f"  [TXT] {skipped_current:,} skipped (current — only 2nd half owed)")
+    print(f"  [TXT] {skipped_bad:,} skipped (malformed lines)")
+    print(f"  [TXT] {len(ids):,} genuinely delinquent parcels to scrape")
     return ids
+
 
 # ── iTax Scraper ──────────────────────────────────────────────────────────────
 
