@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MT Tax Lien Intelligence — Gallatin County</title>
+<title>MT Tax Lien Intelligence</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
 :root {
@@ -45,6 +45,16 @@ select.input{cursor:pointer;-webkit-appearance:none;}
 .stat-val.amber{color:var(--accent);}
 .stat-val.green{color:var(--green);}
 .stat-hint{font-size:11px;color:var(--text3);margin-top:3px;}
+/* county pills */
+.county-pills{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:2px;}
+.cpill{padding:4px 12px;border-radius:20px;font-size:11px;font-weight:500;cursor:pointer;border:1px solid var(--border2);background:var(--bg3);color:var(--text2);transition:all .15s;font-family:'IBM Plex Mono',monospace;}
+.cpill:hover{background:var(--bg4);}
+.cpill.active{background:rgba(232,168,37,.15);border-color:rgba(232,168,37,.4);color:var(--accent);}
+.cpill.all.active{background:rgba(74,158,255,.12);border-color:rgba(74,158,255,.35);color:var(--blue);}
+/* county badges in table */
+.c-gallatin{background:rgba(74,158,255,.12);color:#7ab8ff;border:1px solid rgba(74,158,255,.25);}
+.c-flathead{background:rgba(60,191,122,.12);color:#5fd4a0;border:1px solid rgba(60,191,122,.25);}
+/* table */
 .tbl-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);flex:1;overflow:hidden;display:flex;flex-direction:column;}
 .tbl-head{padding:13px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:12px;}
 .tbl-title{font-size:13px;font-weight:500;}
@@ -74,6 +84,7 @@ td.primary{color:var(--text);font-weight:500;}
 .b-green{background:rgba(60,191,122,.15);color:var(--green);border:1px solid rgba(60,191,122,.25);}
 .ilink{display:inline-flex;align-items:center;gap:3px;color:var(--blue);text-decoration:none;font-size:11px;padding:2px 7px;border-radius:4px;border:1px solid rgba(74,158,255,.2);font-family:'IBM Plex Mono',monospace;transition:all .15s;white-space:nowrap;}
 .ilink:hover{background:rgba(74,158,255,.1);}
+/* panel */
 .panel{position:fixed;top:56px;right:0;bottom:0;width:400px;background:var(--bg2);border-left:1px solid var(--border2);z-index:200;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .25s cubic-bezier(.4,0,.2,1);overflow:hidden;}
 .panel.open{transform:translateX(0);}
 .panel-close{position:absolute;top:13px;right:15px;background:var(--bg3);border:1px solid var(--border);border-radius:50%;width:28px;height:28px;color:var(--text2);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;line-height:1;}
@@ -81,7 +92,7 @@ td.primary{color:var(--text);font-weight:500;}
 .panel-body{overflow-y:auto;flex:1;padding:20px;}
 .p-sub{font-size:10px;color:var(--text3);font-family:'IBM Plex Mono',monospace;letter-spacing:.06em;margin-bottom:3px;}
 .p-name{font-size:17px;font-weight:500;margin-bottom:3px;}
-.p-addr{font-size:12px;color:var(--text2);margin-bottom:14px;}
+.p-addr{font-size:12px;color:var(--text2);margin-bottom:10px;}
 .divider{height:1px;background:var(--border);margin:14px 0;}
 .p-sec{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:9px;font-weight:500;}
 .kv-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
@@ -89,10 +100,9 @@ td.primary{color:var(--text);font-weight:500;}
 .kv-k{font-size:10px;color:var(--text3);margin-bottom:3px;}
 .kv-v{font-size:13px;font-weight:500;font-family:'IBM Plex Mono',monospace;}
 .kv-v.red{color:var(--red);}
-.kv-v.amber{color:var(--accent);}
 .risk-track{height:8px;background:var(--bg3);border-radius:4px;overflow:hidden;margin:8px 0 4px;}
 .risk-fill{height:100%;border-radius:4px;transition:width .6s cubic-bezier(.4,0,.2,1);}
-.map-btn{width:100%;height:200px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;cursor:pointer;transition:all .15s;color:var(--text3);}
+.map-btn{width:100%;height:180px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;cursor:pointer;transition:all .15s;color:var(--text3);}
 .map-btn:hover{background:var(--bg4);border-color:var(--border2);color:var(--text2);}
 .action-row{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;}
 .action-row .btn{flex:1;min-width:110px;justify-content:center;}
@@ -102,8 +112,6 @@ td.primary{color:var(--text);font-weight:500;}
 .empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:48px;color:var(--text3);font-size:13px;}
 .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--bg4);border:1px solid var(--border2);border-radius:var(--r);padding:10px 18px;font-size:13px;color:var(--text);z-index:999;transition:transform .3s;box-shadow:0 8px 24px rgba(0,0,0,.4);}
 .toast.show{transform:translateX(-50%) translateY(0);}
-.clear-btn{font-size:11px;color:var(--text3);background:none;border:none;cursor:pointer;padding:2px 6px;border-radius:4px;transition:color .15s;}
-.clear-btn:hover{color:var(--accent);}
 ::-webkit-scrollbar{width:5px;height:5px;}
 ::-webkit-scrollbar-track{background:transparent;}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px;}
@@ -118,7 +126,7 @@ td.primary{color:var(--text);font-weight:500;}
     <div class="logo">MT</div>
     <div>
       <div class="h-title">Montana Tax Lien Intelligence</div>
-      <div class="h-sub">Gallatin County — Delinquent Property Database</div>
+      <div class="h-sub" id="h-sub">Loading counties…</div>
     </div>
   </div>
   <div class="h-right">
@@ -134,6 +142,12 @@ td.primary{color:var(--text);font-weight:500;}
       <input class="input" id="q" type="text" placeholder="Owner, parcel ID, address…" oninput="applyAll()">
     </div>
     <div class="sb-sec">
+      <div class="sb-label">County</div>
+      <div class="county-pills" id="county-pills">
+        <span class="cpill all active" data-county="" onclick="selectCounty(this)">All</span>
+      </div>
+    </div>
+    <div class="sb-sec">
       <div class="sb-label">Filters</div>
       <div style="display:flex;flex-direction:column;gap:7px;">
         <div>
@@ -142,6 +156,7 @@ td.primary{color:var(--text);font-weight:500;}
             <option value="">All statuses</option>
             <option value="Delinquent">Delinquent</option>
             <option value="Paid">Paid</option>
+            <option value="Current">Current</option>
           </select>
         </div>
         <div>
@@ -189,9 +204,13 @@ td.primary{color:var(--text);font-weight:500;}
       <div class="tbl-scroll">
         <table>
           <thead>
-            <tr id="thead-labels">
-              <th id="th-parcelId" class="sorted">
-                <div class="th-inner" onclick="sortCol('parcelId')">Parcel ID <span class="th-sort" id="s-parcelId">▼</span></div>
+            <tr>
+              <th id="th-county">
+                <div class="th-inner" onclick="sortCol('county')">County <span class="th-sort" id="s-county"></span></div>
+                <input class="col-filter" id="cf-county" placeholder="filter…" oninput="applyAll()">
+              </th>
+              <th id="th-parcelId">
+                <div class="th-inner" onclick="sortCol('parcelId')">Parcel ID <span class="th-sort" id="s-parcelId"></span></div>
                 <input class="col-filter" id="cf-parcelId" placeholder="filter…" oninput="applyAll()">
               </th>
               <th id="th-owner">
@@ -214,8 +233,8 @@ td.primary{color:var(--text);font-weight:500;}
                 <div class="th-inner" onclick="sortCol('acres')">Acres <span class="th-sort" id="s-acres"></span></div>
                 <input class="col-filter" id="cf-acres" placeholder="min…" type="number" oninput="applyAll()">
               </th>
-              <th id="th-ratio">
-                <div class="th-inner" onclick="sortCol('ratio')">Tax/Value <span class="th-sort" id="s-ratio"></span></div>
+              <th id="th-ratio" class="sorted">
+                <div class="th-inner" onclick="sortCol('ratio')">Tax/Value <span class="th-sort" id="s-ratio">▼</span></div>
                 <input class="col-filter" id="cf-ratio" placeholder="min %…" type="number" step="0.01" oninput="applyAll()">
               </th>
               <th id="th-status">
@@ -229,7 +248,7 @@ td.primary{color:var(--text);font-weight:500;}
             </tr>
           </thead>
           <tbody id="tbody">
-            <tr><td colspan="9"><div class="loading"><div class="spinner"></div><span>Loading parcel data…</span></div></td></tr>
+            <tr><td colspan="10"><div class="loading"><div class="spinner"></div><span>Loading parcel data…</span></div></td></tr>
           </tbody>
         </table>
       </div>
@@ -241,12 +260,12 @@ td.primary{color:var(--text);font-weight:500;}
   <button class="panel-close" onclick="closePanel()">×</button>
   <div class="panel-body" id="panel-body"></div>
 </div>
-
 <div class="toast" id="toast"></div>
 
 <script>
 let ALL = [], FILTERED = [], SELECTED = null;
 let SORT_FIELD = 'ratio', SORT_DIR = 'desc';
+let COUNTY_FILTER = '';
 let META = {};
 
 // ── Load ──────────────────────────────────────────────────────────────────
@@ -259,6 +278,10 @@ async function loadData() {
     ALL = d.parcels || [];
     document.getElementById('last-refresh').textContent =
       'Refreshed: ' + new Date(d.generatedAt).toLocaleString();
+    const counties = d.counties || [...new Set(ALL.map(p => p.county).filter(Boolean))];
+    document.getElementById('h-sub').textContent =
+      counties.join(' & ') + ' — Delinquent Property Database';
+    buildCountyPills(counties, d.countySummary || {});
     buildSidebarStats(d);
     applyAll();
     document.getElementById('stats').style.display = 'grid';
@@ -269,7 +292,29 @@ async function loadData() {
   }
 }
 
-// ── Filter + Sort (fully decoupled) ───────────────────────────────────────
+// ── County Pills ──────────────────────────────────────────────────────────
+function buildCountyPills(counties, summary) {
+  const container = document.getElementById('county-pills');
+  container.innerHTML = `<span class="cpill all active" data-county="" onclick="selectCounty(this)">All</span>`;
+  counties.forEach(c => {
+    const count = summary[c]?.parcels || '';
+    const pill = document.createElement('span');
+    pill.className = 'cpill';
+    pill.dataset.county = c;
+    pill.onclick = function() { selectCounty(this); };
+    pill.textContent = c + (count ? ` (${count.toLocaleString()})` : '');
+    container.appendChild(pill);
+  });
+}
+
+function selectCounty(el) {
+  document.querySelectorAll('.cpill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  COUNTY_FILTER = el.dataset.county;
+  applyAll();
+}
+
+// ── Filter + Sort ─────────────────────────────────────────────────────────
 function applyAll() {
   const q       = document.getElementById('q').value.toLowerCase();
   const fStatus = document.getElementById('f-status').value;
@@ -278,27 +323,26 @@ function applyAll() {
   const minRat  = parseFloat(document.getElementById('min-ratio').value)  || 0;
   const minAcr  = parseFloat(document.getElementById('min-acres').value)  || 0;
 
-  // Column filters
-  const cfParcel  = document.getElementById('cf-parcelId').value.toLowerCase();
-  const cfOwner   = document.getElementById('cf-owner').value.toLowerCase();
-  const cfAddr    = document.getElementById('cf-propertyAddress').value.toLowerCase();
-  const cfTaxMin  = parseFloat(document.getElementById('cf-totalTaxes').value) || 0;
-  const cfValMax  = parseFloat(document.getElementById('cf-marketValue').value) || Infinity;
-  const cfAcrMin  = parseFloat(document.getElementById('cf-acres').value) || 0;
-  const cfRatMin  = parseFloat(document.getElementById('cf-ratio').value) || 0;
-  const cfStatus  = document.getElementById('cf-status').value.toLowerCase();
+  const cfCounty = document.getElementById('cf-county').value.toLowerCase();
+  const cfParcel = document.getElementById('cf-parcelId').value.toLowerCase();
+  const cfOwner  = document.getElementById('cf-owner').value.toLowerCase();
+  const cfAddr   = document.getElementById('cf-propertyAddress').value.toLowerCase();
+  const cfTaxMin = parseFloat(document.getElementById('cf-totalTaxes').value) || 0;
+  const cfValMax = parseFloat(document.getElementById('cf-marketValue').value) || Infinity;
+  const cfAcrMin = parseFloat(document.getElementById('cf-acres').value) || 0;
+  const cfRatMin = parseFloat(document.getElementById('cf-ratio').value) || 0;
+  const cfStatus = document.getElementById('cf-status').value.toLowerCase();
 
   FILTERED = ALL.filter(p => {
-    // Global search
-    if (q && ![(p.parcelId||''),(p.owner||''),(p.propertyAddress||'')]
+    if (COUNTY_FILTER && p.county !== COUNTY_FILTER) return false;
+    if (q && ![(p.parcelId||''),(p.owner||''),(p.propertyAddress||''),(p.county||'')]
       .join(' ').toLowerCase().includes(q)) return false;
-    // Sidebar filters
-    if (fStatus && (p.status||'') !== fStatus) return false;
+    if (fStatus && p.status !== fStatus) return false;
     if ((p.totalTaxes||0) < minTax) return false;
     if ((p.marketValue||Infinity) > maxVal) return false;
     if ((p.ratio||0) < minRat) return false;
     if ((p.acres||0) < minAcr) return false;
-    // Column filters
+    if (cfCounty && !(p.county||'').toLowerCase().includes(cfCounty)) return false;
     if (cfParcel && !(p.parcelId||'').toLowerCase().includes(cfParcel)) return false;
     if (cfOwner  && !(p.owner||'').toLowerCase().includes(cfOwner)) return false;
     if (cfAddr   && !(p.propertyAddress||'').toLowerCase().includes(cfAddr)) return false;
@@ -310,18 +354,18 @@ function applyAll() {
     return true;
   });
 
-  // Sort — independent of filters
   FILTERED.sort((a, b) => {
     let av, bv;
     switch(SORT_FIELD) {
-      case 'ratio':           av=a.ratio||0;          bv=b.ratio||0;          break;
-      case 'totalTaxes':      av=a.totalTaxes||0;     bv=b.totalTaxes||0;     break;
-      case 'marketValue':     av=a.marketValue||0;    bv=b.marketValue||0;    break;
-      case 'acres':           av=a.acres||0;          bv=b.acres||0;          break;
+      case 'ratio':           av=a.ratio||0;        bv=b.ratio||0;        break;
+      case 'totalTaxes':      av=a.totalTaxes||0;   bv=b.totalTaxes||0;   break;
+      case 'marketValue':     av=a.marketValue||0;  bv=b.marketValue||0;  break;
+      case 'acres':           av=a.acres||0;        bv=b.acres||0;        break;
+      case 'county':          av=(a.county||'').toLowerCase(); bv=(b.county||'').toLowerCase(); break;
       case 'owner':           av=(a.owner||'').toLowerCase(); bv=(b.owner||'').toLowerCase(); break;
       case 'status':          av=(a.status||'').toLowerCase(); bv=(b.status||'').toLowerCase(); break;
       case 'propertyAddress': av=(a.propertyAddress||'').toLowerCase(); bv=(b.propertyAddress||'').toLowerCase(); break;
-      default:                av=a.parcelId||'';      bv=b.parcelId||'';
+      default:                av=a.parcelId||''; bv=b.parcelId||'';
     }
     if (av < bv) return SORT_DIR === 'asc' ? -1 : 1;
     if (av > bv) return SORT_DIR === 'asc' ?  1 : -1;
@@ -333,68 +377,62 @@ function applyAll() {
 }
 
 function sortCol(field) {
-  if (SORT_FIELD === field) {
-    SORT_DIR = SORT_DIR === 'desc' ? 'asc' : 'desc';
-  } else {
-    SORT_FIELD = field;
-    SORT_DIR = 'desc';
-  }
-  // Update header highlights
+  if (SORT_FIELD === field) SORT_DIR = SORT_DIR === 'desc' ? 'asc' : 'desc';
+  else { SORT_FIELD = field; SORT_DIR = 'desc'; }
   document.querySelectorAll('thead th').forEach(th => th.classList.remove('sorted'));
   const thEl = document.getElementById('th-' + field);
   if (thEl) thEl.classList.add('sorted');
-  // Update sort arrows
-  ['parcelId','owner','propertyAddress','totalTaxes','marketValue','acres','ratio','status'].forEach(f => {
+  ['county','parcelId','owner','propertyAddress','totalTaxes','marketValue','acres','ratio','status'].forEach(f => {
     const el = document.getElementById('s-' + f);
-    if (!el) return;
-    el.textContent = SORT_FIELD === f ? (SORT_DIR === 'desc' ? '▼' : '▲') : '';
+    if (el) el.textContent = SORT_FIELD === f ? (SORT_DIR === 'desc' ? '▼' : '▲') : '';
   });
   applyAll();
 }
 
 function clearFilters() {
   ['q','f-status','min-taxes','max-value','min-ratio','min-acres',
-   'cf-parcelId','cf-owner','cf-propertyAddress','cf-totalTaxes',
-   'cf-marketValue','cf-acres','cf-ratio','cf-status'].forEach(id => {
+   'cf-county','cf-parcelId','cf-owner','cf-propertyAddress',
+   'cf-totalTaxes','cf-marketValue','cf-acres','cf-ratio','cf-status'].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.value = '';
   });
+  COUNTY_FILTER = '';
+  document.querySelectorAll('.cpill').forEach(p => p.classList.remove('active'));
+  document.querySelector('.cpill.all').classList.add('active');
   applyAll();
 }
 
 // ── Render ────────────────────────────────────────────────────────────────
+function countyBadge(county) {
+  const cls = county === 'Gallatin' ? 'c-gallatin' : county === 'Flathead' ? 'c-flathead' : '';
+  return `<span class="badge ${cls}">${county||'—'}</span>`;
+}
+
 function renderTable() {
   const tbody = document.getElementById('tbody');
   document.getElementById('tbl-count').textContent =
     FILTERED.length.toLocaleString() + ' result' + (FILTERED.length !== 1 ? 's' : '');
 
   if (!FILTERED.length) {
-    tbody.innerHTML = '<tr><td colspan="9"><div class="empty">No parcels match your filters</div></td></tr>';
+    tbody.innerHTML = '<tr><td colspan="10"><div class="empty">No parcels match your filters</div></td></tr>';
     return;
   }
-
   const maxR = Math.max(...FILTERED.map(p => p.ratio || 0), 0.001);
 
   tbody.innerHTML = FILTERED.map(p => {
     const r = p.ratio;
     const rClass = r >= 1.5 ? 'b-red' : r >= 0.5 ? 'b-amber' : 'b-green';
     const ratioHtml = r != null
-      ? `<div class="ratio-bar">
-           <div class="ratio-track">
-             <div class="ratio-fill" style="width:${Math.min(100,(r/maxR)*100).toFixed(1)}%;background:${r>=1.5?'var(--red)':r>=0.5?'var(--accent)':'var(--green)'}"></div>
-           </div>
-           <span class="badge ${rClass}">${r.toFixed(3)}%</span>
-         </div>`
+      ? `<div class="ratio-bar"><div class="ratio-track"><div class="ratio-fill" style="width:${Math.min(100,(r/maxR)*100).toFixed(1)}%;background:${r>=1.5?'var(--red)':r>=0.5?'var(--accent)':'var(--green)'}"></div></div><span class="badge ${rClass}">${r.toFixed(3)}%</span></div>`
       : '<span style="color:var(--text3)">—</span>';
-
     const status = p.status || 'Unknown';
-    const sBadge = status === 'Delinquent' ? 'b-red' : status === 'Paid' ? 'b-green' : 'b-amber';
-    const sel = SELECTED && SELECTED.parcelId === p.parcelId;
-
-    return `<tr class="${sel ? 'sel' : ''}" onclick="openPanel('${p.parcelId}')">
+    const sBadge = status === 'Delinquent' ? 'b-red' : status === 'Paid' || status === 'Current' ? 'b-green' : 'b-amber';
+    const sel = SELECTED && SELECTED.parcelId === p.parcelId && SELECTED.county === p.county;
+    return `<tr class="${sel?'sel':''}" onclick="openPanel('${p.county}','${p.parcelId}')">
+      <td>${countyBadge(p.county)}</td>
       <td class="mono primary">${p.parcelId}</td>
-      <td class="primary" style="max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${p.owner||''}">${p.owner||'—'}</td>
-      <td style="max-width:170px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${p.propertyAddress||''}">${p.propertyAddress||'—'}</td>
+      <td class="primary" style="max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${p.owner||''}">${p.owner||'—'}</td>
+      <td style="max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${p.propertyAddress||''}">${p.propertyAddress||'—'}</td>
       <td class="mono" style="color:var(--red)">${fmt$(p.totalTaxes)}</td>
       <td class="mono">${p.marketValue ? '$'+p.marketValue.toLocaleString() : '—'}</td>
       <td class="mono">${p.acres ? p.acres.toFixed(2) : '—'}</td>
@@ -411,46 +449,54 @@ function renderTable() {
 function updateStats() {
   const p = FILTERED;
   document.getElementById('s-total').textContent = p.length.toLocaleString();
-  document.getElementById('s-taxes').textContent = '$' + Math.round(p.reduce((s,x) => s+(x.totalTaxes||0), 0)).toLocaleString();
-  const ratios = p.filter(x => x.ratio).map(x => x.ratio);
-  const avg = ratios.length ? ratios.reduce((a,b) => a+b, 0) / ratios.length : 0;
-  document.getElementById('s-ratio').textContent = avg.toFixed(3) + '%';
-  document.getElementById('s-high').textContent  = ratios.filter(r => r >= 1).length;
+  document.getElementById('s-taxes').textContent = '$' + Math.round(p.reduce((s,x)=>s+(x.totalTaxes||0),0)).toLocaleString();
+  const ratios = p.filter(x=>x.ratio).map(x=>x.ratio);
+  const avg = ratios.length ? ratios.reduce((a,b)=>a+b,0)/ratios.length : 0;
+  document.getElementById('s-ratio').textContent = avg.toFixed(3)+'%';
+  document.getElementById('s-high').textContent  = ratios.filter(r=>r>=1).length;
 }
 
 function buildSidebarStats(d) {
   const s = d.summary || {};
-  document.getElementById('sb-stats').innerHTML = `
+  const cs = d.countySummary || {};
+  let html = `
     <div style="display:flex;justify-content:space-between"><span style="color:var(--text3)">Total parcels</span><span style="font-family:'IBM Plex Mono',monospace">${(d.totalParcels||0).toLocaleString()}</span></div>
     <div style="display:flex;justify-content:space-between"><span style="color:var(--text3)">Total market value</span><span style="font-family:'IBM Plex Mono',monospace">$${Math.round(s.totalMarketValue||0).toLocaleString()}</span></div>
     <div style="display:flex;justify-content:space-between"><span style="color:var(--text3)">Total taxes owed</span><span style="font-family:'IBM Plex Mono',monospace;color:var(--red)">$${Math.round(s.totalTaxesOwed||0).toLocaleString()}</span></div>
-    <div style="display:flex;justify-content:space-between"><span style="color:var(--text3)">Avg ratio</span><span style="font-family:'IBM Plex Mono',monospace;color:var(--accent)">${(s.avgTaxValueRatio||0).toFixed(3)}%</span></div>
-    <div style="display:flex;justify-content:space-between"><span style="color:var(--text3)">Scrape errors</span><span style="font-family:'IBM Plex Mono',monospace">${d.errors||0}</span></div>
-  `;
+    <div style="display:flex;justify-content:space-between"><span style="color:var(--text3)">Avg ratio</span><span style="font-family:'IBM Plex Mono',monospace;color:var(--accent)">${(s.avgTaxValueRatio||0).toFixed(3)}%</span></div>`;
+  if (Object.keys(cs).length) {
+    html += `<div style="height:1px;background:var(--border);margin:4px 0"></div>`;
+    for (const [name, data] of Object.entries(cs)) {
+      html += `<div style="display:flex;justify-content:space-between"><span style="color:var(--text3)">${name}</span><span style="font-family:'IBM Plex Mono',monospace">${(data.parcels||0).toLocaleString()} parcels</span></div>`;
+    }
+  }
+  document.getElementById('sb-stats').innerHTML = html;
 }
 
 // ── Detail Panel ──────────────────────────────────────────────────────────
-function openPanel(id) {
-  const p = ALL.find(x => x.parcelId === id);
+function openPanel(county, id) {
+  const p = ALL.find(x => x.parcelId === id && x.county === county);
   if (!p) return;
   SELECTED = p;
   renderTable();
   const r = p.ratio;
   const rc   = r >= 1.5 ? 'var(--red)' : r >= 0.5 ? 'var(--accent)' : 'var(--green)';
-  const rPct = r ? Math.min(100, (r/3)*100).toFixed(1) : 0;
+  const rPct = r ? Math.min(100,(r/3)*100).toFixed(1) : 0;
   const rFill = r >= 1.5 ? 'var(--red)' : r >= 0.5 ? 'var(--accent)' : 'var(--green)';
   const status = p.status || 'Unknown';
-  const sBadge = status === 'Delinquent' ? 'b-red' : status === 'Paid' ? 'b-green' : 'b-amber';
-
+  const sBadge = status === 'Delinquent' ? 'b-red' : status === 'Paid' || status === 'Current' ? 'b-green' : 'b-amber';
   document.getElementById('panel-body').innerHTML = `
     <div class="p-sub">PARCEL ${p.parcelId} · ${p.taxYear||2025}</div>
     <div class="p-name">${p.owner||'—'}</div>
     <div class="p-addr">${p.propertyAddress||p.mailingAddress||'—'}</div>
-    <div style="margin-bottom:14px"><span class="badge ${sBadge}">${status}</span></div>
+    <div style="display:flex;gap:6px;margin-bottom:14px">
+      ${countyBadge(p.county)}
+      <span class="badge ${sBadge}">${status}</span>
+    </div>
     <div class="divider"></div>
     <div class="p-sec">Financials</div>
     <div class="kv-grid">
-      <div class="kv"><div class="kv-k">Market Value</div><div class="kv-v">${p.marketValue ? '$'+p.marketValue.toLocaleString() : '—'}</div></div>
+      <div class="kv"><div class="kv-k">Market Value</div><div class="kv-v">${p.marketValue?'$'+p.marketValue.toLocaleString():'—'}</div></div>
       <div class="kv"><div class="kv-k">Total Taxes Owed</div><div class="kv-v red">${fmt$(p.totalTaxes)}</div></div>
       <div class="kv"><div class="kv-k">First Half</div><div class="kv-v">${fmt$(p.firstHalf)}</div></div>
       <div class="kv"><div class="kv-k">Second Half</div><div class="kv-v">${fmt$(p.secondHalf)}</div></div>
@@ -458,7 +504,7 @@ function openPanel(id) {
     <div style="margin:14px 0;">
       <div style="display:flex;justify-content:space-between;align-items:center">
         <span style="font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--text3)">Tax / Market Value Ratio</span>
-        <span style="font-size:16px;font-weight:500;font-family:'IBM Plex Mono',monospace;color:${rc}">${r ? r.toFixed(4)+'%' : '—'}</span>
+        <span style="font-size:16px;font-weight:500;font-family:'IBM Plex Mono',monospace;color:${rc}">${r?r.toFixed(4)+'%':'—'}</span>
       </div>
       <div class="risk-track"><div class="risk-fill" style="width:${rPct}%;background:${rFill}"></div></div>
       <div style="font-size:11px;color:var(--text3)">${r>=1.5?'⚠ High lien efficiency — strong investment candidate':r>=0.5?'Moderate — review property details':'Low ratio — standard delinquency'}</div>
@@ -466,30 +512,29 @@ function openPanel(id) {
     <div class="divider"></div>
     <div class="p-sec">Property Details</div>
     <div class="kv-grid">
-      ${p.geocode    ? `<div class="kv" style="grid-column:1/-1"><div class="kv-k">Geocode</div><div class="kv-v" style="font-size:11px">${p.geocode}</div></div>` : ''}
-      ${p.trs        ? `<div class="kv" style="grid-column:1/-1"><div class="kv-k">TRS Legal</div><div class="kv-v" style="font-size:11px">${p.trs}</div></div>` : ''}
-      ${p.subdivision? `<div class="kv"><div class="kv-k">Subdivision</div><div class="kv-v" style="font-size:11px">${p.subdivision}</div></div>` : ''}
-      ${p.lot        ? `<div class="kv"><div class="kv-k">Lot</div><div class="kv-v">${p.lot}</div></div>` : ''}
-      ${p.acres      ? `<div class="kv"><div class="kv-k">Acres</div><div class="kv-v">${p.acres.toFixed(2)}</div></div>` : ''}
-      ${p.taxableValue ? `<div class="kv"><div class="kv-k">Taxable Value</div><div class="kv-v">$${p.taxableValue.toLocaleString()}</div></div>` : ''}
+      ${p.geocode?`<div class="kv" style="grid-column:1/-1"><div class="kv-k">Geocode</div><div class="kv-v" style="font-size:11px">${p.geocode}</div></div>`:''}
+      ${p.trs?`<div class="kv" style="grid-column:1/-1"><div class="kv-k">TRS Legal</div><div class="kv-v" style="font-size:11px">${p.trs}</div></div>`:''}
+      ${p.subdivision?`<div class="kv"><div class="kv-k">Subdivision</div><div class="kv-v" style="font-size:11px">${p.subdivision}</div></div>`:''}
+      ${p.lot?`<div class="kv"><div class="kv-k">Lot</div><div class="kv-v">${p.lot}</div></div>`:''}
+      ${p.acres?`<div class="kv"><div class="kv-k">Acres</div><div class="kv-v">${p.acres.toFixed(2)}</div></div>`:''}
+      ${p.taxableValue?`<div class="kv"><div class="kv-k">Taxable Value</div><div class="kv-v">$${p.taxableValue.toLocaleString()}</div></div>`:''}
     </div>
-    ${p.levyDistrict ? `<div style="margin-top:10px;padding:9px 11px;background:var(--bg3);border-radius:var(--r)"><div class="kv-k">Levy District</div><div style="font-size:11px;color:var(--text2);font-family:'IBM Plex Mono',monospace;margin-top:2px">${p.levyDistrict}</div></div>` : ''}
+    ${p.levyDistrict?`<div style="margin-top:10px;padding:9px 11px;background:var(--bg3);border-radius:var(--r)"><div class="kv-k">Levy District</div><div style="font-size:11px;color:var(--text2);font-family:'IBM Plex Mono',monospace;margin-top:2px">${p.levyDistrict}</div></div>`:''}
     <div class="divider"></div>
     <div class="p-sec">Cadastral Map</div>
     ${p.cadastralUrl
-      ? `<div class="map-btn" onclick="window.open('${p.cadastralUrl}','_blank')">
-           <div style="font-size:26px;opacity:.35">🗺</div>
-           <div style="font-size:12px;font-weight:500;color:var(--text2)">View on Montana Cadastral</div>
-           <div style="font-size:11px">Geocode: ${p.geocode}</div>
-           <div style="font-size:11px;color:var(--accent);margin-top:2px">Click to open ↗</div>
-         </div>`
-      : `<div style="color:var(--text3);font-size:12px;padding:12px 0">No geocode available</div>`}
+      ?`<div class="map-btn" onclick="window.open('${p.cadastralUrl}','_blank')">
+          <div style="font-size:26px;opacity:.35">🗺</div>
+          <div style="font-size:12px;font-weight:500;color:var(--text2)">View on Montana Cadastral</div>
+          <div style="font-size:11px">Geocode: ${p.geocode}</div>
+          <div style="font-size:11px;color:var(--accent);margin-top:2px">Click to open ↗</div>
+        </div>`
+      :`<div style="color:var(--text3);font-size:12px;padding:12px 0">No geocode available</div>`}
     <div class="action-row">
       <a class="btn primary" href="${p.itaxUrl}" target="_blank">iTax Record ↗</a>
-      ${p.cadastralUrl ? `<a class="btn" href="${p.cadastralUrl}" target="_blank">Cadastral Map ↗</a>` : ''}
+      ${p.cadastralUrl?`<a class="btn" href="${p.cadastralUrl}" target="_blank">Cadastral Map ↗</a>`:''}
       <button class="btn" onclick="copyId('${p.parcelId}')">Copy ID</button>
-    </div>
-  `;
+    </div>`;
   document.getElementById('panel').classList.add('open');
 }
 
@@ -502,7 +547,7 @@ function closePanel() {
 // ── Helpers ───────────────────────────────────────────────────────────────
 function fmt$(n) {
   if (!n && n !== 0) return '—';
-  return '$' + Number(n).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
+  return '$' + Number(n).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
 }
 function copyId(id) {
   navigator.clipboard.writeText(id).then(() => toast('Copied: ' + id));
@@ -514,24 +559,22 @@ function toast(msg, dur=2800) {
 }
 function exportCSV() {
   if (!FILTERED.length) { toast('No data to export'); return; }
-  const H = ['ParcelId','Owner','PropertyAddress','MailingAddress','Status','MarketValue','TaxableValue','TotalTaxes','FirstHalf','SecondHalf','TaxValueRatio%','Geocode','TRS','Acres','LevyDistrict','TaxYear','iTaxURL','CadastralURL'];
+  const H = ['County','ParcelId','Owner','PropertyAddress','MailingAddress','Status',
+    'MarketValue','TaxableValue','TotalTaxes','FirstHalf','SecondHalf','TaxValueRatio%',
+    'Geocode','TRS','Acres','LevyDistrict','TaxYear','iTaxURL','CadastralURL'];
   const rows = FILTERED.map(p => [
-    p.parcelId, p.owner, p.propertyAddress, p.mailingAddress, p.status,
+    p.county, p.parcelId, p.owner, p.propertyAddress, p.mailingAddress, p.status,
     p.marketValue, p.taxableValue, p.totalTaxes, p.firstHalf, p.secondHalf,
     p.ratio ? p.ratio.toFixed(4) : '', p.geocode, p.trs, p.acres,
     p.levyDistrict, p.taxYear, p.itaxUrl, p.cadastralUrl
   ].map(v => `"${(v??'').toString().replace(/"/g,'""')}"`));
   const csv = [H.join(','), ...rows.map(r => r.join(','))].join('\n');
   const a = document.createElement('a');
-  a.href = URL.createObjectURL(new Blob([csv], {type:'text/csv'}));
-  a.download = `gallatin_delinquent_${new Date().toISOString().slice(0,10)}.csv`;
+  a.href = URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+  a.download = `mt_delinquent_${new Date().toISOString().slice(0,10)}.csv`;
   a.click();
   toast(`Exported ${FILTERED.length} parcels`);
 }
-
-// Init sort arrow
-document.getElementById('th-ratio').classList.add('sorted');
-document.getElementById('s-ratio').textContent = '▼';
 
 loadData();
 </script>

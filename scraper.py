@@ -1,20 +1,19 @@
 #!/usr/bin/env python3
 """
 Montana Delinquent Tax Lien Scraper
-Gallatin County — itax.gallatin.mt.gov
+Supports: Gallatin County (PDF), Flathead County (fixed-width text)
 
-Workflow:
-  1. Download the delinquent parcel PDF from Gallatin County
-  2. Extract all ParcelNo values using pdfplumber
-  3. Scrape each parcel's detail page from iTax
+Workflow per county:
+  1. Download the delinquent parcel list
+  2. Extract all parcel IDs
+  3. Scrape each parcel's iTax detail page
   4. Calculate tax/value ratio
-  5. Save results to docs/data.json (served by GitHub Pages)
+  5. Merge all counties and save to docs/data.json
 """
 
 import json
 import time
 import re
-import os
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -22,16 +21,7 @@ import requests
 from bs4 import BeautifulSoup
 import pdfplumber
 
-# ── Configuration ────────────────────────────────────────────────────────────
-
-PDF_URL = (
-    "https://www.gallatinmt.gov/sites/g/files/vyhlif606/f/"
-    "uploads/2020_-_2024_dlq_as_of_1-28-26.pdf"
-)
-ITAX_BASE = "https://itax.gallatin.mt.gov/detail.aspx"
-CADASTRAL_BASE = "https://svc.mt.gov/msl/cadastral/"
-OUTPUT_PATH = Path("docs/data.json")
-PDF_CACHE   = Path("docs/delinquent.pdf")
+# ── Headers ───────────────────────────────────────────────────────────────────
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
@@ -41,72 +31,133 @@ HEADERS = {
     "Connection": "keep-alive",
     "Upgrade-Insecure-Requests": "1",
 }
-REQUEST_DELAY = 0.5   # seconds between iTax requests — be polite
 
-# ── PDF Download ─────────────────────────────────────────────────────────────
+REQUEST_DELAY  = 0.5   # seconds between iTax requests — be polite
+CADASTRAL_BASE = "https://svc.mt.gov/msl/cadastral/"
+OUTPUT_PATH    = Path("docs/data.json")
 
-def download_pdf(url: str, dest: Path) -> bool:
-    """Download the delinquent parcel PDF. Returns True on success."""
+# ── County Definitions ────────────────────────────────────────────────────────
+
+COUNTIES = [
+    {
+        "name":       "Gallatin",
+        "type":       "pdf",
+        "source_url": (
+            "https://www.gallatinmt.gov/sites/g/files/vyhlif606/f/"
+            "uploads/2020_-_2024_dlq_as_of_1-28-26.pdf"
+        ),
+        "cache_path": Path("docs/gallatin_delinquent.pdf"),
+        "itax_base":  "https://itax.gallatin.mt.gov/detail.aspx",
+        "itax_param": "taxid",
+    },
+    {
+        "name":       "Flathead",
+        "type":       "fixed_width",
+        "source_url": (
+            "https://flatheadcounty.gov/smbstorage/ocDownloads/"
+            "ocSharedTRDocumentsAdministration/TaxWise/Unpaids/All_current"
+        ),
+        "cache_path": Path("docs/flathead_delinquent.txt"),
+        "itax_base":  "https://taxes.flatheadcounty.gov/detail.aspx",
+        "itax_param": "taxid",
+    },
+]
+
+# ── Source Download ───────────────────────────────────────────────────────────
+
+def download_source(url: str, dest: Path) -> bool:
     dest.parent.mkdir(parents=True, exist_ok=True)
     try:
-        print(f"[PDF] Downloading: {url}")
+        print(f"  [DL] {url}")
         r = requests.get(url, headers=HEADERS, timeout=30)
         r.raise_for_status()
         dest.write_bytes(r.content)
-        print(f"[PDF] Saved to {dest} ({len(r.content):,} bytes)")
+        print(f"  [DL] Saved {len(r.content):,} bytes to {dest}")
         return True
     except Exception as e:
-        print(f"[PDF] Download failed: {e}")
+        print(f"  [DL] Failed: {e}")
         return False
 
 
-def extract_parcel_ids_from_pdf(pdf_path: Path) -> list[str]:
-    """
-    Extract ParcelNo values from the Gallatin County delinquent PDF.
-    The PDF has rows like:  RDC31418  OWNER NAME  ...
-    Parcel IDs match the pattern RDC###### (or similar alphanumeric codes).
-    """
-    ids = []
-    seen = set()
-    # Pattern covers common Gallatin parcel formats: RDC##### or RG##### etc.
-    pattern = re.compile(r'\b(R[A-Z]{1,3}\d{4,6})\b')
+def source_is_fresh(path: Path, max_age_hours: float = 12.0) -> bool:
+    if not path.exists():
+        return False
+    age = (time.time() - path.stat().st_mtime) / 3600
+    return age < max_age_hours
 
-    print(f"[PDF] Extracting parcel IDs from {pdf_path}")
+# ── Gallatin: PDF Parcel Extraction ──────────────────────────────────────────
+
+def extract_ids_from_pdf(pdf_path: Path) -> list[str]:
+    """
+    Extract Gallatin County parcel IDs from the delinquent PDF.
+    Pattern: R followed by 1-3 uppercase letters then 4-6 digits (e.g. RDC31418)
+    """
+    ids, seen = [], set()
+    pattern = re.compile(r'\b(R[A-Z]{1,3}\d{4,6})\b')
+    print(f"  [PDF] Parsing {pdf_path}")
     with pdfplumber.open(pdf_path) as pdf:
-        for page_num, page in enumerate(pdf.pages, 1):
-            text = page.extract_text() or ""
-            matches = pattern.findall(text)
+        for i, page in enumerate(pdf.pages, 1):
+            matches = pattern.findall(page.extract_text() or "")
             for m in matches:
                 if m not in seen:
                     seen.add(m)
                     ids.append(m)
-            print(f"[PDF] Page {page_num}: found {len(matches)} IDs (running total: {len(ids)})")
-
-    print(f"[PDF] Total unique parcel IDs extracted: {len(ids)}")
+            print(f"  [PDF] Page {i}: {len(ids)} unique IDs so far")
+    print(f"  [PDF] Total: {len(ids)} parcel IDs")
     return ids
 
+# ── Flathead: Fixed-Width Text Parcel Extraction ──────────────────────────────
 
-# ── iTax Scraper ─────────────────────────────────────────────────────────────
+def extract_ids_from_fixed_width(txt_path: Path) -> list[str]:
+    """
+    Parse Flathead County's fixed-width unpaid tax roll.
 
-def scrape_parcel(parcel_id: str, session: requests.Session) -> dict:
-    """Scrape a single parcel detail page from iTax."""
-    url = f"{ITAX_BASE}?taxid={parcel_id}"
+    File format (from county documentation):
+      Chars  1-16  : Assessor number (parcel ID), left-justified, space-padded
+      Chars 17-20  : Tax year (4 digits)
+      Chars 21-31  : Amount billed 1st installment (11 chars, 2 implied decimals)
+      Chars 32-42  : Amount billed 2nd installment
+      Chars 43-53  : Amount paid 1st installment
+      Chars 54-64  : Amount paid 2nd installment
+      Char  65     : Assignment flag (blank/1/2/3)
+      Char  66     : Bankruptcy flag (blank/Y)
+
+    We extract chars 1-16 (the assessor number) and strip whitespace.
+    """
+    ids, seen = [], set()
+    content = txt_path.read_bytes().decode("latin-1", errors="replace")
+    lines = content.splitlines()
+    print(f"  [TXT] Parsing {txt_path} — {len(lines):,} lines")
+    for line in lines:
+        if len(line) < 16:
+            continue
+        raw_id = line[0:16].strip()
+        if raw_id and raw_id not in seen:
+            seen.add(raw_id)
+            ids.append(raw_id)
+    print(f"  [TXT] Total: {len(ids)} unique parcel IDs")
+    return ids
+
+# ── iTax Scraper ──────────────────────────────────────────────────────────────
+
+def scrape_parcel(parcel_id: str, county: dict, session: requests.Session) -> dict:
+    url = f"{county['itax_base']}?{county['itax_param']}={parcel_id}"
     try:
         r = session.get(url, headers=HEADERS, timeout=20)
         r.raise_for_status()
-        return parse_itax_html(r.text, parcel_id, url)
+        return parse_itax_html(r.text, parcel_id, url, county["name"])
     except requests.RequestException as e:
-        print(f"  [SKIP] {parcel_id}: {e}")
+        print(f"ERROR: {e}")
         return {
-            "parcelId": parcel_id,
-            "error": str(e),
-            "status": "Error",
-            "scrapedAt": utc_now()
+            "parcelId":  parcel_id,
+            "county":    county["name"],
+            "error":     str(e),
+            "status":    "Error",
+            "scrapedAt": utc_now(),
         }
 
 
-def parse_itax_html(html: str, parcel_id: str, source_url: str) -> dict:
-    """Parse an iTax detail page into a structured dict."""
+def parse_itax_html(html: str, parcel_id: str, source_url: str, county_name: str) -> dict:
     soup = BeautifulSoup(html, "html.parser")
     text = soup.get_text(separator="\n")
 
@@ -123,43 +174,50 @@ def parse_itax_html(html: str, parcel_id: str, source_url: str) -> dict:
         except ValueError:
             return None
 
-    # Owner — appears after "Owner(s):"
-    owner = find(r"Owner\(s\):\s*(.+?)(?:\n|Mailing)")
+    # Owner
+    owner = find(r"(?:Owner\(s\)|Owner):\s*(.+?)(?:\n|Mailing)")
 
-    # Mailing address — multi-line, grab up to Levy
+    # Mailing address — stop at Levy District OR Legal Description
     mailing_match = re.search(
-        r"Mailing Address:\s*(.+?)\s*Levy District", text, re.DOTALL | re.IGNORECASE
+        r"Mailing Address:\s*(.+?)\s*(?:Levy District|Legal Description)",
+        text, re.DOTALL | re.IGNORECASE
     )
     mailing = " ".join(mailing_match.group(1).split()) if mailing_match else None
 
     # Property address
-    prop_addr = find(r"Property address:\s*(.+?)(?:\n|Subdivision|TRS)")
+    prop_addr = find(r"Property address:\s*(.+?)(?:\n|Subdivision|TRS|$)")
 
-    # Values
+    # Market / taxable values
     market_value  = find_dollar(r"Market Value\s+\$?([\d,]+)")
     taxable_value = find_dollar(r"Taxable:\s+\$?([\d,]+)")
 
-    # Taxes — careful: "Total:" appears for payments too, grab the taxes total
-    taxes_total  = find_dollar(r"(?:2025 Taxes|Total):\s+\$?([\d,]+\.?\d*)")
-    first_half   = find_dollar(r"First Half:\s+\$?([\d,]+\.?\d*)")
-    second_half  = find_dollar(r"Second Half:\s+\$?([\d,]+\.?\d*)")
+    # Total taxes — find the total within the "2025 Taxes" block specifically
+    taxes_section = re.search(
+        r"2025 Taxes.*?Total:\s+\$?([\d,]+\.?\d*)", text, re.DOTALL | re.IGNORECASE
+    )
+    taxes_total = float(re.sub(r"[^0-9.]", "", taxes_section.group(1))) if taxes_section else None
+
+    # First/second half — take first two matches (taxes block comes before payments block)
+    half_matches = re.findall(r"(?:First|Second) Half:\s+\$?([\d,]+\.?\d*)", text, re.IGNORECASE)
+    first_half  = float(re.sub(r"[^0-9.]", "", half_matches[0])) if len(half_matches) > 0 else None
+    second_half = float(re.sub(r"[^0-9.]", "", half_matches[1])) if len(half_matches) > 1 else None
 
     # Geocode
     geocode = find(r"Geo Code:\s*([\d\-]+)")
 
-    # Legal
-    trs          = find(r"TRS:\s*(.+?)(?:\n|Legal)")
-    legal        = find(r"Legal:\s*(.+?)(?:\n|Acres)")
-    acres_str    = find(r"Acres?:\s*([\d.]+)")
-    acres        = float(acres_str) if acres_str else None
-    subdivision  = find(r"Subdivision:\s*\(\d+\)\s*(.+?)(?:\n|Lot)")
-    lot          = find(r"Lot:\s*(\S+)")
+    # Legal details
+    trs         = find(r"TRS:\s*(.+?)(?:\n|Legal|$)")
+    legal       = find(r"Legal(?:\s+Description)?:\s*(.+?)(?:\n|Acres|Short|COS|$)")
+    acres_str   = find(r"Acres?:\s*([\d.]+)")
+    acres       = float(acres_str) if acres_str else None
+    subdivision = find(r"Subdivision:\s*(?:\(\d+\)\s*)?(.+?)(?:\n|Lot|$)")
+    lot         = find(r"Lot:\s*(\S+)")
     levy_district = find(r"Levy District:\s*(.+?)(?:\n|$)")
 
-    # Status
+    # Status — read actual value from the page
     status = find(r"Status:\s*(\w+)") or "Unknown"
 
-    # Cadastral map URL
+    # Cadastral URL
     cadastral_url = (
         f"{CADASTRAL_BASE}?page=Map&geocode={geocode}&taxYear=2026"
         if geocode else None
@@ -172,6 +230,7 @@ def parse_itax_html(html: str, parcel_id: str, source_url: str) -> dict:
 
     return {
         "parcelId":        parcel_id,
+        "county":          county_name,
         "owner":           owner,
         "mailingAddress":  mailing,
         "propertyAddress": prop_addr,
@@ -195,7 +254,6 @@ def parse_itax_html(html: str, parcel_id: str, source_url: str) -> dict:
         "scrapedAt":       utc_now(),
     }
 
-
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
 def utc_now() -> str:
@@ -203,104 +261,133 @@ def utc_now() -> str:
 
 
 def load_existing(path: Path) -> dict:
-    """Load previously scraped data so we can preserve successful records."""
+    """Load prior data keyed by 'County:parcelId' to avoid collisions across counties."""
     if path.exists():
         try:
-            return {r["parcelId"]: r for r in json.loads(path.read_text())["parcels"]}
+            data = json.loads(path.read_text())
+            return {f"{r.get('county','?')}:{r['parcelId']}": r for r in data.get("parcels", [])}
         except Exception:
             pass
     return {}
 
+
+def scrape_county(county: dict, existing_cache: dict, session: requests.Session) -> list[dict]:
+    name = county["name"]
+    print(f"\n{'='*60}")
+    print(f"[{name.upper()}] Starting scrape")
+    print(f"{'='*60}")
+
+    # 1. Get source file
+    cache = county["cache_path"]
+    if source_is_fresh(cache):
+        print(f"  [CACHE] Using cached file (< 12h old)")
+        fresh = True
+    else:
+        fresh = download_source(county["source_url"], cache)
+
+    # 2. Extract parcel IDs
+    if fresh and cache.exists():
+        if county["type"] == "pdf":
+            parcel_ids = extract_ids_from_pdf(cache)
+        else:
+            parcel_ids = extract_ids_from_fixed_width(cache)
+    else:
+        parcel_ids = [
+            k.split(":", 1)[1]
+            for k in existing_cache
+            if k.startswith(f"{name}:")
+        ]
+        print(f"  [FALLBACK] Using {len(parcel_ids)} IDs from previous data.json")
+
+    if not parcel_ids:
+        print(f"  [WARN] No parcel IDs found for {name}")
+        return []
+
+    # 3. Scrape iTax
+    results = []
+    errors = 0
+    for i, pid in enumerate(parcel_ids, 1):
+        print(f"  [{i:4d}/{len(parcel_ids)}] {pid} ... ", end="", flush=True)
+        record = scrape_parcel(pid, county, session)
+        cache_key = f"{name}:{pid}"
+        if record.get("error"):
+            errors += 1
+            if cache_key in existing_cache:
+                print("ERROR (using cached)")
+                results.append(existing_cache[cache_key])
+            else:
+                print("ERROR (no cache)")
+                results.append(record)
+        else:
+            mv  = record.get("marketValue") or 0
+            tax = record.get("totalTaxes")  or 0
+            rat = record.get("ratio")       or 0
+            print(f"OK  MV=${mv:,.0f}  Tax=${tax:,.2f}  Ratio={rat:.4f}%")
+            results.append(record)
+        time.sleep(REQUEST_DELAY)
+
+    print(f"\n  [{name.upper()}] Done — {len(results)} parcels, {errors} errors")
+    return results
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
     start = time.time()
     print(f"[START] {utc_now()}")
-
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
 
-    # 1. Download PDF (skip if cached and less than 12 hours old)
-    pdf_fresh = False
-    if PDF_CACHE.exists():
-        age_hours = (time.time() - PDF_CACHE.stat().st_mtime) / 3600
-        if age_hours < 12:
-            print(f"[PDF] Using cached PDF (age: {age_hours:.1f}h)")
-            pdf_fresh = True
-
-    if not pdf_fresh:
-        pdf_fresh = download_pdf(PDF_URL, PDF_CACHE)
-
-    # 2. Extract parcel IDs
-    if pdf_fresh and PDF_CACHE.exists():
-        parcel_ids = extract_parcel_ids_from_pdf(PDF_CACHE)
-    else:
-        # Fallback: load IDs from existing data.json if PDF unavailable
-        existing = load_existing(OUTPUT_PATH)
-        parcel_ids = list(existing.keys())
-        print(f"[FALLBACK] Using {len(parcel_ids)} IDs from previous data.json")
-
-    if not parcel_ids:
-        print("[ERROR] No parcel IDs found. Exiting.")
-        return
-
-    # 3. Scrape iTax — load existing so we don't lose data on errors
     existing_cache = load_existing(OUTPUT_PATH)
-    results = []
     session = requests.Session()
-    errors = 0
+    all_results = []
 
-    for i, pid in enumerate(parcel_ids, 1):
-        print(f"[{i:4d}/{len(parcel_ids)}] {pid}", end=" ... ", flush=True)
-        record = scrape_parcel(pid, session)
-        if record.get("error"):
-            errors += 1
-            # Fall back to cached version if available
-            if pid in existing_cache:
-                print(f"ERROR (using cached)")
-                results.append(existing_cache[pid])
-            else:
-                print(f"ERROR (no cache)")
-                results.append(record)
-        else:
-            print(f"OK  MV=${record.get('marketValue') or 0:,.0f}  "
-                  f"Tax=${record.get('totalTaxes') or 0:,.2f}  "
-                  f"Ratio={record.get('ratio') or 0:.4f}%")
-            results.append(record)
-        time.sleep(REQUEST_DELAY)
+    for county in COUNTIES:
+        records = scrape_county(county, existing_cache, session)
+        all_results.extend(records)
 
-    # 4. Sort by ratio descending (best investment opportunities first)
-    results.sort(key=lambda r: r.get("ratio") or 0, reverse=True)
+    # Sort by ratio descending across all counties
+    all_results.sort(key=lambda r: r.get("ratio") or 0, reverse=True)
 
-    # 5. Build summary stats
-    valid = [r for r in results if not r.get("error")]
-    total_taxes = sum(r.get("totalTaxes") or 0 for r in valid)
+    # Summary stats
+    valid       = [r for r in all_results if not r.get("error")]
+    total_taxes = sum(r.get("totalTaxes")  or 0 for r in valid)
     total_mv    = sum(r.get("marketValue") or 0 for r in valid)
     ratios      = [r["ratio"] for r in valid if r.get("ratio")]
     avg_ratio   = sum(ratios) / len(ratios) if ratios else 0
     high_ratio  = sum(1 for r in ratios if r >= 1.0)
 
+    # Per-county breakdown
+    county_summary = {}
+    for county in COUNTIES:
+        name = county["name"]
+        crecs = [r for r in valid if r.get("county") == name]
+        county_summary[name] = {
+            "parcels":          len(crecs),
+            "totalTaxesOwed":   round(sum(r.get("totalTaxes")  or 0 for r in crecs), 2),
+            "totalMarketValue": round(sum(r.get("marketValue") or 0 for r in crecs), 2),
+        }
+
     output = {
-        "generatedAt": utc_now(),
-        "county": "Gallatin",
-        "state": "Montana",
-        "sourceUrl": PDF_URL,
-        "totalParcels": len(results),
+        "generatedAt":       utc_now(),
+        "counties":          [c["name"] for c in COUNTIES],
+        "state":             "Montana",
+        "totalParcels":      len(all_results),
         "successfulScrapes": len(valid),
-        "errors": errors,
+        "errors":            len(all_results) - len(valid),
         "summary": {
-            "totalTaxesOwed": round(total_taxes, 2),
+            "totalTaxesOwed":   round(total_taxes, 2),
             "totalMarketValue": round(total_mv, 2),
             "avgTaxValueRatio": round(avg_ratio, 6),
             "highRatioParcels": high_ratio,
         },
-        "parcels": results,
+        "countySummary": county_summary,
+        "parcels": all_results,
     }
 
     OUTPUT_PATH.write_text(json.dumps(output, indent=2))
     elapsed = time.time() - start
-    print(f"\n[DONE] {len(results)} parcels saved to {OUTPUT_PATH}")
-    print(f"[DONE] {errors} errors | {elapsed:.1f}s elapsed")
+    print(f"\n[DONE] {len(all_results)} total parcels across {len(COUNTIES)} counties")
+    print(f"[DONE] {len(all_results) - len(valid)} errors | {elapsed:.1f}s elapsed")
+    print(f"[DONE] Output: {OUTPUT_PATH}")
 
 
 if __name__ == "__main__":
