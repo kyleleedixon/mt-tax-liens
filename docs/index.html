@@ -13,6 +13,7 @@
   --accent:#e8a825; --accent2:#c88a10;
   --red:#e05252; --green:#3cbf7a; --blue:#4a9eff;
   --r:8px; --r2:12px;
+  --row-h: 38px;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.5;}
@@ -45,23 +46,24 @@ select.input{cursor:pointer;-webkit-appearance:none;}
 .stat-val.amber{color:var(--accent);}
 .stat-val.green{color:var(--green);}
 .stat-hint{font-size:11px;color:var(--text3);margin-top:3px;}
-/* county pills */
 .county-pills{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:2px;}
 .cpill{padding:4px 12px;border-radius:20px;font-size:11px;font-weight:500;cursor:pointer;border:1px solid var(--border2);background:var(--bg3);color:var(--text2);transition:all .15s;font-family:'IBM Plex Mono',monospace;}
 .cpill:hover{background:var(--bg4);}
 .cpill.active{background:rgba(232,168,37,.15);border-color:rgba(232,168,37,.4);color:var(--accent);}
 .cpill.all.active{background:rgba(74,158,255,.12);border-color:rgba(74,158,255,.35);color:var(--blue);}
-/* county badges in table */
 .c-gallatin{background:rgba(74,158,255,.12);color:#7ab8ff;border:1px solid rgba(74,158,255,.25);}
 .c-flathead{background:rgba(60,191,122,.12);color:#5fd4a0;border:1px solid rgba(60,191,122,.25);}
-/* table */
-.tbl-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);flex:1;overflow:hidden;display:flex;flex-direction:column;}
-.tbl-head{padding:13px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:12px;}
+/* TABLE */
+.tbl-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);flex:1;overflow:hidden;display:flex;flex-direction:column;min-height:0;}
+.tbl-head{padding:13px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-shrink:0;}
 .tbl-title{font-size:13px;font-weight:500;}
 .tbl-count{font-size:11px;color:var(--text3);font-family:'IBM Plex Mono',monospace;margin-top:2px;}
-.tbl-scroll{overflow:auto;flex:1;}
-table{width:100%;border-collapse:collapse;font-size:12px;}
-thead th{background:var(--bg3);padding:0;text-align:left;font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--text3);border-bottom:1px solid var(--border);white-space:nowrap;position:sticky;top:0;z-index:10;}
+/* Virtual scroll container */
+.tbl-outer{flex:1;overflow:hidden;display:flex;flex-direction:column;min-height:0;}
+.tbl-scroll{overflow-x:auto;overflow-y:hidden;flex-shrink:0;}
+.tbl-viewport{overflow-y:scroll;flex:1;min-height:0;position:relative;}
+table{width:100%;border-collapse:collapse;font-size:12px;table-layout:fixed;}
+thead th{background:var(--bg3);padding:0;text-align:left;font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--text3);border-bottom:1px solid var(--border);white-space:nowrap;}
 thead th.sorted{color:var(--accent);}
 .th-inner{display:flex;align-items:center;gap:4px;padding:8px 13px;cursor:pointer;user-select:none;transition:color .15s;}
 .th-inner:hover{color:var(--text2);}
@@ -69,10 +71,14 @@ thead th.sorted{color:var(--accent);}
 .col-filter{width:100%;background:var(--bg4);border:none;border-top:1px solid var(--border);color:var(--text2);font-family:'IBM Plex Mono',monospace;font-size:11px;padding:5px 13px;outline:none;transition:background .15s;}
 .col-filter:focus{background:var(--bg3);color:var(--text);}
 .col-filter::placeholder{color:var(--text3);font-style:italic;}
-tbody tr{border-bottom:1px solid var(--border);cursor:pointer;transition:background .1s;}
-tbody tr:hover{background:var(--bg3);}
-tbody tr.sel{background:rgba(232,168,37,.07);border-left:2px solid var(--accent);}
-td{padding:9px 13px;color:var(--text2);vertical-align:middle;}
+/* virtual rows */
+.vt-spacer-top{background:transparent;}
+.vt-spacer-bot{background:transparent;}
+tbody tr{border-bottom:1px solid var(--border);cursor:pointer;}
+tbody tr:hover td{background:var(--bg3);}
+tbody tr.sel td{background:rgba(232,168,37,.07);}
+tbody tr.sel{border-left:2px solid var(--accent);}
+td{padding:0 13px;height:var(--row-h);color:var(--text2);vertical-align:middle;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 td.mono{font-family:'IBM Plex Mono',monospace;}
 td.primary{color:var(--text);font-weight:500;}
 .ratio-bar{display:flex;align-items:center;gap:7px;}
@@ -84,7 +90,6 @@ td.primary{color:var(--text);font-weight:500;}
 .b-green{background:rgba(60,191,122,.15);color:var(--green);border:1px solid rgba(60,191,122,.25);}
 .ilink{display:inline-flex;align-items:center;gap:3px;color:var(--blue);text-decoration:none;font-size:11px;padding:2px 7px;border-radius:4px;border:1px solid rgba(74,158,255,.2);font-family:'IBM Plex Mono',monospace;transition:all .15s;white-space:nowrap;}
 .ilink:hover{background:rgba(74,158,255,.1);}
-/* panel */
 .panel{position:fixed;top:56px;right:0;bottom:0;width:400px;background:var(--bg2);border-left:1px solid var(--border2);z-index:200;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .25s cubic-bezier(.4,0,.2,1);overflow:hidden;}
 .panel.open{transform:translateX(0);}
 .panel-close{position:absolute;top:13px;right:15px;background:var(--bg3);border:1px solid var(--border);border-radius:50%;width:28px;height:28px;color:var(--text2);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;line-height:1;}
@@ -139,7 +144,7 @@ td.primary{color:var(--text);font-weight:500;}
   <aside class="sidebar">
     <div class="sb-sec">
       <div class="sb-label">Search</div>
-      <input class="input" id="q" type="text" placeholder="Owner, parcel ID, address…" oninput="applyAll()">
+      <input class="input" id="q" type="text" placeholder="Owner, parcel ID, address…" oninput="scheduleFilter()">
     </div>
     <div class="sb-sec">
       <div class="sb-label">County</div>
@@ -152,7 +157,7 @@ td.primary{color:var(--text);font-weight:500;}
       <div style="display:flex;flex-direction:column;gap:7px;">
         <div>
           <div style="font-size:10px;color:var(--text3);margin-bottom:4px;">Status</div>
-          <select class="input sm" id="f-status" onchange="applyAll()">
+          <select class="input sm" id="f-status" onchange="scheduleFilter()">
             <option value="">All statuses</option>
             <option value="Delinquent">Delinquent</option>
             <option value="Paid">Paid</option>
@@ -161,19 +166,19 @@ td.primary{color:var(--text);font-weight:500;}
         </div>
         <div>
           <div style="font-size:10px;color:var(--text3);margin-bottom:4px;">Min taxes owed ($)</div>
-          <input class="input sm" id="min-taxes" type="number" placeholder="0" oninput="applyAll()">
+          <input class="input sm" id="min-taxes" type="number" placeholder="0" oninput="scheduleFilter()">
         </div>
         <div>
           <div style="font-size:10px;color:var(--text3);margin-bottom:4px;">Max market value ($)</div>
-          <input class="input sm" id="max-value" type="number" placeholder="No limit" oninput="applyAll()">
+          <input class="input sm" id="max-value" type="number" placeholder="No limit" oninput="scheduleFilter()">
         </div>
         <div>
           <div style="font-size:10px;color:var(--text3);margin-bottom:4px;">Min tax/value ratio (%)</div>
-          <input class="input sm" id="min-ratio" type="number" step="0.01" placeholder="0.00" oninput="applyAll()">
+          <input class="input sm" id="min-ratio" type="number" step="0.01" placeholder="0.00" oninput="scheduleFilter()">
         </div>
         <div>
           <div style="font-size:10px;color:var(--text3);margin-bottom:4px;">Min acres</div>
-          <input class="input sm" id="min-acres" type="number" step="0.01" placeholder="0" oninput="applyAll()">
+          <input class="input sm" id="min-acres" type="number" step="0.01" placeholder="0" oninput="scheduleFilter()">
         </div>
         <button class="btn" style="margin-top:4px;" onclick="clearFilters()">✕ Clear all filters</button>
       </div>
@@ -201,56 +206,67 @@ td.primary{color:var(--text);font-weight:500;}
           <div class="tbl-count" id="tbl-count">Loading data…</div>
         </div>
       </div>
-      <div class="tbl-scroll">
-        <table>
-          <thead>
-            <tr>
-              <th id="th-county">
-                <div class="th-inner" onclick="sortCol('county')">County <span class="th-sort" id="s-county"></span></div>
-                <input class="col-filter" id="cf-county" placeholder="filter…" oninput="applyAll()">
-              </th>
-              <th id="th-parcelId">
-                <div class="th-inner" onclick="sortCol('parcelId')">Parcel ID <span class="th-sort" id="s-parcelId"></span></div>
-                <input class="col-filter" id="cf-parcelId" placeholder="filter…" oninput="applyAll()">
-              </th>
-              <th id="th-owner">
-                <div class="th-inner" onclick="sortCol('owner')">Owner <span class="th-sort" id="s-owner"></span></div>
-                <input class="col-filter" id="cf-owner" placeholder="filter…" oninput="applyAll()">
-              </th>
-              <th id="th-propertyAddress">
-                <div class="th-inner" onclick="sortCol('propertyAddress')">Address <span class="th-sort" id="s-propertyAddress"></span></div>
-                <input class="col-filter" id="cf-propertyAddress" placeholder="filter…" oninput="applyAll()">
-              </th>
-              <th id="th-totalTaxes">
-                <div class="th-inner" onclick="sortCol('totalTaxes')">Taxes Owed <span class="th-sort" id="s-totalTaxes"></span></div>
-                <input class="col-filter" id="cf-totalTaxes" placeholder="min $…" type="number" oninput="applyAll()">
-              </th>
-              <th id="th-marketValue">
-                <div class="th-inner" onclick="sortCol('marketValue')">Market Value <span class="th-sort" id="s-marketValue"></span></div>
-                <input class="col-filter" id="cf-marketValue" placeholder="max $…" type="number" oninput="applyAll()">
-              </th>
-              <th id="th-acres">
-                <div class="th-inner" onclick="sortCol('acres')">Acres <span class="th-sort" id="s-acres"></span></div>
-                <input class="col-filter" id="cf-acres" placeholder="min…" type="number" oninput="applyAll()">
-              </th>
-              <th id="th-ratio" class="sorted">
-                <div class="th-inner" onclick="sortCol('ratio')">Tax/Value <span class="th-sort" id="s-ratio">▼</span></div>
-                <input class="col-filter" id="cf-ratio" placeholder="min %…" type="number" step="0.01" oninput="applyAll()">
-              </th>
-              <th id="th-status">
-                <div class="th-inner" onclick="sortCol('status')">Status <span class="th-sort" id="s-status"></span></div>
-                <input class="col-filter" id="cf-status" placeholder="filter…" oninput="applyAll()">
-              </th>
-              <th>
-                <div class="th-inner">Links</div>
-                <div style="height:27px;border-top:1px solid var(--border);background:var(--bg4);"></div>
-              </th>
-            </tr>
-          </thead>
-          <tbody id="tbody">
-            <tr><td colspan="10"><div class="loading"><div class="spinner"></div><span>Loading parcel data…</span></div></td></tr>
-          </tbody>
-        </table>
+      <!-- Fixed header table (scroll synced to viewport) -->
+      <div class="tbl-outer">
+        <div class="tbl-scroll" id="tbl-scroll">
+          <table id="header-table" style="width:100%;">
+            <thead>
+              <tr>
+                <th id="th-county" style="width:100px">
+                  <div class="th-inner" onclick="sortCol('county')">County <span class="th-sort" id="s-county"></span></div>
+                  <input class="col-filter" id="cf-county" placeholder="filter…" oninput="scheduleFilter()">
+                </th>
+                <th id="th-parcelId" style="width:110px">
+                  <div class="th-inner" onclick="sortCol('parcelId')">Parcel ID <span class="th-sort" id="s-parcelId"></span></div>
+                  <input class="col-filter" id="cf-parcelId" placeholder="filter…" oninput="scheduleFilter()">
+                </th>
+                <th id="th-owner" style="width:180px">
+                  <div class="th-inner" onclick="sortCol('owner')">Owner <span class="th-sort" id="s-owner"></span></div>
+                  <input class="col-filter" id="cf-owner" placeholder="filter…" oninput="scheduleFilter()">
+                </th>
+                <th id="th-propertyAddress" style="width:200px">
+                  <div class="th-inner" onclick="sortCol('propertyAddress')">Address <span class="th-sort" id="s-propertyAddress"></span></div>
+                  <input class="col-filter" id="cf-propertyAddress" placeholder="filter…" oninput="scheduleFilter()">
+                </th>
+                <th id="th-totalTaxes" style="width:110px">
+                  <div class="th-inner" onclick="sortCol('totalTaxes')">Taxes Owed <span class="th-sort" id="s-totalTaxes"></span></div>
+                  <input class="col-filter" id="cf-totalTaxes" placeholder="min $…" type="number" oninput="scheduleFilter()">
+                </th>
+                <th id="th-marketValue" style="width:120px">
+                  <div class="th-inner" onclick="sortCol('marketValue')">Market Value <span class="th-sort" id="s-marketValue"></span></div>
+                  <input class="col-filter" id="cf-marketValue" placeholder="max $…" type="number" oninput="scheduleFilter()">
+                </th>
+                <th id="th-acres" style="width:80px">
+                  <div class="th-inner" onclick="sortCol('acres')">Acres <span class="th-sort" id="s-acres"></span></div>
+                  <input class="col-filter" id="cf-acres" placeholder="min…" type="number" oninput="scheduleFilter()">
+                </th>
+                <th id="th-ratio" class="sorted" style="width:130px">
+                  <div class="th-inner" onclick="sortCol('ratio')">Tax/Value <span class="th-sort" id="s-ratio">▼</span></div>
+                  <input class="col-filter" id="cf-ratio" placeholder="min %…" type="number" step="0.01" oninput="scheduleFilter()">
+                </th>
+                <th id="th-status" style="width:100px">
+                  <div class="th-inner" onclick="sortCol('status')">Status <span class="th-sort" id="s-status"></span></div>
+                  <input class="col-filter" id="cf-status" placeholder="filter…" oninput="scheduleFilter()">
+                </th>
+                <th style="width:140px">
+                  <div class="th-inner">Links</div>
+                  <div style="height:27px;border-top:1px solid var(--border);background:var(--bg4);"></div>
+                </th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <!-- Virtual scroll viewport -->
+        <div class="tbl-viewport" id="tbl-viewport">
+          <div id="vt-total" style="position:relative;width:100%;">
+            <table id="body-table" style="position:absolute;top:0;left:0;width:100%;table-layout:fixed;">
+              <colgroup id="colgroup"></colgroup>
+              <tbody id="tbody">
+                <tr><td colspan="10"><div class="loading"><div class="spinner"></div><span>Loading parcel data…</span></div></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </main>
@@ -263,10 +279,18 @@ td.primary{color:var(--text);font-weight:500;}
 <div class="toast" id="toast"></div>
 
 <script>
+// ── State ─────────────────────────────────────────────────────────────────
 let ALL = [], FILTERED = [], SELECTED = null;
 let SORT_FIELD = 'ratio', SORT_DIR = 'desc';
 let COUNTY_FILTER = '';
 let META = {};
+let filterTimer = null;
+
+// ── Virtual scroll config ─────────────────────────────────────────────────
+const ROW_H      = 38;   // must match --row-h CSS var
+const OVERSCAN   = 10;   // extra rows above/below viewport
+let vtStart      = 0;
+let vtEnd        = 0;
 
 // ── Load ──────────────────────────────────────────────────────────────────
 async function loadData() {
@@ -285,6 +309,7 @@ async function loadData() {
     buildSidebarStats(d);
     applyAll();
     document.getElementById('stats').style.display = 'grid';
+    initVirtualScroll();
   } catch(e) {
     document.getElementById('tbl-count').textContent = 'Error loading data — see console';
     document.getElementById('last-refresh').textContent = 'Load failed';
@@ -292,29 +317,65 @@ async function loadData() {
   }
 }
 
-// ── County Pills ──────────────────────────────────────────────────────────
-function buildCountyPills(counties, summary) {
-  const container = document.getElementById('county-pills');
-  container.innerHTML = `<span class="cpill all active" data-county="" onclick="selectCounty(this)">All</span>`;
-  counties.forEach(c => {
-    const count = summary[c]?.parcels || '';
-    const pill = document.createElement('span');
-    pill.className = 'cpill';
-    pill.dataset.county = c;
-    pill.onclick = function() { selectCounty(this); };
-    pill.textContent = c + (count ? ` (${count.toLocaleString()})` : '');
-    container.appendChild(pill);
+// ── Virtual scroll ────────────────────────────────────────────────────────
+function initVirtualScroll() {
+  const viewport = document.getElementById('tbl-viewport');
+  // Sync horizontal scroll between header and viewport
+  viewport.addEventListener('scroll', () => {
+    document.getElementById('tbl-scroll').scrollLeft = viewport.scrollLeft;
+    renderVisibleRows();
+  });
+  document.getElementById('tbl-scroll').addEventListener('scroll', e => {
+    viewport.scrollLeft = e.target.scrollLeft;
   });
 }
 
-function selectCounty(el) {
-  document.querySelectorAll('.cpill').forEach(p => p.classList.remove('active'));
-  el.classList.add('active');
-  COUNTY_FILTER = el.dataset.county;
-  applyAll();
+function renderVisibleRows() {
+  if (!FILTERED.length) return;
+  const viewport = document.getElementById('tbl-viewport');
+  const scrollTop = viewport.scrollTop;
+  const viewH = viewport.clientHeight;
+
+  const start = Math.max(0, Math.floor(scrollTop / ROW_H) - OVERSCAN);
+  const end   = Math.min(FILTERED.length, Math.ceil((scrollTop + viewH) / ROW_H) + OVERSCAN);
+
+  if (start === vtStart && end === vtEnd) return;
+  vtStart = start;
+  vtEnd   = end;
+
+  const maxR = FILTERED._maxR || 0.001;
+  const rows = FILTERED.slice(start, end).map((p, i) => rowHTML(p, start + i, maxR)).join('');
+
+  const spTop = start * ROW_H;
+  const spBot = Math.max(0, (FILTERED.length - end) * ROW_H);
+
+  document.getElementById('tbody').innerHTML =
+    `<tr class="vt-spacer-top"><td colspan="10" style="height:${spTop}px;padding:0;border:none;"></td></tr>` +
+    rows +
+    `<tr class="vt-spacer-bot"><td colspan="10" style="height:${spBot}px;padding:0;border:none;"></td></tr>`;
+
+  syncColWidths();
+}
+
+function syncColWidths() {
+  // Mirror header column widths into body colgroup so columns align
+  const headerCols = document.querySelectorAll('#header-table thead th');
+  let cg = document.getElementById('colgroup');
+  cg.innerHTML = '';
+  headerCols.forEach(th => {
+    const col = document.createElement('col');
+    col.style.width = th.offsetWidth + 'px';
+    cg.appendChild(col);
+  });
 }
 
 // ── Filter + Sort ─────────────────────────────────────────────────────────
+function scheduleFilter() {
+  // Debounce: wait 120ms after last keystroke before filtering
+  clearTimeout(filterTimer);
+  filterTimer = setTimeout(applyAll, 120);
+}
+
 function applyAll() {
   const q       = document.getElementById('q').value.toLowerCase();
   const fStatus = document.getElementById('f-status').value;
@@ -322,16 +383,15 @@ function applyAll() {
   const maxVal  = parseFloat(document.getElementById('max-value').value)  || Infinity;
   const minRat  = parseFloat(document.getElementById('min-ratio').value)  || 0;
   const minAcr  = parseFloat(document.getElementById('min-acres').value)  || 0;
-
-  const cfCounty = document.getElementById('cf-county').value.toLowerCase();
-  const cfParcel = document.getElementById('cf-parcelId').value.toLowerCase();
-  const cfOwner  = document.getElementById('cf-owner').value.toLowerCase();
-  const cfAddr   = document.getElementById('cf-propertyAddress').value.toLowerCase();
-  const cfTaxMin = parseFloat(document.getElementById('cf-totalTaxes').value) || 0;
-  const cfValMax = parseFloat(document.getElementById('cf-marketValue').value) || Infinity;
-  const cfAcrMin = parseFloat(document.getElementById('cf-acres').value) || 0;
-  const cfRatMin = parseFloat(document.getElementById('cf-ratio').value) || 0;
-  const cfStatus = document.getElementById('cf-status').value.toLowerCase();
+  const cfCounty= document.getElementById('cf-county').value.toLowerCase();
+  const cfParcel= document.getElementById('cf-parcelId').value.toLowerCase();
+  const cfOwner = document.getElementById('cf-owner').value.toLowerCase();
+  const cfAddr  = document.getElementById('cf-propertyAddress').value.toLowerCase();
+  const cfTaxMin= parseFloat(document.getElementById('cf-totalTaxes').value) || 0;
+  const cfValMax= parseFloat(document.getElementById('cf-marketValue').value) || Infinity;
+  const cfAcrMin= parseFloat(document.getElementById('cf-acres').value) || 0;
+  const cfRatMin= parseFloat(document.getElementById('cf-ratio').value) || 0;
+  const cfStatus= document.getElementById('cf-status').value.toLowerCase();
 
   FILTERED = ALL.filter(p => {
     if (COUNTY_FILTER && p.county !== COUNTY_FILTER) return false;
@@ -372,7 +432,28 @@ function applyAll() {
     return 0;
   });
 
-  renderTable();
+  // Cache maxR on the array to avoid recalculating on every scroll
+  FILTERED._maxR = Math.max(...FILTERED.map(p => p.ratio || 0), 0.001);
+
+  // Reset virtual scroll position and re-render
+  const viewport = document.getElementById('tbl-viewport');
+  if (viewport) viewport.scrollTop = 0;
+  vtStart = 0; vtEnd = 0;
+
+  // Update total height container
+  const totalEl = document.getElementById('vt-total');
+  if (totalEl) totalEl.style.height = (FILTERED.length * ROW_H + 200) + 'px';
+
+  document.getElementById('tbl-count').textContent =
+    FILTERED.length.toLocaleString() + ' result' + (FILTERED.length !== 1 ? 's' : '');
+
+  if (!FILTERED.length) {
+    document.getElementById('tbody').innerHTML =
+      '<tr><td colspan="10"><div class="empty">No parcels match your filters</div></td></tr>';
+  } else {
+    renderVisibleRows();
+  }
+
   updateStats();
 }
 
@@ -402,50 +483,39 @@ function clearFilters() {
   applyAll();
 }
 
-// ── Render ────────────────────────────────────────────────────────────────
-function countyBadge(county) {
-  const cls = county === 'Gallatin' ? 'c-gallatin' : county === 'Flathead' ? 'c-flathead' : '';
-  return `<span class="badge ${cls}">${county||'—'}</span>`;
+// ── Row HTML (called per visible row only) ────────────────────────────────
+function rowHTML(p, idx, maxR) {
+  const r = p.ratio;
+  const rClass = r >= 1.5 ? 'b-red' : r >= 0.5 ? 'b-amber' : 'b-green';
+  const ratioHtml = r != null
+    ? `<div class="ratio-bar"><div class="ratio-track"><div class="ratio-fill" style="width:${Math.min(100,(r/maxR)*100).toFixed(1)}%;background:${r>=1.5?'var(--red)':r>=0.5?'var(--accent)':'var(--green)'}"></div></div><span class="badge ${rClass}">${r.toFixed(3)}%</span></div>`
+    : '<span style="color:var(--text3)">—</span>';
+  const status = p.status || 'Unknown';
+  const sBadge = status === 'Delinquent' ? 'b-red' : (status === 'Paid' || status === 'Current') ? 'b-green' : 'b-amber';
+  const sel = SELECTED && SELECTED.parcelId === p.parcelId && SELECTED.county === p.county;
+  const cCls = p.county === 'Gallatin' ? 'c-gallatin' : p.county === 'Flathead' ? 'c-flathead' : '';
+  return `<tr class="${sel?'sel':''}" onclick="openPanel('${esc(p.county)}','${esc(p.parcelId)}')">
+    <td><span class="badge ${cCls}">${p.county||'—'}</span></td>
+    <td class="mono primary">${p.parcelId||'—'}</td>
+    <td class="primary" title="${esc(p.owner||'')}">${p.owner||'—'}</td>
+    <td title="${esc(p.propertyAddress||'')}">${p.propertyAddress||'—'}</td>
+    <td class="mono" style="color:var(--red)">${fmt$(p.totalTaxes)}</td>
+    <td class="mono">${p.marketValue?'$'+p.marketValue.toLocaleString():'—'}</td>
+    <td class="mono">${p.acres?p.acres.toFixed(2):'—'}</td>
+    <td>${ratioHtml}</td>
+    <td><span class="badge ${sBadge}">${status}</span></td>
+    <td style="white-space:nowrap">
+      <a class="ilink" href="${p.itaxUrl||'#'}" target="_blank" onclick="event.stopPropagation()">iTax ↗</a>
+      ${p.cadastralUrl?`<a class="ilink" href="${p.cadastralUrl}" target="_blank" onclick="event.stopPropagation()" style="margin-left:4px">Map ↗</a>`:''}
+    </td>
+  </tr>`;
 }
 
-function renderTable() {
-  const tbody = document.getElementById('tbody');
-  document.getElementById('tbl-count').textContent =
-    FILTERED.length.toLocaleString() + ' result' + (FILTERED.length !== 1 ? 's' : '');
-
-  if (!FILTERED.length) {
-    tbody.innerHTML = '<tr><td colspan="10"><div class="empty">No parcels match your filters</div></td></tr>';
-    return;
-  }
-  const maxR = Math.max(...FILTERED.map(p => p.ratio || 0), 0.001);
-
-  tbody.innerHTML = FILTERED.map(p => {
-    const r = p.ratio;
-    const rClass = r >= 1.5 ? 'b-red' : r >= 0.5 ? 'b-amber' : 'b-green';
-    const ratioHtml = r != null
-      ? `<div class="ratio-bar"><div class="ratio-track"><div class="ratio-fill" style="width:${Math.min(100,(r/maxR)*100).toFixed(1)}%;background:${r>=1.5?'var(--red)':r>=0.5?'var(--accent)':'var(--green)'}"></div></div><span class="badge ${rClass}">${r.toFixed(3)}%</span></div>`
-      : '<span style="color:var(--text3)">—</span>';
-    const status = p.status || 'Unknown';
-    const sBadge = status === 'Delinquent' ? 'b-red' : status === 'Paid' || status === 'Current' ? 'b-green' : 'b-amber';
-    const sel = SELECTED && SELECTED.parcelId === p.parcelId && SELECTED.county === p.county;
-    return `<tr class="${sel?'sel':''}" onclick="openPanel('${p.county}','${p.parcelId}')">
-      <td>${countyBadge(p.county)}</td>
-      <td class="mono primary">${p.parcelId}</td>
-      <td class="primary" style="max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${p.owner||''}">${p.owner||'—'}</td>
-      <td style="max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${p.propertyAddress||''}">${p.propertyAddress||'—'}</td>
-      <td class="mono" style="color:var(--red)">${fmt$(p.totalTaxes)}</td>
-      <td class="mono">${p.marketValue ? '$'+p.marketValue.toLocaleString() : '—'}</td>
-      <td class="mono">${p.acres ? p.acres.toFixed(2) : '—'}</td>
-      <td>${ratioHtml}</td>
-      <td><span class="badge ${sBadge}">${status}</span></td>
-      <td style="white-space:nowrap">
-        <a class="ilink" href="${p.itaxUrl}" target="_blank" onclick="event.stopPropagation()">iTax ↗</a>
-        ${p.cadastralUrl ? `<a class="ilink" href="${p.cadastralUrl}" target="_blank" onclick="event.stopPropagation()" style="margin-left:4px">Map ↗</a>` : ''}
-      </td>
-    </tr>`;
-  }).join('');
+function esc(s) {
+  return (s||'').replace(/'/g,"&#39;").replace(/"/g,'&quot;');
 }
 
+// ── Stats + sidebar ───────────────────────────────────────────────────────
 function updateStats() {
   const p = FILTERED;
   document.getElementById('s-total').textContent = p.length.toLocaleString();
@@ -454,6 +524,27 @@ function updateStats() {
   const avg = ratios.length ? ratios.reduce((a,b)=>a+b,0)/ratios.length : 0;
   document.getElementById('s-ratio').textContent = avg.toFixed(3)+'%';
   document.getElementById('s-high').textContent  = ratios.filter(r=>r>=1).length;
+}
+
+function buildCountyPills(counties, summary) {
+  const container = document.getElementById('county-pills');
+  container.innerHTML = `<span class="cpill all active" data-county="" onclick="selectCounty(this)">All</span>`;
+  counties.forEach(c => {
+    const count = summary[c]?.parcels || '';
+    const pill = document.createElement('span');
+    pill.className = 'cpill';
+    pill.dataset.county = c;
+    pill.onclick = function() { selectCounty(this); };
+    pill.textContent = c + (count ? ` (${count.toLocaleString()})` : '');
+    container.appendChild(pill);
+  });
+}
+
+function selectCounty(el) {
+  document.querySelectorAll('.cpill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  COUNTY_FILTER = el.dataset.county;
+  applyAll();
 }
 
 function buildSidebarStats(d) {
@@ -478,19 +569,21 @@ function openPanel(county, id) {
   const p = ALL.find(x => x.parcelId === id && x.county === county);
   if (!p) return;
   SELECTED = p;
-  renderTable();
+  // Just re-render visible rows to update selection highlight — no full re-render
+  renderVisibleRows();
   const r = p.ratio;
   const rc   = r >= 1.5 ? 'var(--red)' : r >= 0.5 ? 'var(--accent)' : 'var(--green)';
   const rPct = r ? Math.min(100,(r/3)*100).toFixed(1) : 0;
   const rFill = r >= 1.5 ? 'var(--red)' : r >= 0.5 ? 'var(--accent)' : 'var(--green)';
   const status = p.status || 'Unknown';
-  const sBadge = status === 'Delinquent' ? 'b-red' : status === 'Paid' || status === 'Current' ? 'b-green' : 'b-amber';
+  const sBadge = status === 'Delinquent' ? 'b-red' : (status === 'Paid'||status==='Current') ? 'b-green' : 'b-amber';
+  const cCls = p.county==='Gallatin'?'c-gallatin':p.county==='Flathead'?'c-flathead':'';
   document.getElementById('panel-body').innerHTML = `
     <div class="p-sub">PARCEL ${p.parcelId} · ${p.taxYear||2025}</div>
     <div class="p-name">${p.owner||'—'}</div>
     <div class="p-addr">${p.propertyAddress||p.mailingAddress||'—'}</div>
     <div style="display:flex;gap:6px;margin-bottom:14px">
-      ${countyBadge(p.county)}
+      <span class="badge ${cCls}">${p.county||'—'}</span>
       <span class="badge ${sBadge}">${status}</span>
     </div>
     <div class="divider"></div>
@@ -531,9 +624,9 @@ function openPanel(county, id) {
         </div>`
       :`<div style="color:var(--text3);font-size:12px;padding:12px 0">No geocode available</div>`}
     <div class="action-row">
-      <a class="btn primary" href="${p.itaxUrl}" target="_blank">iTax Record ↗</a>
+      <a class="btn primary" href="${p.itaxUrl||'#'}" target="_blank">iTax Record ↗</a>
       ${p.cadastralUrl?`<a class="btn" href="${p.cadastralUrl}" target="_blank">Cadastral Map ↗</a>`:''}
-      <button class="btn" onclick="copyId('${p.parcelId}')">Copy ID</button>
+      <button class="btn" onclick="copyId('${esc(p.parcelId)}')">Copy ID</button>
     </div>`;
   document.getElementById('panel').classList.add('open');
 }
@@ -541,7 +634,7 @@ function openPanel(county, id) {
 function closePanel() {
   document.getElementById('panel').classList.remove('open');
   SELECTED = null;
-  renderTable();
+  renderVisibleRows();
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────
@@ -565,7 +658,7 @@ function exportCSV() {
   const rows = FILTERED.map(p => [
     p.county, p.parcelId, p.owner, p.propertyAddress, p.mailingAddress, p.status,
     p.marketValue, p.taxableValue, p.totalTaxes, p.firstHalf, p.secondHalf,
-    p.ratio ? p.ratio.toFixed(4) : '', p.geocode, p.trs, p.acres,
+    p.ratio?p.ratio.toFixed(4):'', p.geocode, p.trs, p.acres,
     p.levyDistrict, p.taxYear, p.itaxUrl, p.cadastralUrl
   ].map(v => `"${(v??'').toString().replace(/"/g,'""')}"`));
   const csv = [H.join(','), ...rows.map(r => r.join(','))].join('\n');
@@ -575,6 +668,9 @@ function exportCSV() {
   a.click();
   toast(`Exported ${FILTERED.length} parcels`);
 }
+
+// Recalculate on window resize (column widths may change)
+window.addEventListener('resize', () => { vtStart=0; vtEnd=0; renderVisibleRows(); });
 
 loadData();
 </script>
